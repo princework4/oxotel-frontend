@@ -4,8 +4,8 @@ import * as React from "react";
 import { Box, Typography } from "@mui/material";
 
 // Custom components imports
-import ReadMoreLess from "../../components/ReadMoreLess/ReadMoreLess";
-import HouseListing from "../../components/HouseListing/HouseListing";
+import ReadMoreLess from "../../components/ReadMoreLess";
+import HouseListing from "../../components/HouseListing";
 
 import "./ExploreResidences.css";
 

@@ -1,12 +1,12 @@
-import Header from "./components/Header/Header";
+// Routing imports
+import Routing from "./routing";
+
 import "./common.css";
-import ExploreResidences from "./pages/ExploreResidences/ExploreResidences";
 
 function App() {
   return (
     <div className='App'>
-      <Header />
-      <ExploreResidences />
+      <Routing />
     </div>
   );
 }
