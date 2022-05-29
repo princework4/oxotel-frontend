@@ -1,0 +1,70 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.house_listing .house_card {
+    border-radius: 30px;
+}
+
+.house_listing .house_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.house_listing .house_heading h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.house_listing .house_heading h6,
+.house_listing .house_price h6 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.house_listing .house_occupancy p,
+.house_listing .house_amenity p {
+    font-size: 0.95rem;
+    text-transform: capitalize;
+}
+
+.house_listing .house_occupancy {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.house_listing .house_occupancy img {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+}
+
+.house_listing .house_amenity {
+    border-bottom: 1px solid rgb(230, 233, 234);
+    padding-bottom: 15px;
+}
+
+.house_listing .house_price button {
+    border-radius: 30px;
+    text-transform: capitalize;
+}
+
+.house_listing .house_price {
+    padding: 0 16px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.house_listing .house_price h5 {
+    font-weight: 700;
+    text-transform: none;
+}
+
+.house_listing .house_price h6 {
+    font-size: 0.95rem;
+    text-transform: capitalize;
+}

@@ -1,0 +1,12 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.text {
+    width: 100%;
+    display: inline;
+}
+
+.read-or-hide {
+    color: #1976d2;
+    cursor: pointer;
+}
