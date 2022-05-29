@@ -1,0 +1,42 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.detailed_explore_residences {
+    margin-top: 150px;
+}
+
+.detailed_explore_residences .banner_mobile_view {
+    display: none;
+}
+
+.detailed_explore_residences .banner_desktop_view {
+    display: flex;
+}
+
+.detailed_explore_residences .banner_desktop_view .left_gallery {
+    max-width: 50%;
+    width: 100%;
+}
+
+.detailed_explore_residences .banner_desktop_view .right_gallery {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.detailed_explore_residences  .left_gallery .figure, 
+.detailed_explore_residences  .right_gallery .figure {
+    overflow: hidden;
+}
+
+.detailed_explore_residences .banner_desktop_view .left_gallery img, 
+.detailed_explore_residences .banner_desktop_view .right_gallery img {
+    cursor: pointer;
+    transition: transform 0.4s ease 0s;
+}
+
+.detailed_explore_residences .banner_desktop_view .left_gallery img:hover, 
+.detailed_explore_residences .banner_desktop_view .right_gallery img:hover {
+    transform: scale(1.1);
+}
