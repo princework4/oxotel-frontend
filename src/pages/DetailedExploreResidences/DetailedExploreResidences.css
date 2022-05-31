@@ -1,0 +1,153 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.detailed_explore_residences {
+    margin-top: 150px;
+}
+
+.detailed_explore_residences .banner_mobile_view {
+    display: none;
+}
+
+.detailed_explore_residences .banner_desktop_view {
+    display: flex;
+}
+
+.detailed_explore_residences .banner_desktop_view .left_gallery {
+    max-width: 50%;
+    width: 100%;
+}
+
+.detailed_explore_residences .banner_desktop_view .right_gallery {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.detailed_explore_residences .left_gallery .figure,
+.detailed_explore_residences .right_gallery .figure {
+    overflow: hidden;
+}
+
+.detailed_explore_residences .banner_desktop_view .left_gallery img,
+.detailed_explore_residences .banner_desktop_view .right_gallery img {
+    cursor: pointer;
+    transition: transform 0.4s ease 0s;
+}
+
+.detailed_explore_residences .banner_desktop_view .left_gallery img:hover,
+.detailed_explore_residences .banner_desktop_view .right_gallery img:hover {
+    transform: scale(1.1);
+}
+
+.explore_residences_details {
+    margin-top: 20px;
+    display: flex;
+}
+
+.explore_residences_details_left_section {
+    max-width: 60%;
+    width: 100%;
+}
+
+.explore_residences_details h5 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.explore_residences_details_right_section {
+    max-width: 40%;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #000;
+}
+
+.explore_residences_details_right_section span {
+    font-size: 0.9rem;
+    text-transform: capitalize;
+}
+
+.explore_residences_details_right_section .price {
+    text-transform: none;
+}
+
+.explore_residences_details_right_section .available_occupancy {
+    margin-top: 40px;
+}
+
+.explore_residences_basic_details .gender_wrapper {
+    display: flex;
+}
+
+.explore_residences_basic_details .gender_wrapper h6 {
+    margin: 0 0 0 10px;
+    font-size: 1.1rem;
+}
+
+.explore_residences_basic_details img,
+.explore_residences_room_facilities .facility_img,
+.explore_residences_amenities_and_service .amenity_img {
+    width: 24px;
+    height: 24px;
+}
+
+.explore_residences_room_facilities,
+.explore_residences_amenities_and_service,
+.explore_residences_maps {
+    margin-top: 40px;
+}
+
+.explore_residences_room_facilities .facility_wrapper,
+.explore_residences_amenities_and_service .amenity_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.explore_residences_room_facilities .facility_wrapper>div,
+.explore_residences_amenities_and_service .amenity_wrapper>div {
+    display: flex;
+}
+
+.explore_residences_room_facilities .facility_name,
+.explore_residences_amenities_and_service .amenity_name {
+    margin-left: 15px;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.explore_residences_details_right_section .available_occupancy_wrapper {
+    display: flex;
+}
+
+.explore_residences_details_right_section .available_occupancy_wrapper div {
+    width: calc((100% - 32px) / 3);
+    height: 130px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+    background-color: rgb(246, 244, 245);
+    text-transform: capitalize;
+}
+
+.explore_residences_details_right_section .available_occupancy_wrapper div:not(:first-child) {
+    margin-left: 15px;
+}
+
+.explore_residences_details_right_section .available_occupancy_wrapper img {
+    width: 32px;
+    height: 32px;
+}
+
+.explore_residences_details_right_section .available_occupancy_wrapper div p {
+    font-size: 0.9rem;
+}
+
+.explore_residences_details_right_section .available_occupancy_wrapper div p:last-child {
+    font-weight: bold;
+    text-transform: none;
+}
