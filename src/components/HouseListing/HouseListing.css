@@ -5,6 +5,12 @@
     border-radius: 30px;
 }
 
+.house_listing .house_card:hover {
+    -webkit-box-shadow: 9px 12px 12px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 9px 12px 12px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 9px 12px 12px 0px rgba(0, 0, 0, 0.75);
+}
+
 .house_listing .house_heading {
     display: flex;
     align-items: center;

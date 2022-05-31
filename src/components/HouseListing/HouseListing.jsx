@@ -169,20 +169,20 @@ const HouseListing = () => {
                       </Typography>
                     </Box>
                   </CardContent>
-                </CardActionArea>
-                <Box className='house_price'>
-                  <Box>
-                    <Typography className='house_starts_from' variant='h6'>
-                      starts from
-                    </Typography>
-                    <Typography variant='h5'>₹{data.price} /mo*</Typography>
+                  <Box className='house_price'>
+                    <Box>
+                      <Typography className='house_starts_from' variant='h6'>
+                        starts from
+                      </Typography>
+                      <Typography variant='h5'>₹{data.price} /mo*</Typography>
+                    </Box>
+                    <CardActions>
+                      <Button variant='contained' size='small' color='primary'>
+                        request callback
+                      </Button>
+                    </CardActions>
                   </Box>
-                  <CardActions>
-                    <Button variant='contained' size='small' color='primary'>
-                      request callback
-                    </Button>
-                  </CardActions>
-                </Box>
+                </CardActionArea>
               </Card>
             </Grid>
           ))}
