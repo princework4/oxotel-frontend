@@ -1,7 +1,8 @@
 /* Importing Common CSS File */
 @import url("../../common.css");
 
-.header {
+.header,
+.mobile_header {
     width: 100%;
     position: fixed;
     top: 0;
@@ -14,14 +15,16 @@
     z-index: 10;
 }
 
-.header .wrapper {
+.header .wrapper,
+.mobile_header .wrapper {
     padding: 2em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header h1 {
+.header h1,
+.mobile_header h1 {
     max-width: 5em;
     width: 100%;
 }
