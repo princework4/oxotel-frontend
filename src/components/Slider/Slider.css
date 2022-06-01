@@ -1,0 +1,27 @@
+/* body {
+    background-color: green;
+} */
+
+.tag {
+    text-align: center;
+}
+
+.imgslider {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slick-slide img {
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+@media (max-width: 767px) {
+
+    .slick-slide img,
+    .imgslider {
+        height: 85vh;
+
+    }
+}

@@ -1,0 +1,20 @@
+.footer{
+    /* height: 70vh; */
+    background-color: rgb(238, 238, 244);
+}
+.brandname{
+    width: inherit;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 20px 0;
+}
+
+.btn{
+    padding: 12px 30px !important;
+    border-radius: 25px !important;
+    font-weight: 600;
+}
+
+.footer-top{
+    margin-bottom: 20px;
+}
