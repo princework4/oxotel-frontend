@@ -61,7 +61,7 @@
     max-width: 40%;
     width: 100%;
     padding: 20px;
-    border: 1px solid #000;
+    border: 1px solid rgba(0, 0, 0, 0.23);
 }
 
 .explore_residences_details_right_section span {
@@ -150,4 +150,85 @@
 .explore_residences_details_right_section .available_occupancy_wrapper div p:last-child {
     font-weight: bold;
     text-transform: none;
+}
+
+.switch_form_wrapper,
+.button_wrapper {
+    margin-top: 40px;
+}
+
+.button_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button_wrapper button {
+    padding: 15px 20px;
+    border-radius: 30px;
+    background-color: #b9b9b9;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: 0.5s ease-in-out;
+}
+
+.button_wrapper button:hover {
+    background-color: #b9b9b9;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.button_wrapper .active_btn {
+    border: 1px solid transparent;
+    background-color: #1976d2;
+    color: #fff;
+    transform: scale(1.1);
+    transition: 0.5s ease-in-out;
+}
+
+.button_wrapper .active_btn:hover {
+    border: 1px solid #1976d2;
+    background-color: #fff;
+    color: #1976d2;
+}
+
+.switch_form_wrapper {
+    width: 450px;
+    border-radius: 30px !important;
+    margin: 30px auto 0;
+}
+
+@media (max-width: 834px) {
+    .explore_residences_details {
+        flex-flow: column;
+    }
+
+    .explore_residences_details .explore_residences_details_left_section,
+    .explore_residences_details .explore_residences_details_right_section {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .explore_residences_details .explore_residences_details_right_section {
+        padding: 20px 0;
+        margin-top: 30px;
+    }
+
+    .explore_residences_details .explore_residences_details_right_section > * {
+        padding-left: 20px;
+    }
+
+    .explore_residences_details .explore_residences_details_left_section .maps_wrapper iframe {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .button_wrapper {
+        padding-left: 0 !important;
+    }
+    .button_wrapper button {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
 }

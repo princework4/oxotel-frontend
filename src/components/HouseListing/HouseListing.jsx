@@ -11,6 +11,9 @@ import {
   Typography,
 } from "@mui/material";
 
+// Custom components imports
+import RequestCallback from "../RequestCallback";
+
 import "./HouseListing.css";
 
 // Images imports
@@ -132,7 +135,7 @@ const HouseListing = () => {
                 <CardActionArea>
                   <CardMedia
                     component='img'
-                    height='250'
+                    height='200'
                     image={data.img}
                     alt={data.name}
                   />
@@ -177,9 +180,7 @@ const HouseListing = () => {
                       <Typography variant='h5'>₹{data.price} /mo*</Typography>
                     </Box>
                     <CardActions>
-                      <Button variant='contained' size='small' color='primary'>
-                        request callback
-                      </Button>
+                      <RequestCallback />
                     </CardActions>
                   </Box>
                 </CardActionArea>

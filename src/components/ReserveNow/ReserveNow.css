@@ -1,0 +1,6 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.move_in_date button {
+    margin: 0 !important;
+}

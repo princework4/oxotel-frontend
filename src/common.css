@@ -288,6 +288,10 @@ h6 {
   text-transform: capitalize;
 }
 
+.MuiMenu-paper {
+  border-radius: 30px !important;
+}
+
 @media (min-width: 2560px) {
   body {
     font-size: 18px;
