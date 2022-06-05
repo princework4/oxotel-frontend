@@ -1,0 +1,7 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.preferred_date button,
+.preferred_time button {
+    margin: 0 !important;
+}

@@ -1,0 +1,103 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.switch_form {
+    width: 420px;
+    padding: 20px;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(247, 247, 252);
+}
+
+.switch_form>div:nth-child(2) {
+    margin-top: 10px;
+}
+
+.switch_form .form_heading {
+    width: 400px;
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+
+.switch_form .form_content {
+    width: 400px;
+}
+
+.switch_form .form_content>div {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.switch_form .form_content label+div {
+    border-radius: 30px;
+    background-color: #fff;
+}
+
+.switch_form .close_icon_wrapper {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.switch_form .close_icon {
+    min-width: unset !important;
+    width: 50px;
+    height: 45px;
+    margin-top: 15px;
+    border-radius: 100% !important;
+    background: #1976d2 !important;
+    cursor: pointer;
+    text-align: center;
+}
+
+.switch_form .close_icon svg {
+    color: #fff;
+    font-size: 2rem !important;
+    transition: 0.3s ease-in-out !important;
+}
+
+.switch_form .close_icon:hover svg,
+.switch_form .close_icon:focus svg {
+    transform: rotate(90deg);
+}
+
+.switch_form .form_content button {
+    margin-top: 15px;
+    padding: 10px 0;
+    border-radius: 30px;
+}
+
+@media (max-width: 834px) {
+    .switch_form_wrapper {
+        width: 90% !important;
+        padding-left: 0 !important;
+    }
+    .switch_form {
+        width: 100%;
+        padding: 20px 0;
+    }
+    .switch_form .form_content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .explore_residences_room_facilities .facility_wrapper, .explore_residences_amenities_and_service .amenity_wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-gap: 30px !important;
+    }
+    .explore_residences_details_right_section .available_occupancy_wrapper div {
+        width: calc((100% - 32px) / 2);
+    }
+}
+
+@media (max-width: 450px) {
+    .explore_residences_room_facilities .facility_wrapper, .explore_residences_amenities_and_service .amenity_wrapper {
+        grid-template-columns: repeat(1, 1fr) !important;
+        grid-gap: 10px !important;
+    }
+}

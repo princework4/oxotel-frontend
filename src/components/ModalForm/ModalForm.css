@@ -1,0 +1,82 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.mode_pop_up {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model_form {
+  width: 420px;
+  min-height: 200px;
+  max-height: 600px;
+  padding: 48px 48px 28px 48px;
+  border-radius: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(247, 247, 252);
+  overflow-y: auto;
+}
+
+.model_form > div:nth-child(2) {
+  margin-top: 10px;
+}
+
+.model_form .form_heading {
+  width: 400px;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center;
+}
+
+.model_form .form_content {
+  width: 400px;
+}
+
+.model_form .form_content > div {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.model_form .form_content label + div {
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.model_form .close_icon_wrapper {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.model_form .close_icon {
+  min-width: unset !important;
+  width: 50px;
+  height: 45px;
+  margin-top: 15px;
+  border-radius: 100% !important;
+  background: #1976d2 !important;
+  cursor: pointer;
+  text-align: center;
+}
+
+.model_form .close_icon svg {
+  color: #fff;
+  font-size: 2rem !important;
+  transition: 0.3s ease-in-out !important;
+}
+
+.model_form .close_icon:hover svg,
+.model_form .close_icon:focus svg {
+  transform: rotate(90deg);
+}
+
+.model_form .form_content button {
+  margin-top: 15px;
+  padding: 10px 0;
+  border-radius: 30px;
+}
