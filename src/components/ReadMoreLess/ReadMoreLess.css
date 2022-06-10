@@ -10,3 +10,9 @@
     color: #1976d2;
     cursor: pointer;
 }
+
+@media (max-width: 834px) {
+    .text {
+        font-size: 0.8rem !important;
+    }
+}

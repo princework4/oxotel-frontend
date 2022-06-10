@@ -273,12 +273,15 @@ a {
 img {
   width: 100%;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 #root {
   position: relative;
 }
+
 h1,
 h2,
 h3,
@@ -296,6 +299,7 @@ h6 {
   body {
     font-size: 18px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -307,6 +311,7 @@ h6 {
   body {
     font-size: 16px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -318,6 +323,7 @@ h6 {
   body {
     font-size: 14px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -329,12 +335,19 @@ h6 {
   body {
     font-size: 13px;
   }
+
+  .wrapper {
+    max-width: 90%;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 1440px) {
   body {
     font-size: 12px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -346,6 +359,7 @@ h6 {
   body {
     font-size: 11px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -357,6 +371,7 @@ h6 {
   body {
     font-size: 10.5px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -368,6 +383,7 @@ h6 {
   body {
     font-size: 10px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -379,6 +395,7 @@ h6 {
   body {
     font-size: 10px;
   }
+
   .wrapper {
     max-width: 90%;
     width: 100%;
@@ -390,8 +407,9 @@ h6 {
   body {
     font-size: 11.5px;
   }
+
   .wrapper {
-    max-width: 90%;
+    max-width: 95%;
     width: 100%;
     margin: 0 auto;
   }
@@ -401,8 +419,9 @@ h6 {
   body {
     font-size: 10px;
   }
+
   .wrapper {
-    max-width: 90%;
+    max-width: 95%;
     width: 100%;
     margin: 0 auto;
   }
@@ -412,8 +431,9 @@ h6 {
   body {
     font-size: 10px;
   }
+
   .wrapper {
-    max-width: 90%;
+    max-width: 95%;
     width: 100%;
     margin: 0 auto;
   }
@@ -423,8 +443,9 @@ h6 {
   body {
     font-size: 10px;
   }
+
   .wrapper {
-    max-width: 90%;
+    max-width: 95%;
     width: 100%;
     margin: 0 auto;
   }

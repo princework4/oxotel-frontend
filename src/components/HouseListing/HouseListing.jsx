@@ -10,6 +10,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 // Custom components imports
 import RequestCallback from "../RequestCallback";
@@ -27,7 +28,7 @@ const HouseListing = () => {
       name: "Demo 1",
       gender: "male",
       occupancy: ["single"],
-      amenities: ["High-Speed WIFI", "Cafeteria", "AC", "TV", "Mini Fridge"],
+      amenities: ["High-Speed WIFI", "Cafeteria", "AC"],
       price: "1234.0",
     },
     {
@@ -126,10 +127,10 @@ const HouseListing = () => {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={12}
               md={6}
-              lg={4}
-              xl={3}
+              lg={6}
+              xl={2}
               key={datas.indexOf(data)}>
               <Card className='house_card'>
                 <CardActionArea>
@@ -161,7 +162,14 @@ const HouseListing = () => {
                       </Typography>
                     </Box>
                     <Box className='house_amenity'>
-                      <Typography>
+                      {data.amenities.map((amenity, index) => {
+                        return (
+                          <Typography key={index}>
+                            <CheckCircleOutlineIcon color='primary' /> {amenity}
+                          </Typography>
+                        );
+                      })}
+                      {/* <Typography>
                         {data.amenities.map((amenity, index) => {
                           return data.amenities.length > 1
                             ? index === data.amenities.length - 1
@@ -169,7 +177,7 @@ const HouseListing = () => {
                               : amenity.concat(", ")
                             : amenity;
                         })}
-                      </Typography>
+                      </Typography> */}
                     </Box>
                   </CardContent>
                   <Box className='house_price'>
@@ -177,7 +185,7 @@ const HouseListing = () => {
                       <Typography className='house_starts_from' variant='h6'>
                         starts from
                       </Typography>
-                      <Typography variant='h5'>₹{data.price} /mo*</Typography>
+                      <Typography variant='h5'>₹{data.price}/mo*</Typography>
                     </Box>
                     <CardActions>
                       <RequestCallback />

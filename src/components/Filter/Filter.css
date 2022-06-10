@@ -1,0 +1,71 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+.filter_container {
+    width: 25%;
+}
+
+.filter_container h4 {
+    text-transform: capitalize;
+}
+
+.filter_container .form_control {
+    margin-top: 35px;
+}
+
+.filter_container .form_control label span:first-child {
+    padding: 5px;
+}
+
+.filter_container .form_control label span:last-child {
+    font-size: 0.9rem;
+}
+
+.filter_container .last_form_control {
+    margin-left: 0;
+}
+
+.filter_container .slider_form_control {
+    width: 90%;
+}
+
+.filter_container .main_label {
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.filter_container .slider_price_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter_container .slider_price_container h6 {
+    font-size: 0.8rem;
+}
+
+@media (max-width: 834px) {
+    .filter_container {
+        width: 35%;
+    }
+    .filter_container .form_control label span:last-child {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .filter_container {
+        width: 40%;
+    }
+}
+
+@media (max-width: 550px) {
+    .filter_container .main_label {
+        font-size: 0.75rem;
+        font-weight: 800;
+    }
+    .filter_container .form_control label span:last-child {
+        font-size: 0.75rem;
+    }
+}
