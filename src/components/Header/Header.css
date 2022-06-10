@@ -1,26 +1,30 @@
 /* Importing Common CSS File */
 @import url("../../common.css");
 
-header {
+.header,
+.mobile_header {
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    background-color: #fff;
     -webkit-transition: 0.5s ease-in-out;
     -moz-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
+    z-index: 10;
 }
 
-header .wrapper {
+.header .wrapper,
+.mobile_header .wrapper {
     padding: 2em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header h1 {
+.header h1,
+.mobile_header h1 {
     max-width: 5em;
     width: 100%;
 }
@@ -63,8 +67,10 @@ nav li a.active {
     color: tomato;
 }
 
+.color_change,
 .desktop_not_homepage,
 .mobile_not_homepage {
+    background-color: #fff;
     -webkit-box-shadow: 0px 1px 6px #00000029;
     -moz-box-shadow: 0px 1px 6px #00000029;
     box-shadow: 0px 1px 6px #00000029;
