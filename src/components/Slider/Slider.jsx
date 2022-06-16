@@ -15,12 +15,13 @@ const ImageSlider = (props) => {
   //   autoplaySpeed: 2000,
   //   arrows: true,
   // };
+
   return (
     <>
       <div className="imgslider">
         <Slider {...props.settings}>
           {props.images.map((item) => (
-            <div key={item.id}>
+            <div className="slider_div" key={item.id}>
               <img src={item.src} alt={item.alt} />
             </div>
           ))}

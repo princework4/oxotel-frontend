@@ -2,21 +2,43 @@
     background-color: green;
 } */
 
-.tag {
+/* .tag {
     text-align: center;
-}
+} */
 
-.imgslider {
+/* .imgslider {
     min-height: 100%;
     height: 100vh;
     overflow: hidden;
-}
+    margin-top: 100px;
+} */
+
+/* .slider_div{
+    width: 35% !important;
+} */
 
 .slick-slide img {
     object-fit: cover;
-    width: 100%;
-    height: 100vh;
+    /* width: 30%; */
+    /* width: 100%; */
+    /* height: 100vh; */
 }
+
+/* .sample .slick-slide{
+    display: flex !important;
+    width: 40% !important;
+} */
+
+
+/* 
+
+
+    .sample .imgslider div{
+        max-width: 30% !important;
+        width: 100% !important;
+    } */
+
+
 
 @media (max-width: 767px) {
 

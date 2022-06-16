@@ -276,9 +276,7 @@ img {
 html {
   scroll-behavior: smooth;
 }
-#root {
-  position: relative;
-}
+
 h1,
 h2,
 h3,

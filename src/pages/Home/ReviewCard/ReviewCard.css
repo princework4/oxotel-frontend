@@ -1,0 +1,36 @@
+
+.review_card_main{
+    justify-content: space-evenly !important;
+    color: var(--secondary) !important;
+}
+
+.review_card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.review_card_main_h5{
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+}
+
+.review_card_main_p{
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+    color: var(--secondary) !important;
+}
+.review_card_stars{
+    display: flex;
+    color: rgb(255, 239, 68);
+}
+
+.review_card_num{
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+}
+.review_card_p{
+    font-weight: 700 !important;
+}

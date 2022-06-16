@@ -7,7 +7,7 @@
   --primary: rgb(54, 121, 253);
   --secondry: rgb(0, 31, 104);
   --white: #faf0e6;
-  --bg-color:rgb(247, 247, 252) 
+  --bg-color: rgb(247, 247, 252) 
       }
       
 body {
@@ -19,6 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: var(--secondry);
   box-sizing: border-box;
+  background-color: var(--bg-color);
 }
 
 code {

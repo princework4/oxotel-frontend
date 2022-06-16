@@ -6,7 +6,7 @@ import { Button, Divider } from "@mui/material";
 const Footer = () => {
   return (
     <footer className="footer">
-      <Box>
+      <Box className="wrapper">
         <Container maxWidth="lg">
           <Grid container spacing={5} className="footer-top">
             <Grid item xs={12} sm={4}>
