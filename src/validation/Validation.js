@@ -1,6 +1,9 @@
 const emailRegexPattern = new RegExp(
   /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,
 );
+const passwordRegexPattern = new RegExp(
+  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})",
+);
 const alphaCharRegex = /^[a-zA-Z ]*$/;
 const phoneNo = /^\d{10}$/;
 
@@ -120,4 +123,41 @@ export function validateTime(time) {
     timeError = "";
   }
   return timeError;
+}
+
+export function validateUsername(username) {
+  let usernameError = "";
+  if (username === "" || !username.trim()) {
+    usernameError = "*This field is required";
+  } else if (username.length < 3 || username.length > 25) {
+    usernameError = "*Username must be between 3 and 25 characters";
+  } else {
+    usernameError = "";
+  }
+  return usernameError;
+}
+
+export function validatePassword(password) {
+  let passwordError = "";
+  if (password === "" || !password.trim()) {
+    passwordError = "*This field is required";
+  } else if (!passwordRegexPattern.test(password)) {
+    passwordError =
+      "*Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)";
+  } else {
+    passwordError = "";
+  }
+  return passwordError;
+}
+
+export function validateConfirmPassword(password, confirmPassword) {
+  let confirmPasswordError = "";
+  if (confirmPassword === "" || !confirmPassword.trim()) {
+    confirmPasswordError = "*This field is required";
+  } else if (password !== confirmPassword) {
+    confirmPasswordError = "*Password does not match";
+  } else {
+    confirmPasswordError = "";
+  }
+  return confirmPasswordError;
 }
