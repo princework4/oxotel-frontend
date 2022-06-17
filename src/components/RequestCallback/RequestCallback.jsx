@@ -19,6 +19,7 @@ import {
 
 // Custom components imports
 import ModalForm from "../ModalForm";
+import * as Validation from "../../validation/Validation";
 
 import "./RequestCallback.css";
 
@@ -88,60 +89,34 @@ const RequestCallback = () => {
   };
 
   const handleSubmitForm = () => {
-    let isFormValid = true;
-    const alphaCharRegex = /^[a-zA-Z ]*$/;
-    const emailRegexPattern = new RegExp(
-      /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,
+    handleFormFieldsErr(
+      "fullNameErr",
+      Validation.validateFullName(requestCallback.fullName),
+    );
+    handleFormFieldsErr(
+      "emailErr",
+      Validation.validateEmail(requestCallback.email),
+    );
+    handleFormFieldsErr(
+      "cityErr",
+      Validation.validateDropdown(requestCallback.city),
+    );
+    handleFormFieldsErr(
+      "localityErr",
+      Validation.validateDropdown(requestCallback.locality),
+    );
+    handleFormFieldsErr(
+      "durationErr",
+      Validation.validateDropdown(requestCallback.duration),
     );
 
-    if (!requestCallback.fullName.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("fullNameErr", "*This field is required");
-    } else if (!requestCallback.fullName.match(alphaCharRegex)) {
-      isFormValid = false;
-      handleFormFieldsErr(
-        "fullNameErr",
-        "*Please enter alphabet characters only",
-      );
-    } else if (requestCallback.fullName.length <= 3) {
-      isFormValid = false;
-      handleFormFieldsErr("fullNameErr", "*Full name is too short");
-    } else {
-      handleFormFieldsErr("fullNameErr", "");
-    }
-
-    if (!requestCallback.email.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("emailErr", "*This field is required");
-    } else if (!emailRegexPattern.test(requestCallback.email)) {
-      isFormValid = false;
-      handleFormFieldsErr("emailErr", "*Please enter valid email-Id");
-    } else {
-      handleFormFieldsErr("emailErr", "");
-    }
-
-    if (requestCallback.city === "") {
-      isFormValid = false;
-      handleFormFieldsErr("cityErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("cityErr", "");
-    }
-
-    if (requestCallback.locality === "") {
-      isFormValid = false;
-      handleFormFieldsErr("localityErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("localityErr", "");
-    }
-
-    if (requestCallback.duration === "") {
-      isFormValid = false;
-      handleFormFieldsErr("durationErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("durationErr", "");
-    }
-
-    if (isFormValid) {
+    if (
+      requestCallback.fullName !== "" &&
+      requestCallback.email !== "" &&
+      requestCallback.city !== "" &&
+      requestCallback.locality !== "" &&
+      requestCallback.duration !== ""
+    ) {
       submitForm();
     }
   };

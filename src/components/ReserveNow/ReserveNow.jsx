@@ -19,6 +19,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 // Custom components imports
 import SwitchForm from "../SwitchForm/SwitchForm";
+import * as Validation from "../../validation/Validation";
 
 import "./ReserveNow.css";
 
@@ -48,6 +49,7 @@ const ReserveNow = () => {
       return {
         ...preVal,
         [name]: value,
+        moveInDate: date,
       };
     });
   };
@@ -74,74 +76,33 @@ const ReserveNow = () => {
   };
 
   const handleSubmitForm = () => {
-    let isFormValid = true;
-    const alphaCharRegex = /^[a-zA-Z ]*$/;
-    const emailRegexPattern = new RegExp(
-      /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,
+    handleFormFieldsErr(
+      "fullNameErr",
+      Validation.validateFullName(reserveNow.fullName),
     );
-    const phoneNo = /^\d{10}$/;
+    handleFormFieldsErr(
+      "mobileNumberErr",
+      Validation.validateMobileNumber(reserveNow.mobileNumber),
+    );
+    handleFormFieldsErr("emailErr", Validation.validateEmail(reserveNow.email));
+    handleFormFieldsErr(
+      "occupancyErr",
+      Validation.validateDropdown(reserveNow.occupancy),
+    );
+    handleFormFieldsErr(
+      "genderErr",
+      Validation.validateDropdown(reserveNow.gender),
+    );
+    handleFormFieldsErr("moveInDateErr", Validation.validateDate(date));
 
-    if (!reserveNow.fullName.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("fullNameErr", "*This field is required");
-    } else if (!reserveNow.fullName.match(alphaCharRegex)) {
-      isFormValid = false;
-      handleFormFieldsErr(
-        "fullNameErr",
-        "*Please enter alphabet characters only",
-      );
-    } else if (reserveNow.fullName.length <= 3) {
-      isFormValid = false;
-      handleFormFieldsErr("fullNameErr", "*Full name is too short");
-    } else {
-      handleFormFieldsErr("fullNameErr", "");
-    }
-
-    if (!reserveNow.mobileNumber.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("mobileNumberErr", "*This field is required");
-    } else if (!reserveNow.mobileNumber.match(phoneNo)) {
-      isFormValid = false;
-      handleFormFieldsErr(
-        "mobileNumberErr",
-        "*Please enter valid mobile number",
-      );
-    } else {
-      handleFormFieldsErr("mobileNumberErr", "");
-    }
-
-    if (!reserveNow.email.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("emailErr", "*This field is required");
-    } else if (!emailRegexPattern.test(reserveNow.email)) {
-      isFormValid = false;
-      handleFormFieldsErr("emailErr", "*Please enter valid email-Id");
-    } else {
-      handleFormFieldsErr("emailErr", "");
-    }
-
-    if (reserveNow.occupancy === "") {
-      isFormValid = false;
-      handleFormFieldsErr("occupancyErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("occupancyErr", "");
-    }
-
-    if (reserveNow.gender === "") {
-      isFormValid = false;
-      handleFormFieldsErr("genderErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("genderErr", "");
-    }
-
-    if (date === "") {
-      isFormValid = false;
-      handleFormFieldsErr("moveInDateErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("moveInDateErr", "");
-    }
-
-    if (isFormValid) {
+    if (
+      reserveNow.fullName !== "" &&
+      reserveNow.mobileNumber !== "" &&
+      reserveNow.email !== "" &&
+      reserveNow.occupancy !== "" &&
+      reserveNow.gender !== "" &&
+      reserveNow.moveInDate !== ""
+    ) {
       submitForm();
     }
   };

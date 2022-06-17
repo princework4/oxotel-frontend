@@ -20,6 +20,7 @@ import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 
 // Custom components imports
 import SwitchForm from "../SwitchForm/SwitchForm";
+import * as Validation from "../../validation/Validation";
 
 import "./ScheduleMeet.css";
 
@@ -50,6 +51,8 @@ const ScheduleMeet = () => {
       return {
         ...preVal,
         [name]: value,
+        preferredDate: date,
+        preferredTime: time,
       };
     });
   };
@@ -64,6 +67,7 @@ const ScheduleMeet = () => {
   };
 
   const submitForm = () => {
+    console.log("schedule meet", scheduleMeet);
     setScheduleMeet({
       fullName: "",
       mobileNumber: "",
@@ -76,74 +80,36 @@ const ScheduleMeet = () => {
   };
 
   const handleSubmitForm = () => {
-    let isFormValid = true;
-    const alphaCharRegex = /^[a-zA-Z ]*$/;
-    const emailRegexPattern = new RegExp(
-      /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,
+    handleFormFieldsErr(
+      "fullNameErr",
+      Validation.validateFullName(scheduleMeet.fullName),
     );
-    const phoneNo = /^\d{10}$/;
+    handleFormFieldsErr(
+      "mobileNumberErr",
+      Validation.validateMobileNumber(scheduleMeet.mobileNumber),
+    );
+    handleFormFieldsErr(
+      "emailErr",
+      Validation.validateEmail(scheduleMeet.email),
+    );
+    handleFormFieldsErr(
+      "durationErr",
+      Validation.validateDropdown(scheduleMeet.duration),
+    );
+    handleFormFieldsErr(
+      "preferredDateErr",
+      Validation.validateDate(scheduleMeet.date),
+    );
+    handleFormFieldsErr("preferredTimeErr", Validation.validateTime(time));
 
-    if (!scheduleMeet.fullName.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("fullNameErr", "*This field is required");
-    } else if (!scheduleMeet.fullName.match(alphaCharRegex)) {
-      isFormValid = false;
-      handleFormFieldsErr(
-        "fullNameErr",
-        "*Please enter alphabet characters only",
-      );
-    } else if (scheduleMeet.fullName.length <= 3) {
-      isFormValid = false;
-      handleFormFieldsErr("fullNameErr", "*Full name is too short");
-    } else {
-      handleFormFieldsErr("fullNameErr", "");
-    }
-
-    if (!scheduleMeet.mobileNumber.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("mobileNumberErr", "*This field is required");
-    } else if (!scheduleMeet.mobileNumber.match(phoneNo)) {
-      isFormValid = false;
-      handleFormFieldsErr(
-        "mobileNumberErr",
-        "*Please enter valid mobile number",
-      );
-    } else {
-      handleFormFieldsErr("mobileNumberErr", "");
-    }
-
-    if (!scheduleMeet.email.trim()) {
-      isFormValid = false;
-      handleFormFieldsErr("emailErr", "*This field is required");
-    } else if (!emailRegexPattern.test(scheduleMeet.email)) {
-      isFormValid = false;
-      handleFormFieldsErr("emailErr", "*Please enter valid email-Id");
-    } else {
-      handleFormFieldsErr("emailErr", "");
-    }
-
-    if (scheduleMeet.duration === "") {
-      isFormValid = false;
-      handleFormFieldsErr("durationErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("durationErr", "");
-    }
-
-    if (date === "") {
-      isFormValid = false;
-      handleFormFieldsErr("preferredDateErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("preferredDateErr", "");
-    }
-
-    if (time === "" || time === null) {
-      isFormValid = false;
-      handleFormFieldsErr("preferredTimeErr", "*This field is required");
-    } else {
-      handleFormFieldsErr("preferredTimeErr", "");
-    }
-
-    if (isFormValid) {
+    if (
+      scheduleMeet.fullName !== "" &&
+      scheduleMeet.mobileNumber !== "" &&
+      scheduleMeet.email !== "" &&
+      scheduleMeet.duration !== "" &&
+      date !== "" &&
+      time !== ""
+    ) {
       submitForm();
     }
   };
