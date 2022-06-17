@@ -2,7 +2,7 @@
 @import url("../../common.css");
 
 .detailed_explore_residences {
-    margin-top: 150px;
+    padding: 150px 0 50px;
 }
 
 .detailed_explore_residences .banner_mobile_view {
@@ -16,6 +16,7 @@
 .detailed_explore_residences .banner_desktop_view .left_gallery {
     max-width: 50%;
     width: 100%;
+    height: auto;
 }
 
 .detailed_explore_residences .banner_desktop_view .right_gallery {
@@ -28,6 +29,10 @@
 .detailed_explore_residences .left_gallery .figure,
 .detailed_explore_residences .right_gallery .figure {
     overflow: hidden;
+}
+
+.detailed_explore_residences .left_gallery .figure {
+    height: 100%;
 }
 
 .detailed_explore_residences .banner_desktop_view .left_gallery img,
