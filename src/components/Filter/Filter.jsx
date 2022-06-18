@@ -11,8 +11,10 @@ import {
   Radio,
   RadioGroup,
   Slider,
+  TextField,
   Typography,
 } from "@mui/material";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
 import "./Filter.css";
 
@@ -24,6 +26,7 @@ const Filter = () => {
     Quadruple: false,
   });
   const [sliderVal, setSliderVal] = React.useState([0, 1000]);
+  const [searched, setSearched] = React.useState("");
 
   const handleCheckChange = (event) => {
     setCheckState({
@@ -40,151 +43,176 @@ const Filter = () => {
     return `${value}`;
   }
 
+  const requestSearch = () => {};
+
   return (
-    <Box className='filter_container'>
-      <Typography variant='h5'>filters</Typography>
-      <FormControl className='form_control'>
-        <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
-          property type
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby='demo-radio-buttons-group-label'
-          name='radio-buttons-group'>
-          <FormControlLabel
-            value='pg_hostel'
-            control={<Radio />}
-            label='PG & Hostels'
-          />
-          <FormControlLabel
-            value='apartment'
-            control={<Radio />}
-            label='Managed Apartments'
-          />
-        </RadioGroup>
-      </FormControl>
-      <FormControl className='form_control'>
-        <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
-          sort by
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby='demo-radio-buttons-group-label'
-          name='radio-buttons-group'>
-          <FormControlLabel
-            value='low_price'
-            control={<Radio />}
-            label='Lowest Price First'
-          />
-          <FormControlLabel
-            value='high_price'
-            control={<Radio />}
-            label='Highest Price First'
-          />
-        </RadioGroup>
-      </FormControl>
-      <Box>
-        <FormControl className='slider_form_control form_control'>
-          <FormLabel className='main_label'>price</FormLabel>
-          <Box className='slider_price_container'>
-            <Typography variant='h6'>₹{sliderVal[0]}</Typography>
-            <Typography variant='h6'>₹{sliderVal[1]}</Typography>
-          </Box>
-          <Slider
-            min={0}
-            max={10000}
-            step={1}
-            value={sliderVal}
-            onChange={handleSliderChange}
-            valueLabelDisplay='auto'
-            getAriaValueText={sliderValText}
-          />
-        </FormControl>
-      </Box>
-      <FormControl className='form_control'>
-        <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
-          gender
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby='demo-radio-buttons-group-label'
-          name='radio-buttons-group'>
-          <FormControlLabel value='female' control={<Radio />} label='Female' />
-          <FormControlLabel value='male' control={<Radio />} label='Male' />
-          <FormControlLabel value='unisex' control={<Radio />} label='Unisex' />
-        </RadioGroup>
-      </FormControl>
-      <FormControl className='form_control'>
-        <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
-          residence type
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby='demo-radio-buttons-group-label'
-          defaultValue='female'
-          name='radio-buttons-group'>
-          <FormControlLabel
-            value='student'
-            control={<Radio />}
-            label='Student'
-          />
-          <FormControlLabel
-            value='working_professional'
-            control={<Radio />}
-            label='Working Professional'
-          />
-        </RadioGroup>
-      </FormControl>
-      <Box sx={{ display: "flex" }}>
-        <FormControl
-          sx={{ m: 3 }}
-          component='fieldset'
-          variant='standard'
-          className='last_form_control form_control'>
-          <FormLabel component='legend' className='main_label'>
-            occupancy
+    <>
+      <Box className='desktop_filter_container'>
+        <Typography variant='h5'>filters</Typography>
+        <FormControl className='form_control'>
+          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+            property type
           </FormLabel>
-          <FormGroup>
+          <RadioGroup
+            aria-labelledby='demo-radio-buttons-group-label'
+            name='radio-buttons-group'>
             <FormControlLabel
-              control={
-                <Checkbox
-                  checked={checkState.single}
-                  onChange={handleCheckChange}
-                  name='single'
-                />
-              }
-              label='Single'
+              value='pg_hostel'
+              control={<Radio />}
+              label='PG & Hostels'
             />
             <FormControlLabel
-              control={
-                <Checkbox
-                  checked={checkState.double}
-                  onChange={handleCheckChange}
-                  name='double'
-                />
-              }
-              label='Double'
+              value='apartment'
+              control={<Radio />}
+              label='Managed Apartments'
             />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={checkState.triple}
-                  onChange={handleCheckChange}
-                  name='triple'
-                />
-              }
-              label='Triple'
-            />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={checkState.quadruple}
-                  onChange={handleCheckChange}
-                  name='quadruple'
-                />
-              }
-              label='Quadruple'
-            />
-          </FormGroup>
+          </RadioGroup>
         </FormControl>
+        <FormControl className='form_control'>
+          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+            sort by
+          </FormLabel>
+          <RadioGroup
+            aria-labelledby='demo-radio-buttons-group-label'
+            name='radio-buttons-group'>
+            <FormControlLabel
+              value='low_price'
+              control={<Radio />}
+              label='Lowest Price First'
+            />
+            <FormControlLabel
+              value='high_price'
+              control={<Radio />}
+              label='Highest Price First'
+            />
+          </RadioGroup>
+        </FormControl>
+        <Box>
+          <FormControl className='slider_form_control form_control'>
+            <FormLabel className='main_label'>price</FormLabel>
+            <Box className='slider_price_container'>
+              <Typography variant='h6'>₹{sliderVal[0]}</Typography>
+              <Typography variant='h6'>₹{sliderVal[1]}</Typography>
+            </Box>
+            <Slider
+              min={0}
+              max={10000}
+              step={1}
+              value={sliderVal}
+              onChange={handleSliderChange}
+              valueLabelDisplay='auto'
+              getAriaValueText={sliderValText}
+            />
+          </FormControl>
+        </Box>
+        <FormControl className='form_control'>
+          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+            gender
+          </FormLabel>
+          <RadioGroup
+            aria-labelledby='demo-radio-buttons-group-label'
+            name='radio-buttons-group'>
+            <FormControlLabel
+              value='female'
+              control={<Radio />}
+              label='Female'
+            />
+            <FormControlLabel value='male' control={<Radio />} label='Male' />
+            <FormControlLabel
+              value='unisex'
+              control={<Radio />}
+              label='Unisex'
+            />
+          </RadioGroup>
+        </FormControl>
+        <FormControl className='form_control'>
+          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+            residence type
+          </FormLabel>
+          <RadioGroup
+            aria-labelledby='demo-radio-buttons-group-label'
+            defaultValue='female'
+            name='radio-buttons-group'>
+            <FormControlLabel
+              value='student'
+              control={<Radio />}
+              label='Student'
+            />
+            <FormControlLabel
+              value='working_professional'
+              control={<Radio />}
+              label='Working Professional'
+            />
+          </RadioGroup>
+        </FormControl>
+        <Box sx={{ display: "flex" }}>
+          <FormControl
+            sx={{ m: 3 }}
+            component='fieldset'
+            variant='standard'
+            className='last_form_control form_control'>
+            <FormLabel component='legend' className='main_label'>
+              occupancy
+            </FormLabel>
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={checkState.single}
+                    onChange={handleCheckChange}
+                    name='single'
+                  />
+                }
+                label='Single'
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={checkState.double}
+                    onChange={handleCheckChange}
+                    name='double'
+                  />
+                }
+                label='Double'
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={checkState.triple}
+                    onChange={handleCheckChange}
+                    name='triple'
+                  />
+                }
+                label='Triple'
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={checkState.quadruple}
+                    onChange={handleCheckChange}
+                    name='quadruple'
+                  />
+                }
+                label='Quadruple'
+              />
+            </FormGroup>
+          </FormControl>
+        </Box>
       </Box>
-    </Box>
+      <Box className='mobile_filter_container'>
+        <FormControl sx={{ width: "90%" }}>
+          <TextField
+            type='text'
+            name='search'
+            label='Search'
+            variant='outlined'
+            value={searched}
+            onChange={requestSearch}
+          />
+        </FormControl>
+        <FilterAltIcon />
+      </Box>
+    </>
   );
 };
 

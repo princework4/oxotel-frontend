@@ -96,7 +96,18 @@
     text-transform: capitalize;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 400px) {
+    .house_listing .house_price h5 {
+        font-size: 1.25rem;
+    }
+    .house_listing .house_price button {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+}
+
+
+/* @media (max-width: 1024px) {
     .house_listing .house_price {
         align-items: flex-end;
         justify-content: space-between;
@@ -109,9 +120,9 @@
     .house_listing .house_price .css-1t6e9jv-MuiCardActions-root {
         padding: 7px 7px 0 7px;
     }
-}
+} */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .css-46bh2p-MuiCardContent-root {
         padding: 12px 16px !important;
     }
@@ -251,4 +262,4 @@
         padding: 4px 2.5px;
         font-size: 0.6rem;
     }
-}
+} */
