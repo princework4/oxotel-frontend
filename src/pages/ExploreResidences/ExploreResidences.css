@@ -15,10 +15,11 @@
 }
 
 .explore_residences h2 .customize_heading {
+    margin-bottom: 0;
     color: #1976d2;
     font-weight: 700;
-    line-height: 1.2;
     letter-spacing: -0.00833em;
+    line-height: 1.2;
 }
 
 .explore_residences .house_listing {
@@ -37,7 +38,62 @@
     border-left: 1px solid rgb(230, 233, 234);
 }
 
+@media (max-width: 997px) {
+    .explore_residences h2, .explore_residences h2 .customize_heading{
+        font-size: 2.2rem;
+        line-height: 1;
+    }
+}
+
 @media (max-width: 834px) {
+    .explore_residences_wrapper {
+        flex-flow: column;
+    }
+    .explore_residences_wrapper .cards_wrapper {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 0;
+        border: none;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .explore_residences h2, .explore_residences h2 .customize_heading {
+        font-size: 2rem;
+    }
+    .explore_residences h2 {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 550px) {
+    .explore_residences h2, .explore_residences h2 .customize_heading {
+        flex-flow: column;
+        line-height: 1.6;
+    }
+    .explore_residences h2 {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .explore_residences h2, .explore_residences h2 .customize_heading {
+        flex-flow: column;
+        font-size: 1.8rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 350px) {
+    .explore_residences h2, .explore_residences h2 .customize_heading {
+        flex-flow: column;
+        font-size: 1.5rem;
+        line-height: 1.6;
+    }
+}
+
+/* @media (max-width: 834px) {
     .explore_residences_wrapper .cards_wrapper {
         max-width: 70%;
         width: 100%;
@@ -55,9 +111,9 @@
     .explore_residences h2, .explore_residences h2 .customize_heading {
         font-size: 1.5rem !important;
     }
-}
+} */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .explore_residences_wrapper .cards_wrapper {
         padding-left: 20px;
     }
@@ -89,4 +145,4 @@
     .explore_residences h2, .explore_residences h2 .customize_heading {
         margin-bottom: 10px;
     }
-}
+} */
