@@ -149,3 +149,9 @@
         justify-content: space-between;
     }
 }
+
+@media (max-width: 600px) {
+    .mobile_filter_menu {
+        padding: 25px 25px 50px;
+    }
+}

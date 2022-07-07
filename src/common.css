@@ -291,7 +291,7 @@ h6 {
   text-transform: capitalize;
 }
 
-@media (min-width: 2560px) {
+@media (max-width: 2560px) {
   body {
     font-size: 18px;
   }

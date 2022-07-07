@@ -83,6 +83,9 @@
         font-size: 1.8rem;
         line-height: 1.6;
     }
+    .explore_residences h2, .explore_residences h2 {
+        line-height: 0.8;
+    }
 }
 
 @media (max-width: 350px) {
