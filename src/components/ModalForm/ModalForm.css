@@ -80,3 +80,29 @@
   padding: 10px 0;
   border-radius: 30px;
 }
+
+@media (max-width: 480px) {
+  .model_form {
+    width: 380px;
+    padding: 48px 24px;
+  }
+  .model_form .form_content {
+    width: 380px;
+  }
+}
+
+@media (max-width: 420px) {
+  .model_form {
+    width: 300px;
+    padding: 48px 24px;
+  }
+  .model_form .form_content {
+    width: 300px;
+  }
+  .model_form .form_heading {
+    width: 285px;
+  }
+  .model_form .form_heading h4 {
+    font-size: 1.8rem !important;
+  }
+}
