@@ -19,6 +19,7 @@
     color: #1976d2;
     font-weight: 700;
     letter-spacing: -0.00833em;
+    line-height: 1.2;
 }
 
 .explore_residences .house_listing {
@@ -53,6 +54,7 @@
         width: 100%;
         padding-left: 0;
         border: none;
+        margin-top: 50px;
     }
 }
 
