@@ -97,6 +97,10 @@
     text-transform: capitalize;
 }
 
+.handle_flex_basis {
+    flex-basis: 60%;
+}
+
 @media (max-width: 400px) {
     .house_listing .house_price h5 {
         font-size: 1.25rem;
@@ -104,6 +108,9 @@
     .house_listing .house_price button {
         padding: 10px;
         font-size: 0.8rem;
+    }
+    .handle_flex_basis {
+        flex-basis: 54%;
     }
 }
 
