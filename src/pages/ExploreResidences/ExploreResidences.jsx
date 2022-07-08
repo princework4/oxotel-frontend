@@ -11,6 +11,10 @@ import HouseListing from "../../components/HouseListing/HouseListing";
 import "./ExploreResidences.css";
 
 const ExploreResidences = () => {
+  React.useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <>
       <section className='explore_residences'>

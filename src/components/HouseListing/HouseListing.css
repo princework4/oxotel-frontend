@@ -3,6 +3,7 @@
 
 .house_listing {
     width: 100%;
+    padding-bottom: 20px;
 }
 
 .house_listing .house_card {
@@ -10,9 +11,9 @@
 }
 
 .house_listing .house_card:hover {
-    -webkit-box-shadow: 9px 12px 12px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 9px 12px 12px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 9px 12px 12px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 9px 12px 25px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 12px 25px -7px rgba(0,0,0,0.75);
+    box-shadow: 9px 12px 25px -7px rgba(0,0,0,0.75);
 }
 
 .house_listing .house_heading {
@@ -96,6 +97,10 @@
     text-transform: capitalize;
 }
 
+.handle_flex_basis {
+    flex-basis: 60%;
+}
+
 @media (max-width: 400px) {
     .house_listing .house_price h5 {
         font-size: 1.25rem;
@@ -103,6 +108,9 @@
     .house_listing .house_price button {
         padding: 10px;
         font-size: 0.8rem;
+    }
+    .handle_flex_basis {
+        flex-basis: 54%;
     }
 }
 

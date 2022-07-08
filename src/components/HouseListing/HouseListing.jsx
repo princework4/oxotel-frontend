@@ -1,7 +1,6 @@
 // MUI imports
 import {
   Box,
-  Button,
   Card,
   CardContent,
   CardMedia,
@@ -12,12 +11,20 @@ import {
 } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
+// Routing imports
+import { useNavigate } from "react-router-dom";
+
+// Custom components imports
+import RequestCallback from "../RequestCallback";
+
 import "./HouseListing.css";
 
 // Images imports
 import { Bed } from "../../assets";
 
 const HouseListing = () => {
+  let navigate = useNavigate();
+
   const datas = [
     {
       img: "https://dummyimage.com/600x400/4e2aeb/4e2aeb",
@@ -111,6 +118,10 @@ const HouseListing = () => {
     },
   ];
 
+  const handleClick = (id) => {
+    navigate(`/explore-residences/${id}`);
+  };
+
   return (
     <>
       <Box className='house_listing'>
@@ -133,11 +144,14 @@ const HouseListing = () => {
                 <CardActionArea>
                   <CardMedia
                     component='img'
-                    height='250'
+                    height='200'
                     image={data.img}
                     alt={data.name}
+                    onClick={() => handleClick(data.id)}
                   />
-                  <CardContent className='house_details'>
+                  <CardContent
+                    className='house_details'
+                    onClick={() => handleClick(data.id)}>
                     <Box className='house_heading'>
                       <Typography gutterBottom variant='h5'>
                         {data.name}
@@ -166,28 +180,19 @@ const HouseListing = () => {
                           </Typography>
                         );
                       })}
-                      {/* <Typography>
-                        {data.amenities.map((amenity, index) => {
-                          return data.amenities.length > 1
-                            ? index === data.amenities.length - 1
-                              ? amenity.concat("...")
-                              : amenity.concat(", ")
-                            : amenity;
-                        })}
-                      </Typography> */}
                     </Box>
                   </CardContent>
                   <Box className='house_price'>
-                    <Box>
+                    <Box
+                      className='handle_flex_basis'
+                      onClick={() => handleClick(data.id)}>
                       <Typography className='house_starts_from' variant='h6'>
                         starts from
                       </Typography>
                       <Typography variant='h5'>₹{data.price}/mo*</Typography>
                     </Box>
                     <CardActions>
-                      <Button variant='contained' size='small' color='primary'>
-                        request callback
-                      </Button>
+                      <RequestCallback />
                     </CardActions>
                   </Box>
                 </CardActionArea>
