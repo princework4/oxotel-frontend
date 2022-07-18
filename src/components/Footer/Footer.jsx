@@ -14,10 +14,14 @@ const Footer = () => {
                 <h3>Links</h3>
               </Box>
               <Box>
-                <p>Facebook</p>
+                <a href="https://calendar.google.com/" target="blank">
+                  Facebook
+                </a>
               </Box>
               <Box>
-                <p>Instagram</p>
+                <a href="https://calendar.google.com/" target="blank">
+                  Instagram
+                </a>
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
@@ -41,10 +45,14 @@ const Footer = () => {
                 <h3>Links</h3>
               </Box>
               <Box>
-                <p>Facebook</p>
+                <a href="https://calendar.google.com/" target="blank">
+                  About Us
+                </a>
               </Box>
               <Box>
-                <p>Instagram</p>
+                <a href="https://calendar.google.com/" target="blank">
+                  Partner
+                </a>
               </Box>
             </Grid>
           </Grid>

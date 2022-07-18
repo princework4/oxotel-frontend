@@ -5,7 +5,7 @@
 /* color footer color rgb(238, 238, 244) */
 :root { 
   --primary: rgb(54, 121, 253);
-  --secondry: rgb(0, 31, 104);
+  --secondary: rgb(0, 31, 104);
   --white: #faf0e6;
   --bg-color: rgb(247, 247, 252) 
       }
@@ -17,7 +17,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--secondry);
+  color: var(--secondary);
   box-sizing: border-box;
   background-color: var(--bg-color);
 }

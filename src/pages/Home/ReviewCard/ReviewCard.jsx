@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import StarIcon from "@mui/icons-material/Star";
 import Divider from "@mui/material/Divider";
 import "./ReviewCard.css";
-const ReviewCard = () => {
+const ReviewCard = (props) => {
   const theme = useTheme();
 
   return (
@@ -19,7 +19,7 @@ const ReviewCard = () => {
             variant="h5"
             className="review_card_main_h5"
           >
-            Live From Space
+            {props.description}
           </Typography>
           <Typography
             variant="subtitle1"
@@ -27,14 +27,14 @@ const ReviewCard = () => {
             component="div"
             className="review_card_main_p"
           >
-            Mac Miller
+            {props.name}
           </Typography>
         </CardContent>
       </Box>
       <Divider orientation="vertical" flexItem />
       <Box className="review_card">
         <Typography component="div" variant="h2" className="review_card_num">
-          4.9
+          5
         </Typography>
         <Box className="review_card_stars">
           <StarIcon />

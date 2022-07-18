@@ -11,6 +11,10 @@
     align-items: center;
 
 }
+.review-cards .css-1oqv2c0-MuiPaper-root-MuiCard-root{
+    width: 300px !important;
+
+}
 
 .review_card_main_h5{
     font-size: 1.1rem !important;

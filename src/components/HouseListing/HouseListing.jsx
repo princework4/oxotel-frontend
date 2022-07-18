@@ -28,7 +28,7 @@ const HouseListing = () => {
       name: "Demo 1",
       gender: "male",
       occupancy: ["single"],
-      amenities: ["High-Speed WIFI", "Cafeteria", "AC"],
+      amenities: ["High-Speed WIFI", "Cafeteria"],
       price: "1234.0",
     },
     {
@@ -116,41 +116,43 @@ const HouseListing = () => {
 
   return (
     <>
-      <Box className='house_listing'>
+      <Box className="house_listing">
         <Grid
           container
           spacing={3}
-          direction='row'
-          justify='flex-start'
-          alignItems='flex-start'>
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start"
+        >
           {datas.map((data) => (
             <Grid
               item
               xs={12}
-              sm={12}
+              sm={6}
               md={6}
               lg={6}
-              xl={2}
-              key={datas.indexOf(data)}>
-              <Card className='house_card'>
+              xl={4}
+              key={datas.indexOf(data)}
+            >
+              <Card className="house_card">
                 <CardActionArea>
                   <CardMedia
-                    component='img'
-                    height='200'
+                    component="img"
+                    height="200"
                     image={data.img}
                     alt={data.name}
                   />
-                  <CardContent className='house_details'>
-                    <Box className='house_heading'>
-                      <Typography gutterBottom variant='h5'>
+                  <CardContent className="house_details">
+                    <Box className="house_heading">
+                      <Typography gutterBottom variant="h5">
                         {data.name}
                       </Typography>
-                      <Typography gutterBottom variant='h6'>
+                      <Typography gutterBottom variant="h6">
                         {data.gender}
                       </Typography>
                     </Box>
-                    <Box className='house_occupancy'>
-                      <Box component='img' src={Bed} alt='Bed image' />
+                    <Box className="house_occupancy">
+                      <Box component="img" src={Bed} alt="Bed image" />
                       <Typography>
                         {data.occupancy.map((occupancy, index) => {
                           return data.occupancy.length > 1
@@ -161,11 +163,11 @@ const HouseListing = () => {
                         })}
                       </Typography>
                     </Box>
-                    <Box className='house_amenity'>
+                    <Box className="house_amenity">
                       {data.amenities.map((amenity, index) => {
                         return (
                           <Typography key={index}>
-                            <CheckCircleOutlineIcon color='primary' /> {amenity}
+                            <CheckCircleOutlineIcon color="primary" /> {amenity}
                           </Typography>
                         );
                       })}
@@ -180,12 +182,12 @@ const HouseListing = () => {
                       </Typography> */}
                     </Box>
                   </CardContent>
-                  <Box className='house_price'>
+                  <Box className="house_price">
                     <Box>
-                      <Typography className='house_starts_from' variant='h6'>
+                      <Typography className="house_starts_from" variant="h6">
                         starts from
                       </Typography>
-                      <Typography variant='h5'>₹{data.price}/mo*</Typography>
+                      <Typography variant="h5">₹{data.price}/mo*</Typography>
                     </Box>
                     <CardActions>
                       <RequestCallback />
