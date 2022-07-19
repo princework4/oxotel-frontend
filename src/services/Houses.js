@@ -2,21 +2,21 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const housesApi = createApi({
   reducerPath: "housesApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/polls/" }),
   endpoints: (builder) => ({
     getListOfHouses: builder.query({
       query: () => ({
-        url: "",
+        url: "houses/",
         method: "GET",
       }),
     }),
     getDetailOfHouse: builder.query({
       query: (id) => ({
-        url: "/id",
+        url: `houses/${id}`,
         method: "GET",
       }),
     }),
   }),
 });
 
-export const { useGetListOfHouses, useGetDetailOfHouse } = housesApi;
+export const { useGetListOfHousesQuery, useGetDetailOfHouseQuery } = housesApi;

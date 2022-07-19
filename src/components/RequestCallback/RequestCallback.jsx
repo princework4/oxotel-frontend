@@ -17,38 +17,52 @@ import {
   TextField,
 } from "@mui/material";
 
+// External library imports
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // Custom components imports
 import ModalForm from "../ModalForm";
 import * as Validation from "../../validation/Validation";
+
+// Custom RTK hooks
+import { useAddNewRequestCallbackMutation } from "../../services/Forms";
+import {
+  useGetListOfCityQuery,
+  useGetListOfLocalityQuery,
+  useGetListOfDurationQuery,
+} from "../../services/DropDown";
 
 import "./RequestCallback.css";
 
 const RequestCallback = () => {
   const [open, setOpen] = React.useState(false);
   const [requestCallback, setRequestCallback] = React.useState({
-    fullName: "",
+    full_name: "",
     email: "",
-    userType: "student",
+    user_type: "student",
     city: "",
     locality: "",
     duration: "",
   });
   const [requestCallbackErr, setRequestCallbackErr] = React.useState({
-    fullNameErr: "",
+    full_nameErr: "",
     emailErr: "",
     cityErr: "",
     localityErr: "",
     durationErr: "",
   });
+  const [addRequestCallback, { isSuccess }] =
+    useAddNewRequestCallbackMutation();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleCloseForm = () => {
     setRequestCallback({
-      fullName: "",
+      full_name: "",
       email: "",
-      userType: "student",
+      user_type: "student",
       city: "",
       locality: "",
       duration: "",
@@ -77,21 +91,47 @@ const RequestCallback = () => {
   };
 
   const submitForm = () => {
-    setRequestCallback({
-      fullName: "",
-      email: "",
-      userType: "student",
-      city: "",
-      locality: "",
-      duration: "",
-    });
-    handleClose();
+    addRequestCallback(requestCallback);
+
+    if (isSuccess) {
+      setRequestCallback({
+        full_name: "",
+        email: "",
+        user_type: "student",
+        city: "",
+        locality: "",
+        duration: "",
+      });
+      handleClose();
+      toast.success(
+        `Response has been submitted successfully! We will get back to you shortly.`,
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        },
+      );
+    } else {
+      toast.error(`Failed to submit the response. Please try again later.`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   const handleSubmitForm = () => {
     handleFormFieldsErr(
-      "fullNameErr",
-      Validation.validateFullName(requestCallback.fullName),
+      "full_nameErr",
+      Validation.validateFullName(requestCallback.full_name),
     );
     handleFormFieldsErr(
       "emailErr",
@@ -111,7 +151,7 @@ const RequestCallback = () => {
     );
 
     if (
-      requestCallback.fullName !== "" &&
+      requestCallback.full_name !== "" &&
       requestCallback.email !== "" &&
       requestCallback.city !== "" &&
       requestCallback.locality !== "" &&
@@ -130,6 +170,17 @@ const RequestCallback = () => {
 
   return (
     <>
+      <ToastContainer
+        position='top-center'
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Button
         variant='contained'
         size='small'
@@ -147,15 +198,15 @@ const RequestCallback = () => {
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
               <TextField
                 type='text'
-                name='fullName'
+                name='full_name'
                 label='Full Name *'
                 variant='outlined'
-                value={requestCallback.fullName}
+                value={requestCallback.full_name}
                 onChange={handleChange}
               />
-              {requestCallbackErr.fullNameErr ? (
+              {requestCallbackErr.full_nameErr ? (
                 <FormHelperText error>
-                  {requestCallbackErr.fullNameErr}
+                  {requestCallbackErr.full_nameErr}
                 </FormHelperText>
               ) : null}
             </FormControl>
@@ -182,8 +233,8 @@ const RequestCallback = () => {
                 row
                 aria-labelledby='demo-row-radio-buttons-group-label'
                 className='residence_type'
-                name='userType'
-                value={requestCallback.userType}
+                name='user_type'
+                value={requestCallback.user_type}
                 onChange={handleChange}>
                 <FormControlLabel
                   value='student'
