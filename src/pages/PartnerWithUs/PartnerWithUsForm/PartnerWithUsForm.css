@@ -1,0 +1,19 @@
+/* Importing Common CSS File */
+/* @import url("../../../common.css"); */
+
+/* .preferred_date button,
+.preferred_time button {
+    margin: 0 !important;
+} */
+
+
+.login_btn{
+    border-radius: 50px !important;
+    margin: 20px 5px !important;
+}
+
+.new_account{
+    font-size: 1.8rem !important;
+    font-weight: 600 !important;
+    margin-left: 5px !important;
+}

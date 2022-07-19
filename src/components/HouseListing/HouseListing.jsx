@@ -46,7 +46,7 @@ const HouseListing = () => {
               justify='flex-start'
               alignItems='flex-start'>
               {data.map((data) => (
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={2} key={data.id}>
+                <Grid item xs={12} sm={6} md={6} lg={6} xl={4} key={data.id}>
                   <Card className='house_card'>
                     <CardActionArea>
                       <CardMedia

@@ -1,0 +1,23 @@
+.benifits_card_h5{
+    font-weight: 800 !important;
+    margin: 1rem 0 !important;
+}
+
+.benifits_card_btn{
+        color: var(--primary) !important;
+        border: 2px solid var(--primary) !important;
+        background: none !important;
+        padding: 0.7rem 3rem !important;
+        -webkit-border-radius: 100px !important;
+        -moz-border-radius: 100px !important;
+        border-radius: 100px !important;
+        font-weight: 700 !important;
+        margin: 1.1rem 0 !important;
+        transition: all 0.5s ease-in-out !important;
+
+}
+
+.benifits_card_btn:hover{
+    background-color: var(--primary) !important;
+    color: var(--white) !important;
+}
