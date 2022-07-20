@@ -16,7 +16,42 @@ export const housesApi = createApi({
         method: "GET",
       }),
     }),
+    filterHouseWithState: builder.mutation({
+      query: (state) => ({
+        url: "state/",
+        method: "POST",
+        body: state,
+      }),
+    }),
+    filterHouseWithCity: builder.mutation({
+      query: (city) => ({
+        url: "city/",
+        method: "POST",
+        body: city,
+      }),
+    }),
+    filterHouseWithGender: builder.mutation({
+      query: (gender) => ({
+        url: "gender/",
+        method: "POST",
+        body: gender,
+      }),
+    }),
+    filterHouseWithPrice: builder.mutation({
+      query: (price) => ({
+        url: "price/",
+        method: "POST",
+        body: price,
+      }),
+    }),
   }),
 });
 
-export const { useGetListOfHousesQuery, useGetDetailOfHouseQuery } = housesApi;
+export const {
+  useGetListOfHousesQuery,
+  useGetDetailOfHouseQuery,
+  useFilterHouseWithStateMutation,
+  useFilterHouseWithCityMutation,
+  useFilterHouseWithGenderMutation,
+  useFilterHouseWithPriceMutation,
+} = housesApi;

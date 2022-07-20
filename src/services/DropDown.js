@@ -6,7 +6,7 @@ export const dropDownApi = createApi({
   endpoints: (builder) => ({
     getListOfCity: builder.query({
       query: () => ({
-        url: "house/",
+        url: "city/",
         method: "GET",
       }),
     }),
