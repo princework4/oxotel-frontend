@@ -20,7 +20,8 @@
     margin: 10px 0;
 
 }
-.footer a{
+.footer a,
+.footer p{
     font-size: 0.9rem ;
     font-weight: 500;
     margin: 10px 0;
@@ -35,4 +36,22 @@
 
 .footer-top {
     margin-bottom: 20px;
+}
+
+.hero_btn{
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    background: none;
+    padding: 1rem 3rem;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    font-weight: 700;
+    margin: 0.9rem 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.hero_btn:hover{
+    background-color: var(--primary);
+    color: var(--white);
 }

@@ -3,6 +3,9 @@ import * as React from "react";
 // MUI imports
 import { Box, Typography } from "@mui/material";
 
+// AOS imports
+import AOS from "aos";
+
 // Custom components imports
 import Filter from "../../components/Filter";
 import ReadMoreLess from "../../components/ReadMoreLess/ReadMoreLess";
@@ -13,11 +16,13 @@ import "./ExploreResidences.css";
 const ExploreResidences = () => {
   React.useEffect(() => {
     window.scroll(0, 0);
+    AOS.init();
+    AOS.refresh();
   }, []);
 
   return (
     <>
-      <section className='explore_residences'>
+      <section className='explore_residences' data-aos="fade-up" data-aos-duration="1500">
         <Box className='wrapper'>
           <Box className='explore_residences_wrapper'>
             <Filter />

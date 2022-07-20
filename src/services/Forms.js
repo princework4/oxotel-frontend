@@ -25,6 +25,13 @@ export const formsApi = createApi({
         body: scheduleMeetData,
       }),
     }),
+    addPartnerWithUs: builder.mutation({
+      query: (partnerWithUsData) => ({
+        url: "partner/",
+        method: "POST",
+        body: partnerWithUsData,
+      }),
+    }),
   }),
 });
 
@@ -32,4 +39,5 @@ export const {
   useAddNewRequestCallbackMutation,
   useAddNewReserveNowMutation,
   useAddNewScheduleMeetMutation,
+  useAddPartnerWithUsMutation,
 } = formsApi;

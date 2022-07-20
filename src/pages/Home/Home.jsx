@@ -1,14 +1,14 @@
-import { useEffect } from "react";
+import * as React from "react";
+import { Link } from "react-router-dom"
 // MUI imports
 import { Box, Grid } from "@mui/material";
 import ImageSlider from "../../components/Slider";
 import { HeroSliderImages } from "../../utils/SliderImages/SliderImages";
 import {
   HeroSliderSettings,
-  PropertyImagesSliderSettings,
+  // PropertyImagesSliderSettings,
 } from "../../utils/SliderSetting/SliderSetting";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import TvIcon from "@mui/icons-material/Tv";
 import KitchenIcon from "@mui/icons-material/Kitchen";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import WashIcon from "@mui/icons-material/Wash";
@@ -63,9 +63,10 @@ const Home = () => {
     },
   ];
 
-  useEffect(() => {
+  React.useEffect(() => {
     AOS.init();
     AOS.refresh();
+    window.scroll(0, 0);
   }, []);
 
   // remove section class name
@@ -124,7 +125,7 @@ const Home = () => {
                   </ul>
                 </Box>
               </Box>
-              <button className="hero_btn">Read more</button>
+              <Link className="hero_btn" to="/explore-residences">Explore more</Link>
             </Box>
             <Box className="who_we_are_main_content_img">
               <img
