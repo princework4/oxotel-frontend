@@ -2,7 +2,7 @@
 @import url("../../common.css");
 
 .detailed_explore_residences {
-    padding: 150px 0 50px;
+    padding: 150px 0 150px;
 }
 
 .detailed_explore_residences .banner_mobile_view {
@@ -49,10 +49,11 @@
 .explore_residences_details {
     margin-top: 20px;
     display: flex;
+    justify-content: space-between;
 }
 
 .explore_residences_details_left_section {
-    max-width: 60%;
+    max-width: 50%;
     width: 100%;
 }
 
@@ -109,6 +110,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+    align-items: flex-start;
 }
 
 .explore_residences_room_facilities .facility_wrapper>div,
@@ -118,6 +120,7 @@
 
 .explore_residences_room_facilities .facility_name,
 .explore_residences_amenities_and_service .amenity_name {
+    margin-bottom: 0 !important;
     margin-left: 15px;
     font-size: 1rem;
     text-transform: capitalize;

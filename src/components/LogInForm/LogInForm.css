@@ -1,0 +1,33 @@
+/* Importing Common CSS File */
+@import url("../../common.css");
+
+/* .preferred_date button,
+.preferred_time button {
+    margin: 0 !important;
+} */
+
+
+.login_btn{
+    border-radius: 50px !important;
+    margin: 20px 5px !important;
+    background-color: var(--primary) !important;
+}
+.login label + div {
+    border-radius: 30px;
+    background-color: #fff;
+  }
+
+  .css-1izfg5m{
+    width: auto !important;
+    max-width: 500px !important;
+    min-width: 300px !important;
+  }
+
+  @media (max-width: 400px) {
+    .css-vc87kr{
+        padding: 30px 15px !important;
+    }
+    .css-19kzrtu{
+        padding: 15px !important;
+    }
+}

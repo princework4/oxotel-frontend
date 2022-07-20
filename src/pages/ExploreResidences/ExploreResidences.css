@@ -2,7 +2,7 @@
 @import url("../../common.css");
 
 .explore_residences {
-    margin-top: 150px;
+    padding: 150px 0 150px;
 }
 
 .explore_residences h2,
@@ -95,57 +95,3 @@
         line-height: 1.6;
     }
 }
-
-/* @media (max-width: 834px) {
-    .explore_residences_wrapper .cards_wrapper {
-        max-width: 70%;
-        width: 100%;
-    }
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        font-size: 2rem !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .explore_residences h2,
-    .explore_residences h2 .customize_heading {
-        flex-flow: column;
-    }
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        font-size: 1.5rem !important;
-    }
-} */
-
-/* @media (max-width: 600px) {
-    .explore_residences_wrapper .cards_wrapper {
-        padding-left: 20px;
-    }
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        margin-bottom: 10px;
-        line-height: 1.5;
-    }
-}
-
-@media (max-width: 450px) {
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        font-size: 1.25rem !important;
-        line-height: 1.5;
-    }
-}
-
-@media (max-width: 450px) {
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        font-size: 1.2rem !important;
-        line-height: 1.4;
-    }
-}
-
-@media (max-width: 375px) {
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        font-size: 1rem !important;
-        line-height: 1.5    ;
-    }
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        margin-bottom: 10px;
-    }
-} */

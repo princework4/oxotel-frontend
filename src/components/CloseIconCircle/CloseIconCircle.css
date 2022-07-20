@@ -1,0 +1,22 @@
+
+.close_icon {
+    min-width: unset !important;
+    width: 50px;
+    height: 45px;
+    margin-bottom: 10px !important;
+    border-radius: 100% !important;
+    background: #1976d2 !important;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+.close_icon svg {
+    color: #fff;
+    font-size: 2rem !important;
+    transition: 0.3s ease-in-out !important;
+  }
+  
+ .close_icon:hover svg,
+ .close_icon:focus svg {
+    transform: rotate(90deg);
+  }

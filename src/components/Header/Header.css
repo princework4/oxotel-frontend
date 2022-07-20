@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: transparent ;
     -webkit-transition: 0.5s ease-in-out;
     -moz-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
@@ -17,7 +17,7 @@
 
 .header .wrapper,
 .mobile_header .wrapper {
-    padding: 2em 0;
+    padding: 1em 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,15 +28,20 @@
     max-width: 5em;
     width: 100%;
 }
+.header h1 img,
+.mobile_header h1 img{
+    height: 70px;
+}
 
 nav {
     float: right;
 }
 
 nav a {
-    color: #232323;
+    color: var(--secondary);
     font-family: sans-serif;
     font-size: 1.25em;
+    font-weight: 600;
     letter-spacing: 1.5px;
     line-height: 1.2em;
     text-transform: capitalize;
@@ -51,7 +56,7 @@ nav li a::after {
     display: block;
     width: 0;
     height: 2px;
-    background: #000;
+    background: var(--secondary);
     transition: width .3s;
 }
 
@@ -64,13 +69,13 @@ nav li a.active::after {
 }
 
 nav li a.active {
-    color: tomato;
+    color: var(--primary);
 }
 
 .color_change,
 .desktop_not_homepage,
 .mobile_not_homepage {
-    background-color: #fff;
+    background-color: var(--bg-color);
     -webkit-box-shadow: 0px 1px 6px #00000029;
     -moz-box-shadow: 0px 1px 6px #00000029;
     box-shadow: 0px 1px 6px #00000029;
@@ -166,7 +171,7 @@ nav li a.active {
     left: 0;
     display: flex;
     flex-flow: column;
-    background: #ededed;
+    background: var(--bg-color);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
@@ -182,7 +187,28 @@ nav li a.active {
 #menuToggle .checked~ul {
     transform: none;
 }
+.close_icon_wrapper{
+        text-align: end;
+}
 
+.hero_btn{
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    background: none;
+    padding: 1rem 3rem;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    font-weight: 700;
+    margin: 0.9rem 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.hero_btn:hover{
+    background-color: var(--primary);
+    color: var(--white);
+}
+  
 @media (max-width: 768px) {
     #menu {
         width: 100%;
