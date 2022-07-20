@@ -138,7 +138,7 @@
     align-items: center;
     flex-flow: column;
     justify-content: center;
-    background-color: rgb(246, 244, 245);
+    background-color: rgb(220, 220, 220);
     text-transform: capitalize;
 }
 
@@ -209,6 +209,14 @@
 @media (max-width: 834px) {
     .explore_residences_details {
         flex-flow: column;
+    }
+
+    .detailed_explore_residences .banner_desktop_view {
+        display: none;
+    }
+
+    .detailed_explore_residences .banner_mobile_view {
+        display: block;
     }
 
     .explore_residences_details .explore_residences_details_left_section,

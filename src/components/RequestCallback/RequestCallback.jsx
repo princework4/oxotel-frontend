@@ -52,8 +52,8 @@ const RequestCallback = () => {
     localityErr: "",
     durationErr: "",
   });
-  const [addRequestCallback, { isSuccess }] =
-    useAddNewRequestCallbackMutation();
+  const [addRequestCallback] = useAddNewRequestCallbackMutation();
+  const listOfCity = useGetListOfCityQuery();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -90,10 +90,11 @@ const RequestCallback = () => {
     });
   };
 
-  const submitForm = () => {
-    addRequestCallback(requestCallback);
+  const submitForm = async () => {
+    const data = await addRequestCallback(requestCallback);
+    console.log("test", data);
 
-    if (isSuccess) {
+    if (data?.data?.success) {
       setRequestCallback({
         full_name: "",
         email: "",
@@ -113,7 +114,7 @@ const RequestCallback = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        },
+        }
       );
     } else {
       toast.error(`Failed to submit the response. Please try again later.`, {
@@ -131,23 +132,23 @@ const RequestCallback = () => {
   const handleSubmitForm = () => {
     handleFormFieldsErr(
       "full_nameErr",
-      Validation.validateFullName(requestCallback.full_name),
+      Validation.validateFullName(requestCallback.full_name)
     );
     handleFormFieldsErr(
       "emailErr",
-      Validation.validateEmail(requestCallback.email),
+      Validation.validateEmail(requestCallback.email)
     );
     handleFormFieldsErr(
       "cityErr",
-      Validation.validateDropdown(requestCallback.city),
+      Validation.validateDropdown(requestCallback.city)
     );
     handleFormFieldsErr(
       "localityErr",
-      Validation.validateDropdown(requestCallback.locality),
+      Validation.validateDropdown(requestCallback.locality)
     );
     handleFormFieldsErr(
       "durationErr",
-      Validation.validateDropdown(requestCallback.duration),
+      Validation.validateDropdown(requestCallback.duration)
     );
 
     if (
@@ -171,7 +172,7 @@ const RequestCallback = () => {
   return (
     <>
       <ToastContainer
-        position='top-center'
+        position="top-center"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -182,25 +183,27 @@ const RequestCallback = () => {
         pauseOnHover
       />
       <Button
-        variant='contained'
-        size='small'
-        color='primary'
-        onClick={handleOpen}>
+        variant="contained"
+        size="small"
+        color="primary"
+        onClick={handleOpen}
+      >
         request callback
       </Button>
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby='modal-modal-title'
-        aria-describedby='modal-modal-description'>
-        <Box className='mode_pop_up'>
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className="mode_pop_up">
           <ModalForm ObjData={objData}>
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
               <TextField
-                type='text'
-                name='full_name'
-                label='Full Name *'
-                variant='outlined'
+                type="text"
+                name="full_name"
+                label="Full Name *"
+                variant="outlined"
                 value={requestCallback.full_name}
                 onChange={handleChange}
               />
@@ -212,10 +215,10 @@ const RequestCallback = () => {
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
               <TextField
-                type='email'
-                name='email'
-                label='Email *'
-                variant='outlined'
+                type="email"
+                name="email"
+                label="Email *"
+                variant="outlined"
                 value={requestCallback.email}
                 onChange={handleChange}
               />
@@ -226,40 +229,46 @@ const RequestCallback = () => {
               ) : null}
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-              <FormLabel id='demo-row-radio-buttons-group-label'>
+              <FormLabel id="demo-row-radio-buttons-group-label">
                 I'm a
               </FormLabel>
               <RadioGroup
                 row
-                aria-labelledby='demo-row-radio-buttons-group-label'
-                className='residence_type'
-                name='user_type'
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                className="residence_type"
+                name="user_type"
                 value={requestCallback.user_type}
-                onChange={handleChange}>
+                onChange={handleChange}
+              >
                 <FormControlLabel
-                  value='student'
+                  value="student"
                   control={<Radio />}
-                  label='Student'
+                  label="Student"
                 />
                 <FormControlLabel
-                  value='working_professional'
+                  value="working_professional"
                   control={<Radio />}
-                  label='Working Professional'
+                  label="Working Professional"
                 />
               </RadioGroup>
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-              <InputLabel id='demo-simple-select-label'>City</InputLabel>
+              <InputLabel id="demo-simple-select-label">City</InputLabel>
               <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                name='city'
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                name="city"
                 value={requestCallback.city}
-                label='City'
-                onChange={handleChange}>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                label="City"
+                onChange={handleChange}
+              >
+                {listOfCity?.data?.map((city) => {
+                  return (
+                    <MenuItem value={city}>
+                      {city[0].toUpperCase() + city.slice(1)}
+                    </MenuItem>
+                  );
+                })}
               </Select>
               {requestCallbackErr.cityErr ? (
                 <FormHelperText error>
@@ -268,14 +277,15 @@ const RequestCallback = () => {
               ) : null}
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-              <InputLabel id='demo-simple-select-label'>Locality</InputLabel>
+              <InputLabel id="demo-simple-select-label">Locality</InputLabel>
               <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                name='locality'
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                name="locality"
                 value={requestCallback.locality}
-                label='Locality'
-                onChange={handleChange}>
+                label="Locality"
+                onChange={handleChange}
+              >
                 <MenuItem value={10}>Ten</MenuItem>
                 <MenuItem value={20}>Twenty</MenuItem>
                 <MenuItem value={30}>Thirty</MenuItem>
@@ -287,17 +297,22 @@ const RequestCallback = () => {
               ) : null}
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-              <InputLabel id='demo-simple-select-label'>Duration</InputLabel>
+              <InputLabel id="demo-simple-select-label">Duration</InputLabel>
               <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                name='duration'
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                name="duration"
                 value={requestCallback.duration}
-                label='Duration'
-                onChange={handleChange}>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                label="Duration"
+                onChange={handleChange}
+              >
+                <MenuItem value={"less_than_3_months"}>
+                  Less than 3 months
+                </MenuItem>
+                <MenuItem value={"3-6_months"}>3 - 6 months</MenuItem>
+                <MenuItem value={"more_than_6_months"}>
+                  More than 6 months
+                </MenuItem>
               </Select>
               {requestCallbackErr.durationErr ? (
                 <FormHelperText error>
