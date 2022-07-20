@@ -68,9 +68,6 @@ const DetailedExploreResidences = () => {
                     images={data.img}
                   />
                 )}
-                {/* {data.img.map((img, index) => {
-                  return <Box component="img" src={img} key={index} />;
-                })} */}
               </Box>
               <Box className="explore_residences_details">
                 <Box className="explore_residences_details_left_section">

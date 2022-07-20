@@ -127,7 +127,10 @@
 }
 
 .explore_residences_details_right_section .available_occupancy_wrapper {
+    max-width: 95%;
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .explore_residences_details_right_section .available_occupancy_wrapper div {
@@ -137,6 +140,7 @@
     display: flex;
     align-items: center;
     flex-flow: column;
+    flex-wrap: wrap;
     justify-content: center;
     background-color: rgb(220, 220, 220);
     text-transform: capitalize;
@@ -219,6 +223,10 @@
         display: block;
     }
 
+    .slick-slide img, .imgslider {
+        height: unset;
+    }
+
     .explore_residences_details .explore_residences_details_left_section,
     .explore_residences_details .explore_residences_details_right_section {
         max-width: 100%;
@@ -246,5 +254,15 @@
     .button_wrapper button {
         padding: 15px;
         font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .explore_residences_details_right_section .available_occupancy_wrapper div {
+        width: calc((100% - 32px) / 2);
+    }
+    .explore_residences_details_right_section .available_occupancy_wrapper div:nth-child(3n) {
+        margin-top: 15px;
+        margin-left: 0;
     }
 }

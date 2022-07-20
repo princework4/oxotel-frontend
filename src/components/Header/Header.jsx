@@ -107,51 +107,54 @@ const Header = () => {
               : colorChange
               ? "color_change header"
               : "header"
-          }>
-          <div className='wrapper'>
+          }
+        >
+          <div className="wrapper">
             <h1>
-              <Link to='/'>
-                <img src={Logo} alt='Oxotel Logo' />
+              <Link to="/">
+                <img src={Logo} alt="Oxotel Logo" />
               </Link>
             </h1>
             <nav>
               <ul>
                 <li>
-                  <NavLink to='/' activeclassname='active'>
+                  <NavLink to="/" activeclassname="active">
                     Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/about-us' activeclassname='active'>
+                  <NavLink to="/about-us" activeclassname="active">
                     About Us
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/partner' activeclassname='active'>
+                  <NavLink to="/partner" activeclassname="active">
                     Partner With Us
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/explore-residences' activeclassname='active'>
+                  <NavLink to="/explore-residences" activeclassname="active">
                     Explore Residences
                   </NavLink>
                 </li>
                 <li>
                   <button
-                    variant='contained'
-                    size='small'
-                    color='primary'
+                    variant="contained"
+                    size="small"
+                    color="primary"
                     onClick={handleOpen}
-                    className='hero_btn'>
+                    className="hero_btn"
+                  >
                     LogIn
                   </button>
                   <Modal
                     open={open}
                     onClose={handleClose}
-                    aria-labelledby='modal-modal-title'
-                    aria-describedby='modal-modal-description'>
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
                     <Box sx={style}>
-                      <Box className='close_icon_wrapper'>
+                      <Box className="close_icon_wrapper">
                         <CloseIconCircle handleClose={handleClose} />
                       </Box>
                       <AuthForms />
@@ -173,74 +176,85 @@ const Header = () => {
       ) : (
         <header
           className={
-            notHomePage ? "mobile_header mobile_not_homepage" : "mobile_header"
-          }>
-          <div className='wrapper'>
+            notHomePage
+              ? "mobile_header mobile_not_homepage"
+              : colorChange
+              ? "color_change mobile_header"
+              : "mobile_header"
+          }
+        >
+          <div className="wrapper">
             <h1>
-              <Link to='/'>
-                <img src={Logo} alt='Oxotel Logo' />
+              <Link to="/">
+                <img src={Logo} alt="Oxotel Logo" />
               </Link>
             </h1>
-            <nav role='navigation'>
-              <div id='menuToggle'>
+            <nav role="navigation">
+              <div id="menuToggle">
                 <input
-                  type='checkbox'
+                  type="checkbox"
                   className={openMenu ? "checked" : "unchecked"}
                   onClick={handleCheck}
                 />
                 <span></span>
                 <span></span>
                 <span></span>
-                <ul id='menu'>
+                <ul id="menu">
                   <li>
                     <NavLink
-                      to='/'
-                      activeclassname='active'
-                      onClick={() => setOpenMenu(false)}>
+                      to="/"
+                      activeclassname="active"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       Home
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      to='/about-us'
-                      activeclassname='active'
-                      onClick={() => setOpenMenu(false)}>
+                      to="/about-us"
+                      activeclassname="active"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       About Us
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      to='/partner'
-                      activeclassname='active'
-                      onClick={() => setOpenMenu(false)}>
+                      to="/partner"
+                      activeclassname="active"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       Partner With Us
                     </NavLink>
                   </li>
                   <li>
                     <NavLink
-                      to='/explore-residences'
-                      activeclassname='active'
-                      onClick={() => setOpenMenu(false)}>
+                      to="/explore-residences"
+                      activeclassname="active"
+                      onClick={() => setOpenMenu(false)}
+                    >
                       Explore Residences
                     </NavLink>
                   </li>
                   <li>
                     <button
-                      variant='contained'
-                      size='small'
-                      color='primary'
+                      variant="contained"
+                      size="small"
+                      color="primary"
                       onClick={handleOpen}
-                      className='hero_btn'>
+                      className="hero_btn"
+                    >
                       LogIn
                     </button>
                     <Modal
                       open={open}
                       onClose={handleClose}
-                      aria-labelledby='modal-modal-title'
-                      aria-describedby='modal-modal-description'>
+                      aria-labelledby="modal-modal-title"
+                      aria-describedby="modal-modal-description"
+                    >
                       <Box sx={style}>
-                        <Box className='close_icon_wrapper'>
-                          <Button onClick={handleClose} className='close_icon'>
+                        <Box className="close_icon_wrapper">
+                          <Button onClick={handleClose} className="close_icon">
                             <CloseIcon />
                           </Button>
                         </Box>
