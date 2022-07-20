@@ -6,7 +6,7 @@ export const HeroSliderSettings = {
   lazyLoad: true,
   autoplay: true,
   autoplaySpeed: 2000,
-  arrows: true,
+  arrows: false,
 };
 
 export const PropertyImagesSliderSettings = {

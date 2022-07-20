@@ -3,6 +3,9 @@ import * as React from "react";
 // React router dom imports
 import { useParams } from "react-router-dom";
 
+// AOS imports
+import AOS from "aos";
+
 //  MUI imports
 import { Box, Button, Paper, Typography } from "@mui/material";
 
@@ -25,6 +28,12 @@ const DetailedExploreResidences = () => {
   const [leftBtn, setLeftBtn] = React.useState(true);
   const [rightBtn, setRightBtn] = React.useState(false);
 
+  React.useEffect(() => {
+      window.scroll(0, 0);
+      AOS.init();
+      AOS.refresh();
+    }, []);
+   
   const handleLeftBtn = () => {
     setLeftBtn(true);
     setRightBtn(false);
@@ -35,11 +44,12 @@ const DetailedExploreResidences = () => {
     setLeftBtn(false);
   };
 
+  
   return (
     <>
       {!isLoading ? (
         !error && (
-          <section className="detailed_explore_residences">
+          <section className="detailed_explore_residences" data-aos="fade-up" data-aos-duration="1500">
             <Box className="wrapper">
               <Box className="banner_desktop_view">
                 <Box className="left_gallery">

@@ -1,18 +1,19 @@
 import * as React from "react";
 // MUI imports
-import { Box, Grid, Button, Modal } from "@mui/material";
+import { Box, Button, Modal } from "@mui/material";
 import "./PartnerWithUs.css";
 import PartnerWithUsForm from "./PartnerWithUsForm";
 import CloseIcon from "@mui/icons-material/Close";
-// import Aos from "aos";
+import AOS from "aos";
 
 const PartnerWithUs = () => {
   const [open, setOpen] = React.useState(false);
 
-  // useEffect(() => {
-  //   AOS.init();
-  //   AOS.refresh();
-  // }, []);
+  React.useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+    window.scroll(0, 0);
+  }, []);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -31,7 +32,7 @@ const PartnerWithUs = () => {
     p: 4,
   };
   return (
-    <div className="partner_us_sec">
+    <div className="partner_us_sec" data-aos="fade-up" data-aos-duration="1500">
       <div className="wrapper">
         <div className="partner_us">
           <div className="partner_us_text">

@@ -1,17 +1,16 @@
-import { useEffect } from "react";
-// MUI imports
-import { Box, Grid } from "@mui/material";
+import * as React from "react";
 import "./AboutUs.css";
-// import Aos from "aos";
+import AOS from "aos";
 
 const AboutUs = () => {
-  // useEffect(() => {
-  //   AOS.init();
-  //   AOS.refresh();
-  // }, []);
+  React.useEffect(() => {
+    window.scroll(0, 0);
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
   return (
-    <div className="about_us_sec">
+    <div className="about_us_sec" data-aos="fade-up" data-aos-duration="1500">
       <div className="wrapper">
         <div className="about_us">
           <div className="about_us_text">

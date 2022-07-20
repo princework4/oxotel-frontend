@@ -18,11 +18,16 @@ import {
   Typography,
 } from "@mui/material";
 
-// Custom components imports
+import { ToastContainer, toast } from "react-toastify";
+
 // import ModalForm from "../ModalForm";
 import * as Validation from "../../../validation/Validation";
 
+// CSS import
 import "./PartnerWithUsForm.css";
+
+// Services Import
+import { usePartnerWithUsMutation } from "../../../services/Forms";
 
 const PartnerWithUsForm = (props) => {
   // const [open, setOpen] = React.useState(false);
@@ -34,6 +39,9 @@ const PartnerWithUsForm = (props) => {
     partnershipType: "",
     messageText: "",
   });
+
+  const [addPartnerWithUs, { isSuccess }] =
+    usePartnerWithUsMutation();
   const [partnerWithUsFormdataErr, setPartnerWithUsFormdataErr] =
     React.useState({
       firstNameErr: "",
@@ -76,16 +84,54 @@ const PartnerWithUsForm = (props) => {
     });
   };
 
+  // const submitForm = () => {
+  //   setPartnerWithUsFormData({
+  //     firstName: "",
+  //     lastName: "",
+  //     email: "",
+  //     mobileNumber: "",
+  //     partnershipType: "",
+  //     messageText: "",
+  //   });
+  //   handleClose();
+  // };
+
   const submitForm = () => {
-    setPartnerWithUsFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      mobileNumber: "",
-      partnershipType: "",
-      messageText: "",
-    });
-    handleClose();
+    addPartnerWithUs(partnerWithUsFormdata);
+
+    if (isSuccess) {
+      setPartnerWithUsFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        mobileNumber: "",
+        partnershipType: "",
+        messageText: "",
+      });
+      handleClose();
+      toast.success(
+        `Response has been submitted successfully! We will get back to you shortly.`,
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        },
+      );
+    } else {
+      toast.error(`Failed to submit the response. Please try again later.`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   const handleSubmitForm = () => {
@@ -120,6 +166,17 @@ const PartnerWithUsForm = (props) => {
 
   return (
     <>
+    <ToastContainer
+        position='top-center'
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Box className="login">
         <Typography className="new_account">Partner with us</Typography>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
