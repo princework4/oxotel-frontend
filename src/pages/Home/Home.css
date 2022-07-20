@@ -75,6 +75,7 @@
 
 
 .hero_btn{
+    text-decoration: none;
     color: var(--primary);
     border: 2px solid var(--primary);
     background: none;
