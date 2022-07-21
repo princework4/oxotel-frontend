@@ -24,7 +24,7 @@ const AboutUs = () => {
           </div>
           <div className="about_us_img">
             <img
-              src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
+              src="https://cdn.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924__340.jpg"
               alt="about oxtel"
             />
           </div>

@@ -9,6 +9,10 @@ import LogInForm from "../LogInForm";
 import AuthForms from "../AuthForms";
 import CloseIconCircle from "../CloseIconCircle";
 
+// Redux Imports
+import { useSelector, useDispatch } from "react-redux";
+import { setCredentials } from "../../features/auth/authSlice";
+
 const Header = () => {
   const location = useLocation();
   const [colorChange, setColorchange] = React.useState(false);
@@ -18,6 +22,8 @@ const Header = () => {
   const [open, setOpen] = React.useState(false);
   const [leftBtn, setLeftBtn] = React.useState(true);
   const [rightBtn, setRightBtn] = React.useState(false);
+  const reduxToken = useSelector((state) => state.auth.token);
+  const dispatch = useDispatch();
 
   const [size, setSize] = React.useState({
     width: undefined,
@@ -138,36 +144,46 @@ const Header = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <button
-                    variant="contained"
-                    size="small"
-                    color="primary"
-                    onClick={handleOpen}
-                    className="hero_btn"
-                  >
-                    LogIn
-                  </button>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <Box sx={style}>
-                      <Box className="close_icon_wrapper">
-                        <CloseIconCircle handleClose={handleClose} />
-                      </Box>
-                      <AuthForms />
-                    </Box>
-                  </Modal>
-                  {/* <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <AuthForms />
-                  </Modal> */}
+                  {!reduxToken ? (
+                    <>
+                      <button
+                        variant="contained"
+                        size="small"
+                        color="primary"
+                        onClick={handleOpen}
+                        className="hero_btn"
+                      >
+                        LogIn
+                      </button>
+                      <Modal
+                        open={open}
+                        onClose={handleClose}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                        className="login_signup"
+                      >
+                        <Box sx={style}>
+                          <Box className="close_icon_wrapper">
+                            <CloseIconCircle handleClose={handleClose} />
+                          </Box>
+                          <AuthForms handleClose={handleClose} />
+                        </Box>
+                      </Modal>
+                    </>
+                  ) : (
+                    <button
+                      variant="contained"
+                      size="small"
+                      color="primary"
+                      onClick={() => {
+                        dispatch(setCredentials({ token: null }));
+                        localStorage.removeItem("token");
+                      }}
+                      className="hero_btn"
+                    >
+                      Logout
+                    </button>
+                  )}
                 </li>
               </ul>
             </nav>
@@ -237,30 +253,46 @@ const Header = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <button
-                      variant="contained"
-                      size="small"
-                      color="primary"
-                      onClick={handleOpen}
-                      className="hero_btn"
-                    >
-                      LogIn
-                    </button>
-                    <Modal
-                      open={open}
-                      onClose={handleClose}
-                      aria-labelledby="modal-modal-title"
-                      aria-describedby="modal-modal-description"
-                    >
-                      <Box sx={style}>
-                        <Box className="close_icon_wrapper">
-                          <Button onClick={handleClose} className="close_icon">
-                            <CloseIcon />
-                          </Button>
-                        </Box>
-                        <AuthForms />
-                      </Box>
-                    </Modal>
+                    {!reduxToken ? (
+                      <>
+                        <button
+                          variant="contained"
+                          size="small"
+                          color="primary"
+                          onClick={handleOpen}
+                          className="hero_btn"
+                        >
+                          LogIn
+                        </button>
+                        <Modal
+                          open={open}
+                          onClose={handleClose}
+                          aria-labelledby="modal-modal-title"
+                          aria-describedby="modal-modal-description"
+                          className="login_signup"
+                        >
+                          <Box sx={style}>
+                            <Box className="close_icon_wrapper">
+                              <CloseIconCircle handleClose={handleClose} />
+                            </Box>
+                            <AuthForms handleClose={handleClose} />
+                          </Box>
+                        </Modal>
+                      </>
+                    ) : (
+                      <button
+                        variant="contained"
+                        size="small"
+                        color="primary"
+                        onClick={() => {
+                          dispatch(setCredentials({ token: null }));
+                          localStorage.removeItem("token");
+                        }}
+                        className="hero_btn"
+                      >
+                        Logout
+                      </button>
+                    )}
                   </li>
                 </ul>
               </div>

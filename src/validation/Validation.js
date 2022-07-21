@@ -152,7 +152,7 @@ export function validatePassword(password) {
 
 export function validateConfirmPassword(password, confirmPassword) {
   let confirmPasswordError = "";
-  if (confirmPassword === "" || !confirmPassword.trim()) {
+  if (confirmPassword === "" || !confirmPassword?.trim()) {
     confirmPasswordError = "*This field is required";
   } else if (password !== confirmPassword) {
     confirmPasswordError = "*Password does not match";

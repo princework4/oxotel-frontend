@@ -21,13 +21,8 @@ const ImageSlider = (props) => {
       <div className="imgslider">
         <Slider {...props.settings}>
           {props.images.map((item, index) => (
-            // <div className="slider_div" key={item.id ? item.id : index}>
             <div className="slider_div" key={index}>
-              <img
-                src={item}
-                // alt={item.alt ? item.alt : `Image ${index + 1}`}
-                alt={index}
-              />
+              <img src={item} alt={`oxotel_slider_image_${index + 1}`} />
             </div>
           ))}
         </Slider>

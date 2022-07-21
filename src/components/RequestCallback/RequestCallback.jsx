@@ -182,14 +182,22 @@ const RequestCallback = () => {
         draggable
         pauseOnHover
       />
-      <Button
+      <button
+        primary
+        variant="contained"
+        className="hero_btn"
+        onClick={handleOpen}
+      >
+        request callback
+      </button>
+      {/* <Button
         variant="contained"
         size="small"
         color="primary"
         onClick={handleOpen}
       >
         request callback
-      </Button>
+      </Button> */}
       <Modal
         open={open}
         onClose={handleClose}

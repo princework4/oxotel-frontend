@@ -1,50 +1,28 @@
 import * as React from "react";
 
 // MUI imports
-import {
-  Box,
-  Button,
-  FormControl,
-  FormControlLabel,
-  FormHelperText,
-  FormLabel,
-  InputLabel,
-  MenuItem,
-  Modal,
-  Radio,
-  RadioGroup,
-  Select,
-  TextField,
-} from "@mui/material";
+import { Box, Button, FormControl, TextField } from "@mui/material";
 
-// Custom components imports
-import ModalForm from "../ModalForm";
-import * as Validation from "../../validation/Validation";
+// External library imports
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// Custom RTK hooks
+import { useLoginMutation } from "../../services/Auth";
+
+// Redux Imports
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../features/auth/authSlice";
 
 import "./LogInForm.css";
 
 const LogInForm = (props) => {
-  const [open, setOpen] = React.useState(false);
   const [logInData, setLogInData] = React.useState({
     email: "",
     password: "",
   });
-  const [logInDataErr, setLogInDataErr] = React.useState({
-    emailErr: "",
-    passwordErr: "",
-  });
-
-  // const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  // const handleClose = () => props.setOpen(false);
-
-  const handleCloseForm = () => {
-    setLogInData({
-      email: "",
-      password: "",
-    });
-    handleClose();
-  };
+  const [loginUser] = useLoginMutation();
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -57,42 +35,38 @@ const LogInForm = (props) => {
     });
   };
 
-  const handleFormFieldsErr = (errField, message) => {
-    setLogInDataErr((prevState) => {
-      return {
-        ...prevState,
-        [errField]: message,
-      };
-    });
-  };
+  const handleSubmitForm = async () => {
+    const data = await loginUser(logInData);
+    const token = data?.data?.token;
 
-  const submitForm = () => {
-    alert("logged in");
-    setLogInData({
-      email: "",
-      password: "",
-    });
-    handleClose();
-    // alert("logged in");
-  };
-
-  const handleSubmitForm = () => {
-    handleFormFieldsErr("emailErr", Validation.validateEmail(logInData.email));
-    handleFormFieldsErr(
-      "passwordErr",
-      Validation.validatePassword(logInData.password)
-    );
-
-    if (logInData.email !== "" && logInData.password !== "") {
-      submitForm();
+    if (token === "@vunkevncch#hqfmbtcccy!ywcig%ess") {
+      dispatch(setCredentials({ token: token }));
+      localStorage.setItem("token", token);
+      setLogInData({
+        email: "",
+        password: "",
+      });
+      props.handleClose();
+      toast.success(`Logged In successfully.`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.error(`${data?.data?.error}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
-  };
-
-  const objData = {
-    h5: "Request Callback",
-    handleClose: handleCloseForm,
-    handleSubmit: handleSubmitForm,
-    btn_text: "SUBMIT",
   };
 
   return (
@@ -107,9 +81,6 @@ const LogInForm = (props) => {
             value={logInData.email}
             onChange={handleChange}
           />
-          {logInDataErr.emailErr ? (
-            <FormHelperText error>{logInDataErr.emailErr}</FormHelperText>
-          ) : null}
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
@@ -120,9 +91,6 @@ const LogInForm = (props) => {
             value={logInData.password}
             onChange={handleChange}
           />
-          {logInDataErr.passwordErr ? (
-            <FormHelperText error>{logInDataErr.passwordErr}</FormHelperText>
-          ) : null}
         </FormControl>
         <Button
           className="login_btn"
@@ -138,5 +106,3 @@ const LogInForm = (props) => {
 };
 
 export default LogInForm;
-
-// export default LogInForm;

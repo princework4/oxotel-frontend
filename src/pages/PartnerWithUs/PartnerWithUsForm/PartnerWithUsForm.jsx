@@ -27,26 +27,24 @@ import * as Validation from "../../../validation/Validation";
 import "./PartnerWithUsForm.css";
 
 // Services Import
-import { usePartnerWithUsMutation } from "../../../services/Forms";
+import { useAddPartnerWithUsMutation } from "../../../services/Forms";
 
 const PartnerWithUsForm = (props) => {
   // const [open, setOpen] = React.useState(false);
   const [partnerWithUsFormdata, setPartnerWithUsFormData] = React.useState({
-    firstName: "",
-    lastName: "",
+    full_name: "",
     email: "",
-    mobileNumber: "",
-    partnershipType: "",
-    messageText: "",
+    mobile_number: "",
+    partnership_type: "test",
+    message: "",
   });
 
-  const [addPartnerWithUs, { isSuccess }] =
-    usePartnerWithUsMutation();
+  const [addPartnerWithUs] = useAddPartnerWithUsMutation();
   const [partnerWithUsFormdataErr, setPartnerWithUsFormdataErr] =
     React.useState({
-      firstNameErr: "",
+      full_nameErr: "",
       emailErr: "",
-      mobileNumberErr: "",
+      mobile_numberErr: "",
     });
 
   // const handleOpen = () => setOpen(true);
@@ -54,12 +52,11 @@ const PartnerWithUsForm = (props) => {
 
   const handleCloseForm = () => {
     setPartnerWithUsFormData({
-      firstName: "",
-      lastName: "",
+      full_name: "",
       email: "",
-      mobileNumber: "",
-      partnershipType: "",
-      messageText: "",
+      mobile_number: "",
+      partnership_type: "Test",
+      message: "",
     });
     handleClose();
   };
@@ -96,17 +93,17 @@ const PartnerWithUsForm = (props) => {
   //   handleClose();
   // };
 
-  const submitForm = () => {
-    addPartnerWithUs(partnerWithUsFormdata);
+  const submitForm = async () => {
+    const data = await addPartnerWithUs(partnerWithUsFormdata);
+    console.log("data", data);
 
-    if (isSuccess) {
+    if (data?.data?.success) {
       setPartnerWithUsFormData({
-        firstName: "",
-        lastName: "",
+        full_name: "",
         email: "",
-        mobileNumber: "",
-        partnershipType: "",
-        messageText: "",
+        mobile_number: "",
+        partnership_type: "test",
+        message: "",
       });
       handleClose();
       toast.success(
@@ -119,7 +116,7 @@ const PartnerWithUsForm = (props) => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-        },
+        }
       );
     } else {
       toast.error(`Failed to submit the response. Please try again later.`, {
@@ -135,9 +132,10 @@ const PartnerWithUsForm = (props) => {
   };
 
   const handleSubmitForm = () => {
+    console.log("handleSubmitForm");
     handleFormFieldsErr(
-      "fristNameErr",
-      Validation.validateUsername(partnerWithUsFormdata.firstName)
+      "full_nameErr",
+      Validation.validateFullName(partnerWithUsFormdata.full_name)
     );
     handleFormFieldsErr(
       "emailErr",
@@ -145,13 +143,13 @@ const PartnerWithUsForm = (props) => {
     );
     handleFormFieldsErr(
       "mobileNumberErr",
-      Validation.validateMobileNumber(partnerWithUsFormdata.mobileNumber)
+      Validation.validateMobileNumber(partnerWithUsFormdata.mobile_number)
     );
 
     if (
-      partnerWithUsFormdata.firstName !== "" &&
+      partnerWithUsFormdata.full_name !== "" &&
       partnerWithUsFormdata.email !== "" &&
-      partnerWithUsFormdata.mobileNumber !== ""
+      partnerWithUsFormdata.mobile_number !== ""
     ) {
       submitForm();
     }
@@ -166,8 +164,8 @@ const PartnerWithUsForm = (props) => {
 
   return (
     <>
-    <ToastContainer
-        position='top-center'
+      <ToastContainer
+        position="top-center"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -182,27 +180,17 @@ const PartnerWithUsForm = (props) => {
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
             type="text"
-            name="firstName"
-            label="First Name *"
+            name="full_name"
+            label="Full Name *"
             variant="outlined"
-            value={partnerWithUsFormdata.firstName}
+            value={partnerWithUsFormdata.full_name}
             onChange={handleChange}
           />
-          {setPartnerWithUsFormdataErr.userNameErr ? (
+          {partnerWithUsFormdataErr.full_nameErr ? (
             <FormHelperText error>
-              {setPartnerWithUsFormdataErr.firstNameErr}
+              {partnerWithUsFormdataErr.full_nameErr}
             </FormHelperText>
           ) : null}
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-          <TextField
-            type="text"
-            name="lastName"
-            label="Last Name *"
-            variant="outlined"
-            value={partnerWithUsFormdata.lastName}
-            onChange={handleChange}
-          />
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
@@ -213,36 +201,36 @@ const PartnerWithUsForm = (props) => {
             value={partnerWithUsFormdata.email}
             onChange={handleChange}
           />
-          {setPartnerWithUsFormdataErr.emailErr ? (
+          {partnerWithUsFormdataErr.emailErr ? (
             <FormHelperText error>
-              {setPartnerWithUsFormdataErr.emailErr}
+              {partnerWithUsFormdataErr.emailErr}
             </FormHelperText>
           ) : null}
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
             type="number"
-            name="mobile"
+            name="mobile_number"
             label="Mobile Number *"
             variant="outlined"
             value={partnerWithUsFormdata.mobileNumber}
             onChange={handleChange}
           />
-          {setPartnerWithUsFormdataErr.mobileNumberErr ? (
+          {partnerWithUsFormdataErr.mobile_numberErr ? (
             <FormHelperText error>
-              {setPartnerWithUsFormdataErr.mobileNumberErr}
+              {partnerWithUsFormdataErr.mobile_numberErr}
             </FormHelperText>
           ) : null}
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
             type="text"
-            name="messageText"
+            name="message"
             multiline
             rows={4}
             label="Any Message"
             variant="outlined"
-            value={partnerWithUsFormdata.messageText}
+            value={partnerWithUsFormdata.message}
             onChange={handleChange}
           />
         </FormControl>

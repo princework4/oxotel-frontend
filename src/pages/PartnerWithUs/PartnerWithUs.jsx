@@ -5,9 +5,11 @@ import "./PartnerWithUs.css";
 import PartnerWithUsForm from "./PartnerWithUsForm";
 import CloseIcon from "@mui/icons-material/Close";
 import AOS from "aos";
+import { useNavigate } from "react-router-dom";
 
 const PartnerWithUs = () => {
   const [open, setOpen] = React.useState(false);
+  let navigate = useNavigate();
 
   React.useEffect(() => {
     AOS.init();
@@ -65,12 +67,17 @@ const PartnerWithUs = () => {
               <Button className="hero_btn partner_btn" onClick={handleOpen}>
                 Partner with us
               </Button>
-              <Button className="hero_btn">About us</Button>
+              <Button
+                className="hero_btn"
+                onClick={() => navigate("/about-us")}
+              >
+                About us
+              </Button>
             </div>
           </div>
           <div className="partner_us_img">
             <img
-              src="https://images.pexels.com/photos/6998462/pexels-photo-6998462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              src="https://cdn.pixabay.com/photo/2015/02/25/23/13/solidarity-649713_960_720.jpg"
               alt="Partner with us oxtel"
             />
           </div>
