@@ -14,6 +14,18 @@ import HouseListing from "../../components/HouseListing/HouseListing";
 import "./ExploreResidences.css";
 
 const ExploreResidences = () => {
+  const [sortByPrice, setSortByPrice] = React.useState('');
+  const [filterByGender, setFilterByGender] = React.useState('');
+
+  const handleChange = (event) => {
+    const { name , value } = event.target;
+    if(name === "sortByPrice"){
+      setSortByPrice(value);
+    }
+    else if(name === "filterByGender"){
+      setFilterByGender(value);
+    }
+  };
   React.useEffect(() => {
     window.scroll(0, 0);
     AOS.init();
@@ -25,7 +37,11 @@ const ExploreResidences = () => {
       <section className='explore_residences' data-aos="fade-up" data-aos-duration="1500">
         <Box className='wrapper'>
           <Box className='explore_residences_wrapper'>
-            <Filter />
+            <Filter 
+            handleChange={handleChange} 
+            sortByPrice={sortByPrice} 
+            filterByGender={filterByGender}
+            />
             <Box className='cards_wrapper'>
               <Typography variant='h2'>
                 your second home in &nbsp;
@@ -46,7 +62,7 @@ const ExploreResidences = () => {
                 accusantium alias sint beatae rerum dolorem doloribus quisquam
                 deleniti quae doloremque ad corrupti magnam!
               </ReadMoreLess>
-              <HouseListing />
+              <HouseListing sortByPrice={sortByPrice} filterByGender={filterByGender} />
             </Box>
           </Box>
         </Box>

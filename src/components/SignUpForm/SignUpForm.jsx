@@ -162,7 +162,7 @@ const SignUpForm = (props) => {
         draggable
         pauseOnHover
       />
-      <Box>
+      <Box className="login">
         <Typography className="new_account">Create new account</Typography>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField

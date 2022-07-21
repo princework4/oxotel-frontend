@@ -20,7 +20,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import "./Filter.css";
 
-const Filter = () => {
+const Filter = (props) => {
   const [checkState, setCheckState] = React.useState({
     single: false,
     double: false,
@@ -52,7 +52,7 @@ const Filter = () => {
     <>
       <Box className='desktop_filter_container'>
         <Typography variant='h5'>filters</Typography>
-        <FormControl className='form_control'>
+        {/* <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             property type
           </FormLabel>
@@ -70,27 +70,30 @@ const Filter = () => {
               label='Managed Apartments'
             />
           </RadioGroup>
-        </FormControl>
+        </FormControl> */}
         <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             sort by
           </FormLabel>
           <RadioGroup
             aria-labelledby='demo-radio-buttons-group-label'
-            name='radio-buttons-group'>
+            name='sortByPrice'
+            value={props.sortByPrice}
+            onChange={props.handleChange}
+            >
             <FormControlLabel
-              value='low_price'
+              value='asc'
               control={<Radio />}
               label='Lowest Price First'
             />
             <FormControlLabel
-              value='high_price'
+              value='desc'
               control={<Radio />}
               label='Highest Price First'
             />
           </RadioGroup>
         </FormControl>
-        <Box>
+        {/* <Box>
           <FormControl className='slider_form_control form_control'>
             <FormLabel className='main_label'>price</FormLabel>
             <Box className='slider_price_container'>
@@ -107,14 +110,17 @@ const Filter = () => {
               getAriaValueText={sliderValText}
             />
           </FormControl>
-        </Box>
+        </Box> */}
         <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             gender
           </FormLabel>
           <RadioGroup
             aria-labelledby='demo-radio-buttons-group-label'
-            name='radio-buttons-group'>
+            name='filterByGender'
+            value={props.filterByGender}
+            onChange={props.handleChange}
+            >
             <FormControlLabel
               value='female'
               control={<Radio />}
@@ -128,7 +134,7 @@ const Filter = () => {
             />
           </RadioGroup>
         </FormControl>
-        <FormControl className='form_control'>
+        {/* <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             residence type
           </FormLabel>
@@ -200,7 +206,7 @@ const Filter = () => {
               />
             </FormGroup>
           </FormControl>
-        </Box>
+        </Box> */}
       </Box>
       <Box className='mobile_filter_container'>
         <FormControl sx={{ width: "90%" }}>
@@ -227,7 +233,7 @@ const Filter = () => {
           </Button>
         </Box>
         <Typography variant='h5'>filters</Typography>
-        <FormControl className='form_control'>
+        {/* <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             property type
           </FormLabel>
@@ -245,7 +251,7 @@ const Filter = () => {
               label='Managed Apartments'
             />
           </RadioGroup>
-        </FormControl>
+        </FormControl> */}
         <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             sort by
@@ -265,7 +271,7 @@ const Filter = () => {
             />
           </RadioGroup>
         </FormControl>
-        <Box>
+        {/* <Box>
           <FormControl className='slider_form_control form_control'>
             <FormLabel className='main_label'>price</FormLabel>
             <Box className='slider_price_container'>
@@ -282,7 +288,7 @@ const Filter = () => {
               getAriaValueText={sliderValText}
             />
           </FormControl>
-        </Box>
+        </Box> */}
         <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             gender
@@ -303,7 +309,7 @@ const Filter = () => {
             />
           </RadioGroup>
         </FormControl>
-        <FormControl className='form_control'>
+        {/* <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             residence type
           </FormLabel>
@@ -375,7 +381,7 @@ const Filter = () => {
               />
             </FormGroup>
           </FormControl>
-        </Box>
+        </Box> */}
         <Button
           className='submit_btn'
           variant='contained'
