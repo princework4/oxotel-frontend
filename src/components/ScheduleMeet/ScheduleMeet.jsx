@@ -15,34 +15,39 @@ import {
 } from "@mui/material";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+
+// External library imports
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Custom components imports
 import SwitchForm from "../SwitchForm/SwitchForm";
 import * as Validation from "../../validation/Validation";
 
+// Custom RTK hooks
+import { useAddNewScheduleMeetMutation } from "../../services/Forms";
+
 import "./ScheduleMeet.css";
 
 const ScheduleMeet = () => {
   const [scheduleMeet, setScheduleMeet] = React.useState({
-    fullName: "",
-    mobileNumber: "",
-    userType: "student",
+    full_name: "",
+    mobile_number: "",
+    user_type: "student",
     email: "",
     duration: "",
   });
-  const [date, setDate] = React.useState(new Date());
-  const [time, setTime] = React.useState(null);
+  const [dateTimeValue, setDateTimeValue] = React.useState(new Date());
 
   const [scheduleMeetErr, setScheduleMeetErr] = React.useState({
-    fullNameErr: "",
-    mobileNumberErr: "",
+    full_nameErr: "",
+    mobile_numberErr: "",
     emailErr: "",
     durationErr: "",
-    preferredDateErr: "",
-    preferredTimeErr: "",
+    preferredDateTimeErr: "",
   });
+  const [addScheduleMeet] = useAddNewScheduleMeetMutation();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -51,8 +56,8 @@ const ScheduleMeet = () => {
       return {
         ...preVal,
         [name]: value,
-        preferredDate: date,
-        preferredTime: time,
+        preferred_date: dateTimeValue?.toLocaleDateString(),
+        preferred_time: dateTimeValue?.toLocaleTimeString(),
       };
     });
   };
@@ -66,49 +71,72 @@ const ScheduleMeet = () => {
     });
   };
 
-  const submitForm = () => {
-    console.log("schedule meet", scheduleMeet);
-    setScheduleMeet({
-      fullName: "",
-      mobileNumber: "",
-      userType: "student",
-      email: "",
-      duration: "",
-    });
-    setDate(new Date());
-    setTime(null);
+  const submitForm = async () => {
+    const data = await addScheduleMeet(scheduleMeet);
+    console.log("scheduleMeet", scheduleMeet);
+
+    if (data?.data?.success) {
+      setScheduleMeet({
+        full_name: "",
+        mobile_number: "",
+        user_type: "student",
+        email: "",
+        duration: "",
+      });
+      setDateTimeValue(new Date());
+      toast.success(
+        `Response has been submitted successfully! We will get back to you shortly.`,
+        {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+    } else {
+      toast.error(`Failed to submit the response. Please try again later.`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   const handleSubmitForm = () => {
     handleFormFieldsErr(
-      "fullNameErr",
-      Validation.validateFullName(scheduleMeet.fullName),
+      "full_nameErr",
+      Validation.validateFullName(scheduleMeet.full_name)
     );
     handleFormFieldsErr(
-      "mobileNumberErr",
-      Validation.validateMobileNumber(scheduleMeet.mobileNumber),
+      "mobile_numberErr",
+      Validation.validateMobileNumber(scheduleMeet.mobile_number)
     );
     handleFormFieldsErr(
       "emailErr",
-      Validation.validateEmail(scheduleMeet.email),
+      Validation.validateEmail(scheduleMeet.email)
     );
     handleFormFieldsErr(
       "durationErr",
-      Validation.validateDropdown(scheduleMeet.duration),
+      Validation.validateDropdown(scheduleMeet.duration)
     );
     handleFormFieldsErr(
-      "preferredDateErr",
-      Validation.validateDate(scheduleMeet.date),
+      "preferredDateTimeErr",
+      Validation.validateDateTime(scheduleMeet.dateTimeValue)
     );
-    handleFormFieldsErr("preferredTimeErr", Validation.validateTime(time));
 
     if (
-      scheduleMeet.fullName !== "" &&
-      scheduleMeet.mobileNumber !== "" &&
+      scheduleMeet.full_name !== "" &&
+      scheduleMeet.mobile_number !== "" &&
       scheduleMeet.email !== "" &&
       scheduleMeet.duration !== "" &&
-      date !== "" &&
-      time !== ""
+      dateTimeValue !== ""
     ) {
       submitForm();
     }
@@ -121,62 +149,76 @@ const ScheduleMeet = () => {
 
   return (
     <>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <SwitchForm ObjData={objData}>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
-            type='text'
-            name='fullName'
-            label='Full Name *'
-            variant='outlined'
-            value={scheduleMeet.fullName}
+            type="text"
+            name="full_name"
+            label="Full Name *"
+            variant="outlined"
+            value={scheduleMeet.full_name}
             onChange={handleChange}
           />
-          {scheduleMeetErr.fullNameErr ? (
-            <FormHelperText error>{scheduleMeetErr.fullNameErr}</FormHelperText>
-          ) : null}
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-          <TextField
-            type='tel'
-            name='mobileNumber'
-            label='Mobile Number *'
-            variant='outlined'
-            value={scheduleMeet.mobileNumber}
-            onChange={handleChange}
-          />
-          {scheduleMeetErr.mobileNumberErr ? (
+          {scheduleMeetErr.full_nameErr ? (
             <FormHelperText error>
-              {scheduleMeetErr.mobileNumberErr}
+              {scheduleMeetErr.full_nameErr}
             </FormHelperText>
           ) : null}
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-          <FormLabel id='demo-row-radio-buttons-group-label'>I'm a</FormLabel>
+          <TextField
+            type="tel"
+            name="mobile_number"
+            label="Mobile Number *"
+            variant="outlined"
+            value={scheduleMeet.mobile_number}
+            onChange={handleChange}
+          />
+          {scheduleMeetErr.mobile_numberErr ? (
+            <FormHelperText error>
+              {scheduleMeetErr.mobile_numberErr}
+            </FormHelperText>
+          ) : null}
+        </FormControl>
+        <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
+          <FormLabel id="demo-row-radio-buttons-group-label">I'm a</FormLabel>
           <RadioGroup
             row
-            aria-labelledby='demo-row-radio-buttons-group-label'
-            className='residence_type'
-            name='userType'
-            value={scheduleMeet.userType}
-            onChange={handleChange}>
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            className="residence_type"
+            name="user_type"
+            value={scheduleMeet.user_type}
+            onChange={handleChange}
+          >
             <FormControlLabel
-              value='student'
+              value="student"
               control={<Radio />}
-              label='Student'
+              label="Student"
             />
             <FormControlLabel
-              value='working_professional'
+              value="working_professional"
               control={<Radio />}
-              label='Working Professional'
+              label="Working Professional"
             />
           </RadioGroup>
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
-            type='email'
-            name='email'
-            label='Email *'
-            variant='outlined'
+            type="email"
+            name="email"
+            label="Email *"
+            variant="outlined"
             value={scheduleMeet.email}
             onChange={handleChange}
           />
@@ -185,14 +227,15 @@ const ScheduleMeet = () => {
           ) : null}
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
-          <InputLabel id='demo-simple-select-label'>Duration *</InputLabel>
+          <InputLabel id="demo-simple-select-label">Duration *</InputLabel>
           <Select
-            name='duration'
-            labelId='demo-simple-select-label'
-            id='demo-simple-select'
+            name="duration"
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
             value={scheduleMeet.duration}
-            label='Duration'
-            onChange={handleChange}>
+            label="Duration"
+            onChange={handleChange}
+          >
             <MenuItem value={"less_than_3_months"}>Less than 3 months</MenuItem>
             <MenuItem value={"3-6_months"}>3 - 6 months</MenuItem>
             <MenuItem value={"more_than_6_months"}>More than 6 months</MenuItem>
@@ -203,42 +246,20 @@ const ScheduleMeet = () => {
         </FormControl>
         <FormControl
           sx={{ m: 1, minWidth: 120 }}
-          className='preferred_date'
-          fullWidth>
+          className="preferred_date_time"
+          fullWidth
+        >
           <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <DatePicker
-              disablePast
-              label='Preferred Date *'
-              openTo='year'
-              views={["year", "month", "day"]}
-              value={date}
-              onChange={(newValue) => {
-                setDate(newValue);
-              }}
+            <DateTimePicker
+              label="Preferred Date and Time"
+              value={dateTimeValue}
+              onChange={(newValue) => setDateTimeValue(newValue)}
               renderInput={(params) => <TextField {...params} />}
             />
           </LocalizationProvider>
-          {scheduleMeetErr.preferredDateErr ? (
+          {scheduleMeetErr.preferredDateTimeErr ? (
             <FormHelperText error>
-              {scheduleMeetErr.preferredDateErr}
-            </FormHelperText>
-          ) : null}
-        </FormControl>
-        <FormControl
-          sx={{ m: 1, minWidth: 120 }}
-          className='preferred_time'
-          fullWidth>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <TimePicker
-              label='Prefered Time *'
-              value={time}
-              onChange={(newValue) => setTime(newValue)}
-              renderInput={(params) => <TextField {...params} />}
-            />
-          </LocalizationProvider>
-          {scheduleMeetErr.preferredTimeErr ? (
-            <FormHelperText error>
-              {scheduleMeetErr.preferredTimeErr}
+              {scheduleMeetErr.preferredDateTimeErr}
             </FormHelperText>
           ) : null}
         </FormControl>

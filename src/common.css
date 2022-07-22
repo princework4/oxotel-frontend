@@ -288,6 +288,11 @@ h6 {
   text-transform: capitalize;
 }
 
+.MuiPopover-paper,
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover-paper {
+  border-radius: 30px !important;
+}
+
 @media (max-width: 2560px) {
   body {
     font-size: 18px;

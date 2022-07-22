@@ -28,6 +28,12 @@ export const dropDownApi = createApi({
         method: "GET",
       }),
     }),
+    getListOfGender: builder.query({
+      query: () => ({
+        url: "gender/",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -36,4 +42,5 @@ export const {
   useGetListOfLocalityQuery,
   useGetListOfDurationQuery,
   useGetListOfOccupancyQuery,
+  useGetListOfGenderQuery,
 } = dropDownApi;

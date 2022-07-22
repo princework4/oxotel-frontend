@@ -1,8 +1,8 @@
 const emailRegexPattern = new RegExp(
-  /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,
+  /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
 );
 const passwordRegexPattern = new RegExp(
-  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})",
+  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
 );
 const alphaCharRegex = /^[a-zA-Z ]*$/;
 const phoneNo = /^\d{10}$/;
@@ -115,14 +115,14 @@ export function validateDate(date) {
   return dateError;
 }
 
-export function validateTime(time) {
-  let timeError = "";
-  if (time === "") {
-    timeError = "*This field is required";
+export function validateDateTime(dateTime) {
+  let dateTimeError = "";
+  if (dateTime === "") {
+    dateTimeError = "*This field is required";
   } else {
-    timeError = "";
+    dateTimeError = "";
   }
-  return timeError;
+  return dateTimeError;
 }
 
 export function validateUsername(username) {
@@ -152,7 +152,7 @@ export function validatePassword(password) {
 
 export function validateConfirmPassword(password, confirmPassword) {
   let confirmPasswordError = "";
-  if (confirmPassword === "" || !confirmPassword.trim()) {
+  if (confirmPassword === "" || !confirmPassword?.trim()) {
     confirmPasswordError = "*This field is required";
   } else if (password !== confirmPassword) {
     confirmPasswordError = "*Password does not match";

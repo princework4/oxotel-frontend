@@ -4,6 +4,7 @@ import { authApi } from "../services/Auth";
 import { formsApi } from "../services/Forms";
 import { housesApi } from "../services/Houses";
 import { dropDownApi } from "../services/DropDown";
+import authReducer from "../features/auth/authSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,13 +12,14 @@ export const store = configureStore({
     [formsApi.reducerPath]: formsApi.reducer,
     [housesApi.reducerPath]: housesApi.reducer,
     [dropDownApi.reducerPath]: dropDownApi.reducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       authApi.middleware,
       dropDownApi.middleware,
       housesApi.middleware,
-      formsApi.middleware,
+      formsApi.middleware
     ),
 });
 

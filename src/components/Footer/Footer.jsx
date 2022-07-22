@@ -2,8 +2,10 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import "./Footer.css";
-import {  Divider } from "@mui/material";
-import { Link } from "react-router-dom"
+import { Divider } from "@mui/material";
+import { Link } from "react-router-dom";
+import RequestCallback from "../RequestCallback";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -36,9 +38,10 @@ const Footer = () => {
                 <p>+91 9999 999 999</p>
               </Box>
               <Box>
-                <button primary variant="contained" className="hero_btn">
+                <RequestCallback />
+                {/* <button primary variant="contained" className="hero_btn">
                   Book now
-                </button>
+                </button> */}
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
@@ -46,14 +49,10 @@ const Footer = () => {
                 <h3>Links</h3>
               </Box>
               <Box>
-                <Link to="/about-us">
-                  About Us
-                </Link>
+                <Link to="/about-us">About Us</Link>
               </Box>
               <Box>
-                <Link to="/partner">
-                  Partner
-                </Link>
+                <Link to="/partner">Partner</Link>
               </Box>
             </Grid>
           </Grid>

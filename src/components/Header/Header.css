@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: transparent ;
+    background-color: transparent;
     -webkit-transition: 0.5s ease-in-out;
     -moz-transition: 0.5s ease-in-out;
     -o-transition: 0.5s ease-in-out;
@@ -28,8 +28,9 @@
     max-width: 5em;
     width: 100%;
 }
+
 .header h1 img,
-.mobile_header h1 img{
+.mobile_header h1 img {
     height: 70px;
 }
 
@@ -187,11 +188,12 @@ nav li a.active {
 #menuToggle .checked~ul {
     transform: none;
 }
-.close_icon_wrapper{
-        text-align: end;
+
+.close_icon_wrapper {
+    text-align: end;
 }
 
-.hero_btn{
+.hero_btn {
     color: var(--primary);
     border: 2px solid var(--primary);
     background: none;
@@ -204,11 +206,15 @@ nav li a.active {
     transition: all 0.5s ease-in-out;
 }
 
-.hero_btn:hover{
+.hero_btn:hover {
     background-color: var(--primary);
     color: var(--white);
 }
-  
+
+/* .login_signup {
+    max-height: 450px;
+} */
+
 @media (max-width: 768px) {
     #menu {
         width: 100%;

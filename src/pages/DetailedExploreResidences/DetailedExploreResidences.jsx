@@ -13,6 +13,8 @@ import { Box, Button, Paper, Typography } from "@mui/material";
 import ReserveNow from "../../components/ReserveNow";
 import ScheduleMeet from "../../components/ScheduleMeet";
 import Loader from "../../components/Loader";
+import ImageSlider from "../../components/Slider";
+import { HeroSliderSettings } from "../../utils/SliderSetting/SliderSetting";
 
 // Custom RTK hooks
 import { useGetDetailOfHouseQuery } from "../../services/Houses";
@@ -70,9 +72,12 @@ const DetailedExploreResidences = () => {
                 </Box>
               </Box>
               <Box className="banner_mobile_view">
-                {data.img.map((img, index) => {
-                  return <Box component="img" src={img} key={index} />;
-                })}
+                {data?.img && (
+                  <ImageSlider
+                    settings={HeroSliderSettings}
+                    images={data.img}
+                  />
+                )}
               </Box>
               <Box className="explore_residences_details">
                 <Box className="explore_residences_details_left_section">
@@ -181,15 +186,15 @@ const DetailedExploreResidences = () => {
                   <Typography gutterBottom variant="h5" className="price">
                     ₹{data.price} /mo*
                   </Typography>
-                  {/* <Box className='available_occupancy'>
-                    <Typography gutterBottom variant='h5'>
+                  <Box className="available_occupancy">
+                    <Typography gutterBottom variant="h5">
                       available occupancies
                     </Typography>
-                    <Box className='available_occupancy_wrapper'>
-                      {data.available_occupancies.map((available_occupancy) => {
+                    <Box className="available_occupancy_wrapper">
+                      {data.occupancy.map((available_occupancy) => {
                         return (
                           <Box>
-                            <Box component='img' src={Bed} />
+                            <Box component="img" src={Bed} />
                             <Typography>{available_occupancy.name}</Typography>
                             <Typography>occupancy</Typography>
                             <Typography>
@@ -199,7 +204,7 @@ const DetailedExploreResidences = () => {
                         );
                       })}
                     </Box>
-                  </Box> */}
+                  </Box>
                   <Box className="button_wrapper">
                     <Button
                       className={leftBtn ? "active_btn" : "default_button"}

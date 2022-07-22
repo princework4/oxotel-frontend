@@ -13,14 +13,14 @@ export const formsApi = createApi({
     }),
     addNewReserveNow: builder.mutation({
       query: (reserveNowData) => ({
-        url: "reserve/",
+        url: "reserve_now/",
         method: "POST",
         body: reserveNowData,
       }),
     }),
     addNewScheduleMeet: builder.mutation({
       query: (scheduleMeetData) => ({
-        url: "schedule/",
+        url: "schedule_meet/",
         method: "POST",
         body: scheduleMeetData,
       }),

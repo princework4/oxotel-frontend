@@ -5,55 +5,46 @@ import {
   Box,
   Button,
   FormControl,
-  FormControlLabel,
   FormHelperText,
-  FormLabel,
-  InputLabel,
-  MenuItem,
-  Modal,
-  Radio,
-  RadioGroup,
-  Select,
   TextField,
   Typography,
 } from "@mui/material";
 
+// External library imports
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // Custom components imports
-import ModalForm from "../ModalForm";
 import * as Validation from "../../validation/Validation";
+
+// Custom RTK hooks
+import { useRegisterMutation } from "../../services/Auth";
+
+// Redux Imports
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../features/auth/authSlice";
 
 import "./SignUpForm.css";
 
 const SignUpForm = (props) => {
-  // const [open, setOpen] = React.useState(false);
   const [signUpdata, setSignUpData] = React.useState({
-    userName: "",
+    username: "",
+    name: "",
     email: "",
-    mobileNumber: "",
+    mobile: "",
     password: "",
-    confirmPassword: "",
+    cpassword: "",
   });
   const [signUpdataErr, setSignUpdataErr] = React.useState({
-    userNameErr: "",
+    usernameErr: "",
+    nameErr: "",
     emailErr: "",
-    mobileNumberErr: "",
+    mobileErr: "",
     passwordErr: "",
-    confirmPasswordErr: "",
+    cpasswordErr: "",
   });
-
-  // const handleOpen = () => setOpen(true);
-  const handleClose = () => props.setOpen(false);
-
-  const handleCloseForm = () => {
-    setSignUpData({
-      userName: "",
-      email: "",
-      mobileNumber: "",
-      password: "",
-      confirmPassword: "",
-    });
-    handleClose();
-  };
+  const [registerNewUser] = useRegisterMutation();
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -75,69 +66,128 @@ const SignUpForm = (props) => {
     });
   };
 
-  const submitForm = () => {
-    setSignUpData({
-      userName: "",
-      email: "",
-      mobileNumber: "",
-      password: "",
-      confirmPassword: "",
-    });
-    handleClose();
+  const submitForm = async () => {
+    const data = await registerNewUser(signUpdata);
+
+    if (data?.data?.success) {
+      dispatch(setCredentials({ token: data?.data?.success }));
+      localStorage.setItem("token", data?.data?.success);
+      setSignUpData({
+        username: "",
+        name: "",
+        email: "",
+        mobile: "",
+        password: "",
+        cpassword: "",
+      });
+      props.handleClose();
+      toast.success(`New user registered successfully.`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      toast.error(`Failed to register new user. Please try again later.`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   const handleSubmitForm = () => {
     handleFormFieldsErr(
-      "userNameErr",
-      Validation.validateUsername(signUpdata.userName)
+      "usernameErr",
+      Validation.validateUsername(signUpdata.username)
+    );
+    handleFormFieldsErr(
+      "nameErr",
+      Validation.validateFullName(signUpdata.name)
     );
     handleFormFieldsErr("emailErr", Validation.validateEmail(signUpdata.email));
     handleFormFieldsErr(
-      "mobileNumberErr",
-      Validation.validateMobileNumber(signUpdata.mobileNumber)
+      "mobileErr",
+      Validation.validateMobileNumber(signUpdata.mobile)
     );
     handleFormFieldsErr(
       "passwordErr",
-      Validation.validateDropdown(signUpdata.password)
+      Validation.validatePassword(signUpdata.password)
     );
     handleFormFieldsErr(
-      "confirmPasswordErr",
-      Validation.validateDropdown(signUpdata.confirmPassword)
+      "cpasswordErr",
+      Validation.validateConfirmPassword(
+        signUpdata.password,
+        signUpdata.cpassword
+      )
     );
 
     if (
-      signUpdata.fullName !== "" &&
+      signUpdata.username !== "" &&
+      signUpdata.name !== "" &&
       signUpdata.email !== "" &&
-      signUpdata.city !== "" &&
-      signUpdata.locality !== "" &&
-      signUpdata.duration !== ""
+      signUpdata.mobile !== "" &&
+      signUpdata.password !== "" &&
+      signUpdata.cpassword !== ""
+
+      // check functionality after making an error
+      // signUpdataErr.usernameErr === "" &&
+      // signUpdataErr.nameErr === "" &&
+      // signUpdataErr.emailErr === "" &&
+      // signUpdataErr.mobileErr === "" &&
+      // signUpdataErr.passwordErr === "" &&
+      // signUpdataErr.cpasswordErr === ""
     ) {
       submitForm();
     }
   };
 
-  const objData = {
-    h5: "Request Callback",
-    handleClose: handleCloseForm,
-    handleSubmit: handleSubmitForm,
-    btn_text: "SUBMIT",
-  };
-
   return (
     <>
-      <Box className="login">
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <Box>
         <Typography className="new_account">Create new account</Typography>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
             type="text"
-            name="userName"
-            label="User Name *"
+            name="username"
+            label="Username *"
             variant="outlined"
-            value={signUpdata.userName}
+            value={signUpdata.username}
             onChange={handleChange}
           />
-          {signUpdataErr.userNameErr ? (
-            <FormHelperText error>{signUpdataErr.userNameErr}</FormHelperText>
+          {signUpdataErr.usernameErr ? (
+            <FormHelperText error>{signUpdataErr.usernameErr}</FormHelperText>
+          ) : null}
+        </FormControl>
+        <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
+          <TextField
+            type="text"
+            name="name"
+            label="Full Name *"
+            variant="outlined"
+            value={signUpdata.name}
+            onChange={handleChange}
+          />
+          {signUpdataErr.nameErr ? (
+            <FormHelperText error>{signUpdataErr.nameErr}</FormHelperText>
           ) : null}
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
@@ -159,13 +209,11 @@ const SignUpForm = (props) => {
             name="mobile"
             label="Mobile Number *"
             variant="outlined"
-            value={signUpdata.mobileNumber}
+            value={signUpdata.mobile}
             onChange={handleChange}
           />
-          {signUpdataErr.mobileNumberErr ? (
-            <FormHelperText error>
-              {signUpdataErr.mobileNumberErr}
-            </FormHelperText>
+          {signUpdataErr.mobileErr ? (
+            <FormHelperText error>{signUpdataErr.mobileErr}</FormHelperText>
           ) : null}
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
@@ -184,16 +232,14 @@ const SignUpForm = (props) => {
         <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
           <TextField
             type="password"
-            name="confirmPassword"
+            name="cpassword"
             label="Confirm Password *"
             variant="outlined"
-            value={signUpdata.confirmPassword}
+            value={signUpdata.cpassword}
             onChange={handleChange}
           />
-          {signUpdataErr.confirmPasswordErr ? (
-            <FormHelperText error>
-              {signUpdataErr.confirmPasswordErr}
-            </FormHelperText>
+          {signUpdataErr.cpasswordErr ? (
+            <FormHelperText error>{signUpdataErr.cpasswordErr}</FormHelperText>
           ) : null}
         </FormControl>
         <Button
@@ -210,5 +256,3 @@ const SignUpForm = (props) => {
 };
 
 export default SignUpForm;
-
-// export default LogInForm;
