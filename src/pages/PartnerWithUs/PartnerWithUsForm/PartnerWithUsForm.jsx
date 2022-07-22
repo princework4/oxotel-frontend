@@ -5,15 +5,7 @@ import {
   Box,
   Button,
   FormControl,
-  FormControlLabel,
   FormHelperText,
-  FormLabel,
-  InputLabel,
-  MenuItem,
-  Modal,
-  Radio,
-  RadioGroup,
-  Select,
   TextField,
   Typography,
 } from "@mui/material";
@@ -30,12 +22,10 @@ import "./PartnerWithUsForm.css";
 import { useAddPartnerWithUsMutation } from "../../../services/Forms";
 
 const PartnerWithUsForm = (props) => {
-  // const [open, setOpen] = React.useState(false);
   const [partnerWithUsFormdata, setPartnerWithUsFormData] = React.useState({
     full_name: "",
     email: "",
     mobile_number: "",
-    partnership_type: "test",
     message: "",
   });
 
@@ -47,19 +37,7 @@ const PartnerWithUsForm = (props) => {
       mobile_numberErr: "",
     });
 
-  // const handleOpen = () => setOpen(true);
   const handleClose = () => props.setOpen(false);
-
-  const handleCloseForm = () => {
-    setPartnerWithUsFormData({
-      full_name: "",
-      email: "",
-      mobile_number: "",
-      partnership_type: "Test",
-      message: "",
-    });
-    handleClose();
-  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -81,18 +59,6 @@ const PartnerWithUsForm = (props) => {
     });
   };
 
-  // const submitForm = () => {
-  //   setPartnerWithUsFormData({
-  //     firstName: "",
-  //     lastName: "",
-  //     email: "",
-  //     mobileNumber: "",
-  //     partnershipType: "",
-  //     messageText: "",
-  //   });
-  //   handleClose();
-  // };
-
   const submitForm = async () => {
     const data = await addPartnerWithUs(partnerWithUsFormdata);
     console.log("data", data);
@@ -102,7 +68,6 @@ const PartnerWithUsForm = (props) => {
         full_name: "",
         email: "",
         mobile_number: "",
-        partnership_type: "test",
         message: "",
       });
       handleClose();
@@ -110,7 +75,7 @@ const PartnerWithUsForm = (props) => {
         `Response has been submitted successfully! We will get back to you shortly.`,
         {
           position: "top-center",
-          autoClose: 3000,
+          autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -119,9 +84,9 @@ const PartnerWithUsForm = (props) => {
         }
       );
     } else {
-      toast.error(`Failed to submit the response. Please try again later.`, {
+      toast.error(`${data?.data?.error}`, {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -132,41 +97,71 @@ const PartnerWithUsForm = (props) => {
   };
 
   const handleSubmitForm = () => {
-    console.log("handleSubmitForm");
-    handleFormFieldsErr(
-      "full_nameErr",
-      Validation.validateFullName(partnerWithUsFormdata.full_name)
-    );
-    handleFormFieldsErr(
-      "emailErr",
-      Validation.validateEmail(partnerWithUsFormdata.email)
-    );
-    handleFormFieldsErr(
-      "mobileNumberErr",
-      Validation.validateMobileNumber(partnerWithUsFormdata.mobile_number)
-    );
+    let formIsValid = true;
+    if (
+      Validation.validateFullName(partnerWithUsFormdata.full_name).length > 0
+    ) {
+      handleFormFieldsErr(
+        "full_nameErr",
+        Validation.validateFullName(partnerWithUsFormdata.full_name)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("full_nameErr", "");
+    }
+
+    if (Validation.validateEmail(partnerWithUsFormdata.email).length > 0) {
+      handleFormFieldsErr(
+        "emailErr",
+        Validation.validateEmail(partnerWithUsFormdata.email)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("emailErr", "");
+    }
 
     if (
-      partnerWithUsFormdata.full_name !== "" &&
-      partnerWithUsFormdata.email !== "" &&
-      partnerWithUsFormdata.mobile_number !== ""
+      Validation.validateEmail(partnerWithUsFormdata.mobile_number).length > 0
     ) {
+      handleFormFieldsErr(
+        "mobile_numberErr",
+        Validation.validateMobileNumber(partnerWithUsFormdata.mobile_number)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("mobile_numberErr", "");
+    }
+    // handleFormFieldsErr(
+    //   "full_nameErr",
+    //   Validation.validateFullName(partnerWithUsFormdata.full_name)
+    // );
+    // handleFormFieldsErr(
+    //   "emailErr",
+    //   Validation.validateEmail(partnerWithUsFormdata.email)
+    // );
+    // handleFormFieldsErr(
+    //   "mobileNumberErr",
+    //   Validation.validateMobileNumber(partnerWithUsFormdata.mobile_number)
+    // );
+
+    // if (
+    //   partnerWithUsFormdata.full_name !== "" &&
+    //   partnerWithUsFormdata.email !== "" &&
+    //   partnerWithUsFormdata.mobile_number !== ""
+    // ) {
+    //   submitForm();
+    // }
+
+    if (formIsValid) {
       submitForm();
     }
-  };
-
-  const objData = {
-    h5: "Request Callback",
-    handleClose: handleCloseForm,
-    handleSubmit: handleSubmitForm,
-    btn_text: "SUBMIT",
   };
 
   return (
     <>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -249,5 +244,3 @@ const PartnerWithUsForm = (props) => {
 };
 
 export default PartnerWithUsForm;
-
-// export default LogInForm;

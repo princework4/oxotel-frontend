@@ -73,7 +73,6 @@ const ScheduleMeet = () => {
 
   const submitForm = async () => {
     const data = await addScheduleMeet(scheduleMeet);
-    console.log("scheduleMeet", scheduleMeet);
 
     if (data?.data?.success) {
       setScheduleMeet({
@@ -88,7 +87,7 @@ const ScheduleMeet = () => {
         `Response has been submitted successfully! We will get back to you shortly.`,
         {
           position: "top-center",
-          autoClose: 3000,
+          autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -97,9 +96,9 @@ const ScheduleMeet = () => {
         }
       );
     } else {
-      toast.error(`Failed to submit the response. Please try again later.`, {
+      toast.error(`${data?.data?.error}`, {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -110,34 +109,61 @@ const ScheduleMeet = () => {
   };
 
   const handleSubmitForm = () => {
-    handleFormFieldsErr(
-      "full_nameErr",
-      Validation.validateFullName(scheduleMeet.full_name)
-    );
-    handleFormFieldsErr(
-      "mobile_numberErr",
-      Validation.validateMobileNumber(scheduleMeet.mobile_number)
-    );
-    handleFormFieldsErr(
-      "emailErr",
-      Validation.validateEmail(scheduleMeet.email)
-    );
-    handleFormFieldsErr(
-      "durationErr",
-      Validation.validateDropdown(scheduleMeet.duration)
-    );
-    handleFormFieldsErr(
-      "preferredDateTimeErr",
-      Validation.validateDateTime(scheduleMeet.dateTimeValue)
-    );
+    let formIsValid = true;
+
+    if (Validation.validateFullName(scheduleMeet.full_name).length > 0) {
+      handleFormFieldsErr(
+        "full_nameErr",
+        Validation.validateFullName(scheduleMeet.full_name)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("full_nameErr", "");
+    }
 
     if (
-      scheduleMeet.full_name !== "" &&
-      scheduleMeet.mobile_number !== "" &&
-      scheduleMeet.email !== "" &&
-      scheduleMeet.duration !== "" &&
-      dateTimeValue !== ""
+      Validation.validateMobileNumber(scheduleMeet.mobile_number).length > 0
     ) {
+      handleFormFieldsErr(
+        "mobile_numberErr",
+        Validation.validateMobileNumber(scheduleMeet.mobile_number)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("mobile_numberErr", "");
+    }
+
+    if (Validation.validateEmail(scheduleMeet.email).length > 0) {
+      handleFormFieldsErr(
+        "emailErr",
+        Validation.validateEmail(scheduleMeet.email)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("emailErr", "");
+    }
+
+    if (Validation.validateDropdown(scheduleMeet.duration).length > 0) {
+      handleFormFieldsErr(
+        "durationErr",
+        Validation.validateDropdown(scheduleMeet.duration)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("durationErr", "");
+    }
+
+    if (Validation.validateDateTime(scheduleMeet.dateTimeValue).length > 0) {
+      handleFormFieldsErr(
+        "preferredDateTimeErr",
+        Validation.validateDateTime(scheduleMeet.dateTimeValue)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("preferredDateTimeErr", "");
+    }
+
+    if (formIsValid) {
       submitForm();
     }
   };
@@ -151,7 +177,7 @@ const ScheduleMeet = () => {
     <>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

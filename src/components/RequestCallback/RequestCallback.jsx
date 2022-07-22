@@ -27,11 +27,7 @@ import * as Validation from "../../validation/Validation";
 
 // Custom RTK hooks
 import { useAddNewRequestCallbackMutation } from "../../services/Forms";
-import {
-  useGetListOfCityQuery,
-  useGetListOfLocalityQuery,
-  useGetListOfDurationQuery,
-} from "../../services/DropDown";
+import { useGetListOfCityQuery } from "../../services/DropDown";
 
 import "./RequestCallback.css";
 
@@ -92,7 +88,6 @@ const RequestCallback = () => {
 
   const submitForm = async () => {
     const data = await addRequestCallback(requestCallback);
-    console.log("test", data);
 
     if (data?.data?.success) {
       setRequestCallback({
@@ -108,7 +103,7 @@ const RequestCallback = () => {
         `Response has been submitted successfully! We will get back to you shortly.`,
         {
           position: "top-center",
-          autoClose: 3000,
+          autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -117,9 +112,9 @@ const RequestCallback = () => {
         }
       );
     } else {
-      toast.error(`Failed to submit the response. Please try again later.`, {
+      toast.error(`${data?.data?.error}`, {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -130,34 +125,58 @@ const RequestCallback = () => {
   };
 
   const handleSubmitForm = () => {
-    handleFormFieldsErr(
-      "full_nameErr",
-      Validation.validateFullName(requestCallback.full_name)
-    );
-    handleFormFieldsErr(
-      "emailErr",
-      Validation.validateEmail(requestCallback.email)
-    );
-    handleFormFieldsErr(
-      "cityErr",
-      Validation.validateDropdown(requestCallback.city)
-    );
-    handleFormFieldsErr(
-      "localityErr",
-      Validation.validateDropdown(requestCallback.locality)
-    );
-    handleFormFieldsErr(
-      "durationErr",
-      Validation.validateDropdown(requestCallback.duration)
-    );
+    let formIsValid = true;
+    if (Validation.validateFullName(requestCallback.full_name).length > 0) {
+      handleFormFieldsErr(
+        "full_nameErr",
+        Validation.validateFullName(requestCallback.full_name)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("full_nameErr", "");
+    }
 
-    if (
-      requestCallback.full_name !== "" &&
-      requestCallback.email !== "" &&
-      requestCallback.city !== "" &&
-      requestCallback.locality !== "" &&
-      requestCallback.duration !== ""
-    ) {
+    if (Validation.validateEmail(requestCallback.email).length > 0) {
+      handleFormFieldsErr(
+        "emailErr",
+        Validation.validateEmail(requestCallback.email)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("emailErr", "");
+    }
+
+    if (Validation.validateDropdown(requestCallback.city).length > 0) {
+      handleFormFieldsErr(
+        "cityErr",
+        Validation.validateDropdown(requestCallback.city)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("cityErr", "");
+    }
+
+    if (Validation.validateDropdown(requestCallback.locality).length > 0) {
+      handleFormFieldsErr(
+        "localityErr",
+        Validation.validateDropdown(requestCallback.locality)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("localityErr", "");
+    }
+
+    if (Validation.validateDropdown(requestCallback.duration).length > 0) {
+      handleFormFieldsErr(
+        "durationErr",
+        Validation.validateDropdown(requestCallback.duration)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("durationErr", "");
+    }
+
+    if (formIsValid) {
       submitForm();
     }
   };
@@ -173,7 +192,7 @@ const RequestCallback = () => {
     <>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -223,7 +242,7 @@ const RequestCallback = () => {
             </FormControl>
             <FormControl sx={{ m: 1, minWidth: 120 }} fullWidth>
               <TextField
-                type="email"
+                type="text"
                 name="email"
                 label="Email *"
                 variant="outlined"

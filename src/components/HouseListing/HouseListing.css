@@ -98,7 +98,17 @@
 }
 
 .handle_flex_basis {
-    flex-basis: 60%;
+    flex-basis: 50%;
+}
+
+.house_listing .hero_btn {
+    padding: 1rem 1rem !important;
+}
+
+@media (max-width: 1024px) {
+    .house_listing .hero_btn {
+        padding: 1rem 0.5rem !important;
+    }
 }
 
 @media (max-width: 400px) {
@@ -113,161 +123,3 @@
         flex-basis: 54%;
     }
 }
-
-
-/* @media (max-width: 1024px) {
-    .house_listing .house_price {
-        align-items: flex-end;
-        justify-content: space-between;
-    }
-
-    .house_listing .house_price h5 {
-        font-size: 1.4rem;
-    }
-
-    .house_listing .house_price .css-1t6e9jv-MuiCardActions-root {
-        padding: 7px 7px 0 7px;
-    }
-} */
-
-/* @media (max-width: 600px) {
-    .css-46bh2p-MuiCardContent-root {
-        padding: 12px 16px !important;
-    }
-    .house_card img {
-        height: 200px;
-    }
-    .house_listing .house_heading h5 {
-        font-size: 1.25rem;
-    }
-    .house_listing .house_heading h6, .house_listing .house_price h6 {
-        font-size: 0.9rem
-    }
-    .house_listing .house_occupancy p, .house_listing .house_amenity p {
-        font-size: 0.8rem;
-    }
-    .house_listing .house_price h5 {
-        font-size: 1.2rem;
-    }
-    .house_listing .house_price button {
-        font-size: 0.8rem;
-    }
-    .house_listing .house_amenity p:not(:first-child) {
-        margin-top: 0;
-    }
-    .house_listing .house_price .css-1t6e9jv-MuiCardActions-root {
-        padding: 7px 5px 0 5px;
-    }
-}
-
-@media (max-width: 450px) {
-    .house_card img {
-        height: 150px;
-    }
-    .house_listing .house_heading h5 {
-        font-size: 1.2rem;
-    }
-    .house_listing .house_heading h6, .house_listing .house_price h6 {
-        font-size: 0.8rem
-    }
-    .house_listing .house_occupancy p, .house_listing .house_amenity p {
-        font-size: 0.75rem;
-    }
-    .house_listing .house_price h5 {
-        font-size: 1.1rem;
-    }
-    .house_listing .house_price button {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .house_card img {
-        height: 125px;
-    }
-    .house_listing .house_heading h5 {
-        font-size: 1.1rem;
-    }
-    .house_listing .house_heading h6, .house_listing .house_price h6 {
-        font-size: 0.75rem
-    }
-    .house_listing .house_occupancy p, .house_listing .house_amenity p {
-        font-size: 0.7rem;
-    }
-    .house_listing .house_price h5 {
-        font-size: 0.9rem;
-    }
-    .house_listing .house_price button {
-        font-size: 0.7rem;
-    }
-    .house_listing .house_price button {
-        padding: 6px;
-        font-weight: unset;
-    }
-}
-
-@media (max-width: 375px) {
-    .filter_container .main_label {
-        font-size: 0.65rem;
-    }
-    .filter_container .form_control label span:last-child {
-        font-size: 0.65rem;
-    }
-    .css-46bh2p-MuiCardContent-root {
-        padding: 10px 14px !important;
-    }
-    .house_listing .house_occupancy {
-        margin: 5px 0;
-    }
-    .house_card img {
-        height: 125px;
-    }
-    .house_listing .house_heading h5 {
-        font-size: 1rem;
-    }
-    .house_listing .house_heading h6, .house_listing .house_price h6 {
-        font-size: 0.7rem
-    }
-    .house_listing .house_occupancy p, .house_listing .house_amenity p {
-        font-size: 0.65rem;
-    }
-    .house_listing .house_price h5 {
-        font-size: 0.75rem;
-    }
-    .house_listing .house_price button {
-        padding: 4px 3.5px;
-        font-size: 0.65rem;
-        font-weight: unset;
-    }
-    .house_listing .house_price {
-        padding: 0 10px 16px;
-    }
-}
-
-@media (max-width: 360px) {
-    .house_listing .house_heading h6, .house_listing .house_price h6 {
-        font-size: 0.65rem;;
-    }
-    .house_listing .house_price button {
-        padding: 4px 3px;
-    }
-}
-
-@media (max-width: 345px) {
-    .explore_residences h2, .explore_residences h2 .customize_heading {
-        line-height: 1;
-    }
-    .css-46bh2p-MuiCardContent-root {
-        padding: 10px !important;
-    }
-    .house_listing .house_heading h6, .house_listing .house_price h6 {
-        font-size: 0.6rem;
-    }
-    .house_listing .house_price h5 {
-        font-size: 0.7rem;
-    }
-    .house_listing .house_price button {
-        padding: 4px 2.5px;
-        font-size: 0.6rem;
-    }
-} */

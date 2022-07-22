@@ -88,7 +88,7 @@ const ReserveNow = () => {
         `Response has been submitted successfully! We will get back to you shortly.`,
         {
           position: "top-center",
-          autoClose: 3000,
+          autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -97,9 +97,9 @@ const ReserveNow = () => {
         }
       );
     } else {
-      toast.error(`Failed to submit the response. Please try again later.`, {
+      toast.error(`${data?.data?.error}`, {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -110,33 +110,69 @@ const ReserveNow = () => {
   };
 
   const handleSubmitForm = () => {
-    handleFormFieldsErr(
-      "full_nameErr",
-      Validation.validateFullName(reserveNow.full_name)
-    );
-    handleFormFieldsErr(
-      "mobile_numberErr",
-      Validation.validateMobileNumber(reserveNow.mobile_number)
-    );
-    handleFormFieldsErr("emailErr", Validation.validateEmail(reserveNow.email));
-    handleFormFieldsErr(
-      "occupancyErr",
-      Validation.validateDropdown(reserveNow.occupancy)
-    );
-    handleFormFieldsErr(
-      "genderErr",
-      Validation.validateDropdown(reserveNow.gender)
-    );
-    handleFormFieldsErr("moveInDateErr", Validation.validateDate(date));
+    let formIsValid = true;
 
-    if (
-      reserveNow.full_name !== "" &&
-      reserveNow.mobile_number !== "" &&
-      reserveNow.email !== "" &&
-      reserveNow.occupancy !== "" &&
-      reserveNow.gender !== "" &&
-      reserveNow.moveInDate !== ""
-    ) {
+    if (Validation.validateFullName(reserveNow.full_name).length > 0) {
+      handleFormFieldsErr(
+        "full_nameErr",
+        Validation.validateFullName(reserveNow.full_name)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("full_nameErr", "");
+    }
+
+    if (Validation.validateMobileNumber(reserveNow.mobile_number).length > 0) {
+      handleFormFieldsErr(
+        "mobile_numberErr",
+        Validation.validateMobileNumber(reserveNow.mobile_number)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("mobile_numberErr", "");
+    }
+
+    if (Validation.validateEmail(reserveNow.email).length > 0) {
+      handleFormFieldsErr(
+        "emailErr",
+        Validation.validateEmail(reserveNow.email)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("emailErr", "");
+    }
+
+    if (Validation.validateDropdown(reserveNow.occupancy).length > 0) {
+      handleFormFieldsErr(
+        "occupancyErr",
+        Validation.validateDropdown(reserveNow.occupancy)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("occupancyErr", "");
+    }
+
+    if (Validation.validateDropdown(reserveNow.gender).length > 0) {
+      handleFormFieldsErr(
+        "genderErr",
+        Validation.validateDropdown(reserveNow.gender)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("genderErr", "");
+    }
+
+    if (Validation.validateDate(reserveNow.date).length > 0) {
+      handleFormFieldsErr(
+        "moveInDateErr",
+        Validation.validateDate(reserveNow.date)
+      );
+      formIsValid = false;
+    } else {
+      handleFormFieldsErr("moveInDateErr", "");
+    }
+
+    if (formIsValid) {
       submitForm();
     }
   };
@@ -150,7 +186,7 @@ const ReserveNow = () => {
     <>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
