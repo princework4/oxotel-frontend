@@ -44,6 +44,23 @@ export const housesApi = createApi({
         body: price,
       }),
     }),
+    filterWithAll: builder.query({
+      query: (data) => {
+        // console.log("price : ", price, " \ngender : ", gender);
+        console.log("data service : ", data);
+        return {
+          url:
+            data.sortByPrice && data.filterByGender
+              ? `all_filter/?price=${data.sortByPrice}&gender=${data.filterByGender}`
+              : data.sortByPrice && !data.filterByGender
+              ? `all_filter/?price=${data.sortByPrice}`
+              : !data.sortByPrice && data.filterByGender
+              ? `all_filter/?gender=${data.filterByGender}`
+              : "houses/",
+          method: "GET",
+        };
+      },
+    }),
   }),
 });
 
@@ -54,4 +71,5 @@ export const {
   useFilterHouseWithCityMutation,
   useFilterHouseWithGenderMutation,
   useFilterHouseWithPriceMutation,
+  useFilterWithAllQuery,
 } = housesApi;

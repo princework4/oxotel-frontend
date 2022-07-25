@@ -14,18 +14,21 @@ import HouseListing from "../../components/HouseListing/HouseListing";
 import "./ExploreResidences.css";
 
 const ExploreResidences = () => {
-  const [sortByPrice, setSortByPrice] = React.useState('');
-  const [filterByGender, setFilterByGender] = React.useState('');
+  const [sortByPrice, setSortByPrice] = React.useState("");
+  const [filterByGender, setFilterByGender] = React.useState("");
+  const [filterBySearch, setFilterBySearch] = React.useState("");
 
   const handleChange = (event) => {
-    const { name , value } = event.target;
-    if(name === "sortByPrice"){
+    const { name, value } = event.target;
+    if (name === "sortByPrice") {
       setSortByPrice(value);
-    }
-    else if(name === "filterByGender"){
+    } else if (name === "filterByGender") {
       setFilterByGender(value);
+    } else if (name === "search") {
+      setFilterBySearch(value);
     }
   };
+
   React.useEffect(() => {
     window.scroll(0, 0);
     AOS.init();
@@ -34,18 +37,23 @@ const ExploreResidences = () => {
 
   return (
     <>
-      <section className='explore_residences' data-aos="fade-up" data-aos-duration="1500">
-        <Box className='wrapper'>
-          <Box className='explore_residences_wrapper'>
-            <Filter 
-            handleChange={handleChange} 
-            sortByPrice={sortByPrice} 
-            filterByGender={filterByGender}
+      <section
+        className="explore_residences"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+      >
+        <Box className="wrapper">
+          <Box className="explore_residences_wrapper">
+            <Filter
+              handleChange={handleChange}
+              sortByPrice={sortByPrice}
+              filterByGender={filterByGender}
+              filterBySearch={filterBySearch}
             />
-            <Box className='cards_wrapper'>
-              <Typography variant='h2'>
+            <Box className="cards_wrapper">
+              <Typography variant="h2">
                 your second home in &nbsp;
-                <Typography className='customize_heading'>mumbai</Typography>
+                <Typography className="customize_heading">mumbai</Typography>
               </Typography>
               <ReadMoreLess>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
@@ -62,7 +70,11 @@ const ExploreResidences = () => {
                 accusantium alias sint beatae rerum dolorem doloribus quisquam
                 deleniti quae doloremque ad corrupti magnam!
               </ReadMoreLess>
-              <HouseListing sortByPrice={sortByPrice} filterByGender={filterByGender} />
+              <HouseListing
+                sortByPrice={sortByPrice}
+                filterByGender={filterByGender}
+                filterBySearch={filterBySearch}
+              />
             </Box>
           </Box>
         </Box>

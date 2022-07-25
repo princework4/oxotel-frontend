@@ -10,34 +10,35 @@ import {
   Typography,
 } from "@mui/material";
 
+// External library imports
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-// import ModalForm from "../ModalForm";
+// Custom components imports
 import * as Validation from "../../../validation/Validation";
+
+// Custom RTK hooks
+import { useAddPartnerWithUsMutation } from "../../../services/Forms";
 
 // CSS import
 import "./PartnerWithUsForm.css";
-
-// Services Import
-import { useAddPartnerWithUsMutation } from "../../../services/Forms";
 
 const PartnerWithUsForm = (props) => {
   const [partnerWithUsFormdata, setPartnerWithUsFormData] = React.useState({
     full_name: "",
     email: "",
     mobile_number: "",
+    partnership_type: "dummy",
     message: "",
   });
 
-  const [addPartnerWithUs] = useAddPartnerWithUsMutation();
+  const [addPartnerWithUsData] = useAddPartnerWithUsMutation();
   const [partnerWithUsFormdataErr, setPartnerWithUsFormdataErr] =
     React.useState({
       full_nameErr: "",
       emailErr: "",
       mobile_numberErr: "",
     });
-
-  const handleClose = () => props.setOpen(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -60,8 +61,7 @@ const PartnerWithUsForm = (props) => {
   };
 
   const submitForm = async () => {
-    const data = await addPartnerWithUs(partnerWithUsFormdata);
-    console.log("data", data);
+    const data = await addPartnerWithUsData(partnerWithUsFormdata);
 
     if (data?.data?.success) {
       setPartnerWithUsFormData({
@@ -70,7 +70,7 @@ const PartnerWithUsForm = (props) => {
         mobile_number: "",
         message: "",
       });
-      handleClose();
+      props.handleClose();
       toast.success(
         `Response has been submitted successfully! We will get back to you shortly.`,
         {
@@ -121,7 +121,8 @@ const PartnerWithUsForm = (props) => {
     }
 
     if (
-      Validation.validateEmail(partnerWithUsFormdata.mobile_number).length > 0
+      Validation.validateMobileNumber(partnerWithUsFormdata.mobile_number)
+        .length > 0
     ) {
       handleFormFieldsErr(
         "mobile_numberErr",
@@ -131,26 +132,6 @@ const PartnerWithUsForm = (props) => {
     } else {
       handleFormFieldsErr("mobile_numberErr", "");
     }
-    // handleFormFieldsErr(
-    //   "full_nameErr",
-    //   Validation.validateFullName(partnerWithUsFormdata.full_name)
-    // );
-    // handleFormFieldsErr(
-    //   "emailErr",
-    //   Validation.validateEmail(partnerWithUsFormdata.email)
-    // );
-    // handleFormFieldsErr(
-    //   "mobileNumberErr",
-    //   Validation.validateMobileNumber(partnerWithUsFormdata.mobile_number)
-    // );
-
-    // if (
-    //   partnerWithUsFormdata.full_name !== "" &&
-    //   partnerWithUsFormdata.email !== "" &&
-    //   partnerWithUsFormdata.mobile_number !== ""
-    // ) {
-    //   submitForm();
-    // }
 
     if (formIsValid) {
       submitForm();
@@ -208,7 +189,7 @@ const PartnerWithUsForm = (props) => {
             name="mobile_number"
             label="Mobile Number *"
             variant="outlined"
-            value={partnerWithUsFormdata.mobileNumber}
+            value={partnerWithUsFormdata.mobile_number}
             onChange={handleChange}
           />
           {partnerWithUsFormdataErr.mobile_numberErr ? (

@@ -31,11 +31,11 @@ const DetailedExploreResidences = () => {
   const [rightBtn, setRightBtn] = React.useState(false);
 
   React.useEffect(() => {
-      window.scroll(0, 0);
-      AOS.init();
-      AOS.refresh();
-    }, []);
-   
+    window.scroll(0, 0);
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   const handleLeftBtn = () => {
     setLeftBtn(true);
     setRightBtn(false);
@@ -46,12 +46,15 @@ const DetailedExploreResidences = () => {
     setLeftBtn(false);
   };
 
-  
   return (
     <>
       {!isLoading ? (
         !error && (
-          <section className="detailed_explore_residences" data-aos="fade-up" data-aos-duration="1500">
+          <section
+            className="detailed_explore_residences"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
             <Box className="wrapper">
               <Box className="banner_desktop_view">
                 <Box className="left_gallery">
@@ -167,10 +170,10 @@ const DetailedExploreResidences = () => {
                     </Typography>
                     <Box className="maps_wrapper">
                       <iframe
-                        src={data.map}
-                        title={data.name}
-                        width="90%"
-                        height="300"
+                        src={data?.map}
+                        title={data?.name}
+                        width="100%"
+                        height="400"
                         style={{ border: 0 }}
                         allowFullScreen=""
                         loading="lazy"

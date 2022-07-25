@@ -37,7 +37,7 @@ const Footer = () => {
               <Box>
                 <p>+91 9999 999 999</p>
               </Box>
-              <Box>
+              <Box className="request_callback__container">
                 <RequestCallback />
                 {/* <button primary variant="contained" className="hero_btn">
                   Book now

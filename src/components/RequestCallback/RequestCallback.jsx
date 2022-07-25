@@ -3,7 +3,6 @@ import * as React from "react";
 // MUI imports
 import {
   Box,
-  Button,
   FormControl,
   FormControlLabel,
   FormHelperText,

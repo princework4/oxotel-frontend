@@ -55,3 +55,7 @@
     background-color: var(--primary);
     color: var(--white);
 }
+
+.request_callback__container > * {
+    text-transform: capitalize;
+}

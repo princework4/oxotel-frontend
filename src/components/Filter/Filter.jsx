@@ -46,12 +46,10 @@ const Filter = (props) => {
     return `${value}`;
   }
 
-  const requestSearch = () => {};
-
   return (
     <>
-      <Box className='desktop_filter_container'>
-        <Typography variant='h5'>filters</Typography>
+      <Box className="desktop_filter_container">
+        <Typography variant="h5">filters</Typography>
         {/* <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             property type
@@ -71,25 +69,25 @@ const Filter = (props) => {
             />
           </RadioGroup>
         </FormControl> */}
-        <FormControl className='form_control'>
-          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+        <FormControl className="form_control">
+          <FormLabel id="demo-radio-buttons-group-label" className="main_label">
             sort by
           </FormLabel>
           <RadioGroup
-            aria-labelledby='demo-radio-buttons-group-label'
-            name='sortByPrice'
+            aria-labelledby="demo-radio-buttons-group-label"
+            name="sortByPrice"
             value={props.sortByPrice}
             onChange={props.handleChange}
-            >
+          >
             <FormControlLabel
-              value='asc'
+              value="asc"
               control={<Radio />}
-              label='Lowest Price First'
+              label="Lowest Price First"
             />
             <FormControlLabel
-              value='desc'
+              value="desc"
               control={<Radio />}
-              label='Highest Price First'
+              label="Highest Price First"
             />
           </RadioGroup>
         </FormControl>
@@ -111,26 +109,26 @@ const Filter = (props) => {
             />
           </FormControl>
         </Box> */}
-        <FormControl className='form_control'>
-          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+        <FormControl className="form_control">
+          <FormLabel id="demo-radio-buttons-group-label" className="main_label">
             gender
           </FormLabel>
           <RadioGroup
-            aria-labelledby='demo-radio-buttons-group-label'
-            name='filterByGender'
+            aria-labelledby="demo-radio-buttons-group-label"
+            name="filterByGender"
             value={props.filterByGender}
             onChange={props.handleChange}
-            >
+          >
             <FormControlLabel
-              value='female'
+              value="female"
               control={<Radio />}
-              label='Female'
+              label="Female"
             />
-            <FormControlLabel value='male' control={<Radio />} label='Male' />
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
             <FormControlLabel
-              value='unisex'
+              value="unisex"
               control={<Radio />}
-              label='Unisex'
+              label="Unisex"
             />
           </RadioGroup>
         </FormControl>
@@ -208,31 +206,36 @@ const Filter = (props) => {
           </FormControl>
         </Box> */}
       </Box>
-      <Box className='mobile_filter_container'>
+      <Box className="mobile_filter_container">
         <FormControl sx={{ width: "90%" }}>
           <TextField
-            type='text'
-            name='search'
-            label='Search'
-            variant='outlined'
-            value={searched}
-            onChange={requestSearch}
+            type="text"
+            name="search"
+            label="Search"
+            variant="outlined"
+            value={props.filterBySearch}
+            onChange={props.handleChange}
+            disabled
           />
         </FormControl>
-        <FilterAltIcon onClick={() => setOpenFilter(true)} />
+        <FilterAltIcon
+          onClick={() => setOpenFilter(true)}
+          className="filter_icon"
+        />
       </Box>
       <Box
         className={
           openFilter
             ? "mobile_filter_menu mobile_filter_menu_open"
             : "mobile_filter_menu"
-        }>
-        <Box className='close_icon_wrapper'>
-          <Button onClick={() => setOpenFilter(false)} className='close_icon'>
+        }
+      >
+        <Box className="close_icon_wrapper">
+          <Button onClick={() => setOpenFilter(false)} className="close_icon">
             <CloseIcon />
           </Button>
         </Box>
-        <Typography variant='h5'>filters</Typography>
+        <Typography variant="h5">filters</Typography>
         {/* <FormControl className='form_control'>
           <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
             property type
@@ -252,22 +255,25 @@ const Filter = (props) => {
             />
           </RadioGroup>
         </FormControl> */}
-        <FormControl className='form_control'>
-          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+        <FormControl className="form_control">
+          <FormLabel id="demo-radio-buttons-group-label" className="main_label">
             sort by
           </FormLabel>
           <RadioGroup
-            aria-labelledby='demo-radio-buttons-group-label'
-            name='radio-buttons-group'>
+            aria-labelledby="demo-radio-buttons-group-label"
+            name="sortByPrice"
+            value={props.sortByPrice}
+            onChange={props.handleChange}
+          >
             <FormControlLabel
-              value='low_price'
+              value="asc"
               control={<Radio />}
-              label='Lowest Price First'
+              label="Lowest Price First"
             />
             <FormControlLabel
-              value='high_price'
+              value="desc"
               control={<Radio />}
-              label='Highest Price First'
+              label="Highest Price First"
             />
           </RadioGroup>
         </FormControl>
@@ -289,23 +295,26 @@ const Filter = (props) => {
             />
           </FormControl>
         </Box> */}
-        <FormControl className='form_control'>
-          <FormLabel id='demo-radio-buttons-group-label' className='main_label'>
+        <FormControl className="form_control">
+          <FormLabel id="demo-radio-buttons-group-label" className="main_label">
             gender
           </FormLabel>
           <RadioGroup
-            aria-labelledby='demo-radio-buttons-group-label'
-            name='radio-buttons-group'>
+            aria-labelledby="demo-radio-buttons-group-label"
+            name="filterByGender"
+            value={props.filterByGender}
+            onChange={props.handleChange}
+          >
             <FormControlLabel
-              value='female'
+              value="female"
               control={<Radio />}
-              label='Female'
+              label="Female"
             />
-            <FormControlLabel value='male' control={<Radio />} label='Male' />
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
             <FormControlLabel
-              value='unisex'
+              value="unisex"
               control={<Radio />}
-              label='Unisex'
+              label="Unisex"
             />
           </RadioGroup>
         </FormControl>
@@ -383,10 +392,12 @@ const Filter = (props) => {
           </FormControl>
         </Box> */}
         <Button
-          className='submit_btn'
-          variant='contained'
-          color='primary'
-          fullWidth>
+          className="submit_btn"
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={() => setOpenFilter(false)}
+        >
           Submit
         </Button>
       </Box>
