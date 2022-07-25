@@ -6,20 +6,21 @@
     margin: 0 !important;
 }
 
-/* .log_in_tab, .sign_up_tab{
-    background-color: rgb(198, 198, 198) !important;
-    border-radius: 50px !important;
-    margin: 2px !important;
-    transition: all ease-in-out 0.8s !important;
-
-} */
-.css-1vw5i9y-MuiButtonBase-root-MuiTab-root{
+.log_in_tab, .sign_up_tab{
     background-color: rgb(198, 198, 198) !important;
     border-radius: 50px !important;
     margin: 2px !important;
     transition: all ease-in-out 0.8s !important;
 
 }
+ /* FOR FUTURE USE */
+/* .css-1vw5i9y-MuiButtonBase-root-MuiTab-root{
+    background-color: rgb(198, 198, 198) !important;
+    border-radius: 50px !important;
+    margin: 2px !important;
+    transition: all ease-in-out 0.8s !important;
+
+} */
 .css-1vw5i9y-MuiButtonBase-root-MuiTab-root.Mui-selected{
     background-color: var(--primary) !important;
     border-radius: 50px;
