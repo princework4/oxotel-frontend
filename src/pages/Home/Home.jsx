@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 // MUI imports
 import { Box, Grid } from "@mui/material";
 import ImageSlider from "../../components/Slider";
@@ -125,7 +125,9 @@ const Home = () => {
                   </ul>
                 </Box>
               </Box>
-              <Link className="hero_btn" to="/explore-residences">Explore more</Link>
+              <Link className="hero_btn" to="/explore-residences">
+                Explore more
+              </Link>
             </Box>
             <Box className="who_we_are_main_content_img">
               <img
@@ -225,19 +227,19 @@ const Home = () => {
         <Box className="wrapper">
           <div className="counter_sec">
             <div className="counter_item">
-              <CountUp end={100} separator="  " suffix="+" />
+              <CountUp end={100} duration={5} separator="  " suffix="+" />
               <h2>Happy Customers</h2>
             </div>
             <div className="counter_item">
-              <CountUp end={100} separator="  " suffix="+" />
+              <CountUp end={100} duration={5} separator="  " suffix="+" />
               <h2>Happy Customers</h2>
             </div>
             <div className="counter_item">
-              <CountUp end={100} separator="  " suffix="+" />
+              <CountUp end={100} duration={5} separator="  " suffix="+" />
               <h2>Happy Customers</h2>
             </div>
             <div className="counter_item">
-              <CountUp end={100} separator="  " suffix="+ Cr" />
+              <CountUp end={100} duration={5} separator="  " suffix="+ Cr" />
               <h2>Happy Customers</h2>
             </div>
           </div>

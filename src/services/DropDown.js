@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const dropDownApi = createApi({
   reducerPath: "dropDownApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/polls/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${process.env.REACT_APP_BASEURL}` }),
   endpoints: (builder) => ({
     getListOfCity: builder.query({
       query: () => ({

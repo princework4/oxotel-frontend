@@ -39,7 +39,7 @@ const LogInForm = (props) => {
     const data = await loginUser(logInData);
     const token = data?.data?.token;
 
-    if (token === "@vunkevncch#hqfmbtcccy!ywcig%ess") {
+    if (token === `${process.env.REACT_APP_TOKEN}`) {
       dispatch(setCredentials({ token: token }));
       localStorage.setItem("token", token);
       setLogInData({

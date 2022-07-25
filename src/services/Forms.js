@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const formsApi = createApi({
   reducerPath: "formsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/polls/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${process.env.REACT_APP_BASEURL}` }),
   endpoints: (builder) => ({
     addNewRequestCallback: builder.mutation({
       query: (requestCallbackData) => ({

@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const housesApi = createApi({
   reducerPath: "housesApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/polls/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${process.env.REACT_APP_BASEURL}` }),
   endpoints: (builder) => ({
     getListOfHouses: builder.query({
       query: () => ({
@@ -46,8 +46,6 @@ export const housesApi = createApi({
     }),
     filterWithAll: builder.query({
       query: (data) => {
-        // console.log("price : ", price, " \ngender : ", gender);
-        console.log("data service : ", data);
         return {
           url:
             data.sortByPrice && data.filterByGender
