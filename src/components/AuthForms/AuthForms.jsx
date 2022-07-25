@@ -60,8 +60,8 @@ export default function AuthForms({ handleClose }) {
         aria-label="full width tabs example"
         centered
       >
-        <Tab label="Log In" {...a11yProps(0)} />
-        <Tab label="Sign Up" {...a11yProps(1)} />
+        <Tab className="log_in_tab" label="Log In" {...a11yProps(0)} />
+        <Tab className="sign_up_tab"  label="Sign Up" {...a11yProps(1)} />
       </Tabs>
       <TabPanel value={value} index={0} dir={theme.direction}>
         <LogInForm handleClose={handleClose} />
