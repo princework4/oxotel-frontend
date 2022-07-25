@@ -2,6 +2,7 @@
 .review_card_main{
     justify-content: space-evenly !important;
     color: var(--secondary) !important;
+    width: 300px !important;
 }
 
 .review_card{
@@ -11,10 +12,10 @@
     align-items: center;
 
 }
-.review-cards .css-1oqv2c0-MuiPaper-root-MuiCard-root{
+/* .review-cards .css-1oqv2c0-MuiPaper-root-MuiCard-root{
     width: 300px !important;
 
-}
+} */
 
 .review_card_main_h5{
     font-size: 1.1rem !important;

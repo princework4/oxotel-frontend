@@ -10,7 +10,7 @@ import "./BenfitsCard.css";
 
 const BenfitsCard = () => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className="benifit_card">
       <CardMedia
         component="img"
         height="140"
