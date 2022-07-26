@@ -133,8 +133,10 @@ const HouseListing = (props) => {
                   </Card>
                 </Grid>
               ))
-            ) : (
+            ) : filteredData?.data?.length === 0 ? (
               <Typography>No Data Found</Typography>
+            ) : (
+              <Loader />
             )}
           </Grid>
         </Box>
