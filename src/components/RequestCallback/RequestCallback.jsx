@@ -111,7 +111,7 @@ const RequestCallback = () => {
         }
       );
     } else {
-      toast.error(`${data?.data?.error}`, {
+      toast.error(`${data?.error?.error}`, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
