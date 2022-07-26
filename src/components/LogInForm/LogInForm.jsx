@@ -38,7 +38,8 @@ const LogInForm = (props) => {
   const handleSubmitForm = async () => {
     const data = await loginUser(logInData);
     const token = data?.data?.token;
-
+    console.log("login data", data);
+    console.log("login data", data?.error?.error?.error);
     if (token === `${process.env.REACT_APP_TOKEN}`) {
       dispatch(setCredentials({ token: token }));
       localStorage.setItem("token", token);
@@ -57,7 +58,7 @@ const LogInForm = (props) => {
         progress: undefined,
       });
     } else {
-      toast.error(`${data?.data?.error}`, {
+      toast.error(`${data?.error?.error?.error}`, {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
