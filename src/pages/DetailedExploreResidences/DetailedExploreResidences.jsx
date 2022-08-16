@@ -56,24 +56,32 @@ const DetailedExploreResidences = () => {
             data-aos-duration="1500"
           >
             <Box className="wrapper">
-              <Box className="banner_desktop_view">
-                <Box className="left_gallery">
+              {data?.img?.length > 4 ? (
+                <Box className="banner_desktop_view">
+                  <Box className="left_gallery">
+                    <Box className="figure">
+                      <Box component="img" src={data.img[0]} />
+                    </Box>
+                  </Box>
+                  <Box className="right_gallery">
+                    {data.img.map((img, index) => {
+                      return (
+                        index !== 0 && (
+                          <Box className="figure" key={index}>
+                            <Box component="img" src={img} />
+                          </Box>
+                        )
+                      );
+                    })}
+                  </Box>
+                </Box>
+              ) : (
+                <Box className="banner_desktop_view">
                   <Box className="figure">
                     <Box component="img" src={data.img[0]} />
                   </Box>
                 </Box>
-                <Box className="right_gallery">
-                  {data.img.map((img, index) => {
-                    return (
-                      index !== 0 && (
-                        <Box className="figure" key={index}>
-                          <Box component="img" src={img} />
-                        </Box>
-                      )
-                    );
-                  })}
-                </Box>
-              </Box>
+              )}
               <Box className="banner_mobile_view">
                 {data?.img && (
                   <ImageSlider
@@ -114,73 +122,79 @@ const DetailedExploreResidences = () => {
                       )}
                     </Box>
                   </Box>
-                  <Box className="explore_residences_room_facilities">
-                    <Typography gutterBottom variant="h5">
-                      room facilities
-                    </Typography>
-                    <Box className="facility_wrapper">
-                      {data.room_facilities.map((facility) => {
-                        return (
-                          <Box>
-                            <Box
-                              component="img"
-                              src={facility.img}
-                              className="facility_img"
-                            />
-                            <Typography
-                              gutterBottom
-                              variant="h7"
-                              className="facility_name"
-                            >
-                              {facility.name}
-                            </Typography>
-                          </Box>
-                        );
-                      })}
+                  {data?.room_facilities?.length > 0 && (
+                    <Box className="explore_residences_room_facilities">
+                      <Typography gutterBottom variant="h5">
+                        room facilities
+                      </Typography>
+                      <Box className="facility_wrapper">
+                        {data.room_facilities.map((facility) => {
+                          return (
+                            <Box>
+                              <Box
+                                component="img"
+                                src={facility.img}
+                                className="facility_img"
+                              />
+                              <Typography
+                                gutterBottom
+                                variant="h7"
+                                className="facility_name"
+                              >
+                                {facility.name}
+                              </Typography>
+                            </Box>
+                          );
+                        })}
+                      </Box>
                     </Box>
-                  </Box>
-                  <Box className="explore_residences_amenities_and_service">
-                    <Typography gutterBottom variant="h5">
-                      amenities and services
-                    </Typography>
-                    <Box className="amenity_wrapper">
-                      {data.amenities_and_services.map((amenity) => {
-                        return (
-                          <Box>
-                            <Box
-                              component="img"
-                              src={amenity.img}
-                              className="amenity_img"
-                            />
-                            <Typography
-                              gutterBottom
-                              variant="h7"
-                              className="amenity_name"
-                            >
-                              {amenity.name}
-                            </Typography>
-                          </Box>
-                        );
-                      })}
+                  )}
+                  {data?.amenities_and_services?.length > 0 && (
+                    <Box className="explore_residences_amenities_and_service">
+                      <Typography gutterBottom variant="h5">
+                        amenities and services
+                      </Typography>
+                      <Box className="amenity_wrapper">
+                        {data.amenities_and_services.map((amenity) => {
+                          return (
+                            <Box>
+                              <Box
+                                component="img"
+                                src={amenity.img}
+                                className="amenity_img"
+                              />
+                              <Typography
+                                gutterBottom
+                                variant="h7"
+                                className="amenity_name"
+                              >
+                                {amenity.name}
+                              </Typography>
+                            </Box>
+                          );
+                        })}
+                      </Box>
                     </Box>
-                  </Box>
-                  <Box className="explore_residences_maps">
-                    <Typography gutterBottom variant="h5">
-                      location
-                    </Typography>
-                    <Box className="maps_wrapper">
-                      <iframe
-                        src={data?.map}
-                        title={data?.name}
-                        width="100%"
-                        height="400"
-                        style={{ border: 0 }}
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                      ></iframe>
+                  )}
+                  {data?.map && (
+                    <Box className="explore_residences_maps">
+                      <Typography gutterBottom variant="h5">
+                        location
+                      </Typography>
+                      <Box className="maps_wrapper">
+                        <iframe
+                          src={data?.map}
+                          title={data?.name}
+                          width="100%"
+                          height="400"
+                          style={{ border: 0 }}
+                          allowFullScreen=""
+                          loading="lazy"
+                          referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                      </Box>
                     </Box>
-                  </Box>
+                  )}
                 </Box>
                 <Box className="explore_residences_details_right_section">
                   <Typography gutterBottom variant="h7">
