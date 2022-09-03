@@ -37,3 +37,9 @@
     transform: rotate(360deg);
   }
 } */
+.App{
+  /* display:flex;
+  flex-direction:column;  */
+  position: relative;
+  min-height: 100vh;
+}

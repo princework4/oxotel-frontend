@@ -32,7 +32,7 @@ const Footer = () => {
                 <h3>Do you have any queries?</h3>
               </Box>
               <Box>
-                <p>contact@us.com</p>
+              <a href="mailto:webmaster@example.com">contact@us.com</a>
               </Box>
               <Box>
                 <p>+91 9999 999 999</p>
