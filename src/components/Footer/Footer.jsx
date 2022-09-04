@@ -69,6 +69,15 @@ const Footer = () => {
             <br />
             Developed by HCS Technologies
           </Box>
+          <Box className="whatsapp_wrapper">
+            <a
+              href="https://api.whatsapp.com/send?phone=919892808362"
+              class="float"
+              target="_blank"
+            >
+              <i class="fa fa-whatsapp my-float"></i>
+            </a>
+          </Box>
         </Container>
       </Box>
     </footer>
