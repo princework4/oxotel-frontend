@@ -66,7 +66,7 @@ const HouseListing = (props) => {
           >
             {filteredData?.data?.length > 0 ? (
               filteredData?.data?.map((data) => (
-                <Grid item xs={12} sm={6} md={6} lg={6} xl={4} key={data.id}>
+                <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
                   <Card className="house_card">
                     <CardActionArea>
                       <CardMedia

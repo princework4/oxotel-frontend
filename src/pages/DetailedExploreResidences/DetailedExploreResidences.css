@@ -16,10 +16,10 @@
 .detailed_explore_residences .banner_desktop_view .left_gallery {
     max-width: 50%;
     width: 100%;
-    height: auto;
 }
 
 .detailed_explore_residences .banner_desktop_view .right_gallery {
+    max-width: 50%;
     margin-left: 10px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

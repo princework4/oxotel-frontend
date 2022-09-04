@@ -120,16 +120,16 @@ const Filter = (props) => {
             onChange={props.handleChange}
           >
             <FormControlLabel
-              value="female"
+              value="Female"
               control={<Radio />}
               label="Female"
             />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel
+            <FormControlLabel value="Male" control={<Radio />} label="Male" />
+            {/* <FormControlLabel
               value="unisex"
               control={<Radio />}
               label="Unisex"
-            />
+            /> */}
           </RadioGroup>
         </FormControl>
         {/* <FormControl className='form_control'>
@@ -306,16 +306,16 @@ const Filter = (props) => {
             onChange={props.handleChange}
           >
             <FormControlLabel
-              value="female"
+              value="Female"
               control={<Radio />}
               label="Female"
             />
-            <FormControlLabel value="male" control={<Radio />} label="Male" />
-            <FormControlLabel
+            <FormControlLabel value="Male" control={<Radio />} label="Male" />
+            {/* <FormControlLabel
               value="unisex"
               control={<Radio />}
               label="Unisex"
-            />
+            /> */}
           </RadioGroup>
         </FormControl>
         {/* <FormControl className='form_control'>

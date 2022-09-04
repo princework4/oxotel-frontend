@@ -77,8 +77,24 @@ const DetailedExploreResidences = () => {
                 </Box>
               ) : (
                 <Box className="banner_desktop_view">
-                  <Box className="figure">
-                    <Box component="img" src={data.img[0]} />
+                  <Box className="left_gallery">
+                    <Box className="figure">
+                      <Box component="img" src={data.img[0]} />
+                    </Box>
+                  </Box>
+                  <Box className="right_gallery">
+                    <Box className="figure">
+                      <Box component="img" src={data.img[0]} />
+                    </Box>
+                    <Box className="figure">
+                      <Box component="img" src={data.img[0]} />
+                    </Box>
+                    <Box className="figure">
+                      <Box component="img" src={data.img[0]} />
+                    </Box>
+                    <Box className="figure">
+                      <Box component="img" src={data.img[0]} />
+                    </Box>
                   </Box>
                 </Box>
               )}
