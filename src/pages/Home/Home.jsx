@@ -83,14 +83,10 @@ const Home = () => {
               <p className="who_sub_heading">Who we are?</p>
               <h1>Oxotel</h1>
               <h3>
-                Our Hostels are located in the center of Mumbai, close to the
-                most popular places in the city
+                COME LIVE WITH US
               </h3>
               <p className="who_sub_desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatibus eius corrupti in cupiditate odio! Perferendis rem
-                magni eveniet velit a. Ipsa, commodi est. Doloribus numquam
-                necessitatibus optio a delectus laboriosam!
+              Our vision is to create a technology enablement organization for the Accommodation Seekers so that they are able to do their business/service with ease in this digital era at the same time also eradicate the challenges faced by customers that are searching for accommodation options in a city new or old!
               </p>
               <Box className="offer_list_sec">
                 <h4>we offer our guests</h4>

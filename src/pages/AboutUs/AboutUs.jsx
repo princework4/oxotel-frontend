@@ -16,10 +16,8 @@ const AboutUs = () => {
           <div className="about_us_text">
             <h1>About Us</h1>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum et
-              sunt nostrum possimus enim dicta sit culpa eligendi minima,
-              expedita aut architecto officia repudiandae accusantium
-              perspiciatis ex cumque adipisci perferendis.
+            KEEPING THE CHALLENGES FACED BY BOTH THE OWNERS AND ACCOMMODATION SEEKERS IN MIND, OXOTEL WAS CREATED.<br/>
+            OUR FOCUS AS AN ORGANIZATION IS TO ACT AS A BRIDGE BETWEEN OWNERS AND ACCOMMODATION SEEKERS AND THEREFORE OUR FOCUS IS ON BECOMING A 'ONE STOP SEARCH FOR ALL ACCOMMODATION NEEDS'.
             </p>
           </div>
           <div className="about_us_img">
