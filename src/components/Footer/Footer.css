@@ -1,10 +1,15 @@
 .footer {
     /* height: 70vh; */
     /* margin-top: 10px; */
-    /* min-height: 100%; */
+    /* width: 100%; */
+    /* height: 20vh; */
     background-color: rgb(238, 238, 244);
     /* color: var(--secandory) */
     /* white-space: nowrap; */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* flex:1; */
 }
 
 .footer .brandname {
@@ -54,8 +59,4 @@
 .hero_btn:hover{
     background-color: var(--primary);
     color: var(--white);
-}
-
-.request_callback__container > * {
-    text-transform: capitalize;
 }

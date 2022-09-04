@@ -2,7 +2,7 @@
 @import url("../../common.css");
 
 .detailed_explore_residences {
-    padding: 150px 0 150px;
+    padding: 150px 0 200px;
 }
 
 .detailed_explore_residences .banner_mobile_view {
@@ -50,6 +50,8 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 200px;
+
 }
 
 .explore_residences_details_left_section {

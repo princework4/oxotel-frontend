@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 200px 0;
+    padding: 300px 0;
 }
 .partner_us_text h1{
     font-size: 4rem;
@@ -60,10 +60,20 @@
     border-color:var(--primary) !important ;
     color: var(--primary) !important;
 }
+
+
+/* @media (max-width: 1550px) {
+    .partner_us{
+        flex-direction: column;
+        padding-bottom: 300px;
+    }
+
+    
+} */
 @media (max-width: 950px) {
     .partner_us{
         flex-direction: column;
-        margin: 100px 0;
+        /* padding: 100px 0; */
     }
 
     .partner_us_img img{

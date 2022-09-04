@@ -17,7 +17,7 @@ const Footer = () => {
                 <h3>Links</h3>
               </Box>
               <Box>
-                <a href="https://www.instagram.com/oxotel/" target="blank">
+                <a href="https://fb.watch/e2wGTbTvVb/" target="blank">
                   Facebook
                 </a>
               </Box>
@@ -26,13 +26,18 @@ const Footer = () => {
                   Instagram
                 </a>
               </Box>
+              <Box>
+                <a href="https://mobile.twitter.com/oxotel" target="blank">
+                  Twitter
+                </a>
+              </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
               <Box>
                 <h3>Do you have any queries?</h3>
               </Box>
               <Box>
-                <p>contact@us.com</p>
+              <a href="mailto:oxotelfintech@gmail.com">oxotelfintech@gmail.com</a>
               </Box>
               <Box>
                 <p>+91 9999 999 999</p>
@@ -58,7 +63,8 @@ const Footer = () => {
           </Grid>
           <Divider />
           <Box className="brandname">
-            Copyright ©2022 hostelMe LLC. All rights reserved.
+            Copyright ©2022 Oxotel Pvt Ltd. All rights reserved.<br/>
+            Developed by HCS Technologies
           </Box>
         </Container>
       </Box>

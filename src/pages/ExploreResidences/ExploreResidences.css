@@ -29,6 +29,7 @@
 .explore_residences_wrapper {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 200px;
 }
 
 .explore_residences_wrapper .cards_wrapper {

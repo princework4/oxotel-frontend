@@ -197,6 +197,7 @@ border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 267px;
 }
 
 .amenities_sec .amenities{
