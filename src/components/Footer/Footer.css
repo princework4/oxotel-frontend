@@ -54,6 +54,7 @@
     font-weight: 700;
     margin: 0.9rem 0;
     transition: all 0.5s ease-in-out;
+    text-transform: capitalize;
 }
 
 .hero_btn:hover{

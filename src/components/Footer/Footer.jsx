@@ -37,11 +37,13 @@ const Footer = () => {
                 <h3>Do you have any queries?</h3>
               </Box>
               <Box>
-              <a href="mailto:oxotelfintech@gmail.com">oxotelfintech@gmail.com</a>
+                <a href="mailto:oxotelfintech@gmail.com">
+                  oxotelfintech@gmail.com
+                </a>
               </Box>
-              <Box>
+              {/* <Box>
                 <p>+91 9999 999 999</p>
-              </Box>
+              </Box> */}
               <Box className="request_callback__container">
                 <RequestCallback />
                 {/* <button primary variant="contained" className="hero_btn">
@@ -63,7 +65,8 @@ const Footer = () => {
           </Grid>
           <Divider />
           <Box className="brandname">
-            Copyright ©2022 Oxotel Pvt Ltd. All rights reserved.<br/>
+            Copyright ©2022 Oxotel Pvt Ltd. All rights reserved.
+            <br />
             Developed by HCS Technologies
           </Box>
         </Container>
