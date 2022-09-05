@@ -51,11 +51,11 @@ const Home = () => {
       title: "Housekeeping and Maintenance services.",
       description: "",
     },
-    {
-      id: 5,
-      title: "Online platform for direct communication to the company.",
-      description: "",
-    },
+    // {
+    //   id: 5,
+    //   title: "Online platform for direct communication to the company.",
+    //   description: "",
+    // },
     {
       id: 6,
       title: "Tie ups with companies for complete staff accomodation.",
