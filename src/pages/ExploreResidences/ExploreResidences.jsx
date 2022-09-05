@@ -56,19 +56,16 @@ const ExploreResidences = () => {
                 <Typography className="customize_heading">mumbai</Typography>
               </Typography>
               <ReadMoreLess>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-                accusamus incidunt, praesentium nulla repellat nesciunt
-                asperiores ipsum consectetur inventore laboriosam ratione labore
-                laborum, rem vel sint qui libero, explicabo odit. Nulla, est,
-                iure blanditiis tempora et ut ratione molestiae beatae
-                dignissimos dolor temporibus libero tempore. Quo porro iusto
-                recusandae a? Totam, hic ducimus. Nobis temporibus, molestias
-                doloribus debitis, recusandae consectetur qui rerum velit
-                quisquam necessitatibus sint eligendi animi ullam ipsa eaque
-                iusto voluptatem, eius nostrum quos quia. Voluptatem asperiores
-                repellat accusamus pariatur esse, velit nulla, explicabo
-                accusantium alias sint beatae rerum dolorem doloribus quisquam
-                deleniti quae doloremque ad corrupti magnam!
+                We at oxotel are the connecting bridge between owners and
+                accommodation seekers by providing the best in class facilities
+                to the tenants as well as providing timely payments to the
+                owners. We are a leading Cloud Kitchen with the brand name of
+                ‘OXOTEL LIVING' Have a professional Logistics and Packing and
+                moving team. We run a Showroom of Readymade Garments and Other
+                accessories. We have a professional Logistics and Packing and
+                moving team. We run a Showroom of Readymade Garments and Other
+                accessories. We provide best in class hospitality and house
+                keeping services.
               </ReadMoreLess>
               <HouseListing
                 sortByPrice={sortByPrice}

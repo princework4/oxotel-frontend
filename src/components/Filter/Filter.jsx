@@ -208,7 +208,7 @@ const Filter = (props) => {
       </Box>
       <Box className="mobile_filter_container">
         <FormControl sx={{ width: "90%" }}>
-          <TextField
+          {/* <TextField
             type="text"
             name="search"
             label="Search"
@@ -216,7 +216,10 @@ const Filter = (props) => {
             value={props.filterBySearch}
             onChange={props.handleChange}
             disabled
-          />
+          /> */}
+          <Typography className="filter_title">
+            Filter by price range and gender
+          </Typography>
         </FormControl>
         <FilterAltIcon
           onClick={() => setOpenFilter(true)}

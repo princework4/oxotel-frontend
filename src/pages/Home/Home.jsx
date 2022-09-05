@@ -26,40 +26,40 @@ import "aos/dist/aos.css";
 const Home = () => {
   const datas = [
     {
-      img: "https://dummyimage.com/600x400/4e2aeb/4e2aeb",
       id: 0,
-      name: "Demo 1",
-      gender: "male",
-      occupancy: ["single"],
-      amenities: ["High-Speed WIFI", "Cafeteria", "AC", "TV", "Mini Fridge"],
-      price: "1234.0",
+      title: "Affordable rents.",
+      description: "",
+    },
+    // {
+    //   id: 1,
+    //   title:
+    //     "Sharings and Single rooms available as per customer requirements.",
+    //   description: "",
+    // },
+    {
+      id: 2,
+      title: "Quick redressal of consumer complaints.",
+      description: "",
     },
     {
-      img: "https://dummyimage.com/600x400/4e2aeb/4e2aeb",
-      id: 0,
-      name: "Demo 1",
-      gender: "male",
-      occupancy: ["single"],
-      amenities: ["High-Speed WIFI", "Cafeteria"],
-      price: "1234.0",
+      id: 3,
+      title: "Fully furnished and equipped flats.",
+      description: "",
     },
     {
-      img: "https://dummyimage.com/600x400/4e2aeb/4e2aeb",
-      id: 0,
-      name: "Demo 1",
-      gender: "male",
-      occupancy: ["single"],
-      amenities: ["High-Speed WIFI", "Cafeteria"],
-      price: "1234.0",
+      id: 4,
+      title: "Housekeeping and Maintenance services.",
+      description: "",
     },
     {
-      img: "https://dummyimage.com/600x400/4e2aeb/4e2aeb",
-      id: 0,
-      name: "Demo 1",
-      gender: "male",
-      occupancy: ["single"],
-      amenities: ["High-Speed WIFI", "Cafeteria"],
-      price: "1234.0",
+      id: 5,
+      title: "Online platform for direct communication to the company.",
+      description: "",
+    },
+    {
+      id: 6,
+      title: "Tie ups with companies for complete staff accomodation.",
+      description: "",
     },
   ];
 
@@ -82,11 +82,13 @@ const Home = () => {
             <Box className="who_we_are_main_content_text">
               <p className="who_sub_heading">Who we are?</p>
               <h1>Oxotel</h1>
-              <h3>
-                COME LIVE WITH US
-              </h3>
+              <h3>COME LIVE WITH US</h3>
               <p className="who_sub_desc">
-              Our vision is to create a technology enablement organization for the Accommodation Seekers so that they are able to do their business/service with ease in this digital era at the same time also eradicate the challenges faced by customers that are searching for accommodation options in a city new or old!
+                Our vision is to create a technology enablement organization for
+                the Accommodation Seekers so that they are able to do their
+                business/service with ease in this digital era at the same time
+                also eradicate the challenges faced by customers that are
+                searching for accommodation options in a city new or old!
               </p>
               <Box className="offer_list_sec">
                 <h4>we offer our guests</h4>
@@ -170,7 +172,7 @@ const Home = () => {
                     key={datas.indexOf(data)}
                   >
                     <div className="card">
-                      <BenfitsCard />
+                      <BenfitsCard data={data} />
                     </div>
                   </Grid>
                 ))}

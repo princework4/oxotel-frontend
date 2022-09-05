@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 import "./BenfitsCard.css";
 
-const BenfitsCard = () => {
+const BenfitsCard = ({ data }) => {
   return (
     <Card sx={{ maxWidth: 345 }} className="benifit_card">
       <CardMedia
@@ -16,6 +16,7 @@ const BenfitsCard = () => {
         height="140"
         image="https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939_960_720.jpg"
         alt="green iguana"
+        className="benefit_card_iamge"
       />
       <CardContent className="benifit_card-content">
         <Typography
@@ -24,19 +25,18 @@ const BenfitsCard = () => {
           component="div"
           className="benifits_card_h5"
         >
-          Lizard
+          {data.title}
         </Typography>
         <Typography
           variant="body2"
           color="text.secondary"
           className="benifits_card_p"
         >
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {data.description}
         </Typography>
-        <Button size="small" className="benifits_card_btn">
+        {/* <Button size="small" className="benifits_card_btn">
           Share
-        </Button>
+        </Button> */}
       </CardContent>
     </Card>
   );

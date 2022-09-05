@@ -71,7 +71,7 @@ const Footer = () => {
           </Box>
           <Box className="whatsapp_wrapper">
             <a
-              href="https://api.whatsapp.com/send?phone=919892808362"
+              href="https://api.whatsapp.com/send?phone=919769305114"
               class="float"
               target="_blank"
             >

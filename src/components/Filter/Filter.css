@@ -144,6 +144,10 @@
     cursor: pointer;
 }
 
+.filter_title {
+    font-size: 2rem !important;
+}
+
 @media (max-width: 834px) {
     .desktop_filter_container {
         display: none;

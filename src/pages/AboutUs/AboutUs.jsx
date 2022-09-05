@@ -16,8 +16,12 @@ const AboutUs = () => {
           <div className="about_us_text">
             <h1>About Us</h1>
             <p>
-            KEEPING THE CHALLENGES FACED BY BOTH THE OWNERS AND ACCOMMODATION SEEKERS IN MIND, OXOTEL WAS CREATED.<br/>
-            OUR FOCUS AS AN ORGANIZATION IS TO ACT AS A BRIDGE BETWEEN OWNERS AND ACCOMMODATION SEEKERS AND THEREFORE OUR FOCUS IS ON BECOMING A 'ONE STOP SEARCH FOR ALL ACCOMMODATION NEEDS'.
+              Keeping the challenges faced by both the owners and accomodation
+              seekers in mind, <strong>OXOTEL</strong> was created.
+              <br />
+              Our focus as an organization is to act as a bridge between owners
+              and accomodation seekers and therefore our focus is on becoming a
+              <strong> ONE STOP SEARCH FOR ALL ACCOMMODATION NEEDS</strong>.
             </p>
           </div>
           <div className="about_us_img">

@@ -1,28 +1,41 @@
-.benifits_card_h5{
-    font-weight: 800 !important;
+.benifits_card_h5 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    line-height: 30px !important;
     margin: 1rem 0 !important;
 }
 
-.benifits_card_btn{
-        color: var(--primary) !important;
-        border: 2px solid var(--primary) !important;
-        background: none !important;
-        padding: 0.7rem 3rem !important;
-        -webkit-border-radius: 100px !important;
-        -moz-border-radius: 100px !important;
-        border-radius: 100px !important;
-        font-weight: 700 !important;
-        margin: 1.1rem 0 !important;
-        transition: all 0.5s ease-in-out !important;
+.benifits_card_btn {
+    color: var(--primary) !important;
+    border: 2px solid var(--primary) !important;
+    background: none !important;
+    padding: 0.7rem 3rem !important;
+    -webkit-border-radius: 100px !important;
+    -moz-border-radius: 100px !important;
+    border-radius: 100px !important;
+    font-weight: 700 !important;
+    margin: 1.1rem 0 !important;
+    transition: all 0.5s ease-in-out !important;
 
 }
 
-.benifits_card_btn:hover{
+.benifits_card_btn:hover {
     background-color: var(--primary) !important;
     color: var(--white) !important;
 }
 
 
-.benifit_card{
+.benifit_card {
+    width: 100% !important;
+    max-height: 325px;
+    min-height: 325px;
     border-radius: 50px !important;
+    -webkit-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+.benifit_card img {
+    height: 200px !important;
 }
