@@ -43,10 +43,11 @@ const PartnerWithUs = () => {
               <span className="grow">Grow</span>
             </h1>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum et
-              sunt nostrum possimus enim dicta sit culpa eligendi minima,
-              expedita aut architecto officia repudiandae accusantium
-              perspiciatis ex cumque adipisci perferendis.
+              All the achievements whether it's big or small are only possible
+              through the cooperation by our partners. Hat's off to them. If you
+              wan't to join one of the fastest growing company{" "}
+              <strong>Oxotel</strong>, you're in the right place.{" "}
+              <strong> Welcome to the family!</strong>
             </p>
             <div>
               <Modal
