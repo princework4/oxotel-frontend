@@ -73,7 +73,8 @@
 @media (max-width: 950px) {
     .partner_us{
         flex-direction: column;
-        /* padding: 100px 0; */
+        padding-top: 120px;
+        padding-bottom: 670px;
     }
 
     .partner_us_img img{

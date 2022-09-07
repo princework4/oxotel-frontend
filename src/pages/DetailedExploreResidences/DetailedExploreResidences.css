@@ -259,6 +259,12 @@
     }
 }
 
+@media (max-width: 600px) {
+    .detailed_explore_residences {
+        padding-bottom: 550px;
+    }
+}
+
 @media (max-width: 450px) {
     .explore_residences_details_right_section .available_occupancy_wrapper div {
         width: calc((100% - 32px) / 2);

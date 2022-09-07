@@ -68,6 +68,12 @@
     }
 }
 
+@media (max-width: 600px) {
+    .explore_residences {
+        padding-bottom: 600px;
+    }
+}
+
 @media (max-width: 550px) {
     .explore_residences h2, .explore_residences h2 .customize_heading {
         flex-flow: column;

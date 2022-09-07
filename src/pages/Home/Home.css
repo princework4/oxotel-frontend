@@ -284,6 +284,11 @@ border-radius: 50px;
     right: 0px !important;
 } 
 
+@media (max-width: 1150px) {
+    .amenities_sec .amenities{
+        flex-direction: column;
+    }
+}
 
 @media (max-width: 768px) {
 
@@ -292,6 +297,9 @@ border-radius: 50px;
         justify-content: flex-start;
     }
     .who_we_are_main_content_text{
+        width: 100%;
+       }
+       .who_we_are_main_content_text .who_sub_desc{
         width: 100%;
        }
     .who_we_are_main_content_img{
@@ -321,8 +329,8 @@ border-radius: 50px;
     }
 }
 
-@media (max-width: 1150px) {
-    .amenities_sec .amenities{
-        flex-direction: column;
+@media (max-width: 600px) {
+    .amenities_sec{
+        padding-bottom: 600px;
     }
 }

@@ -60,12 +60,18 @@
 }
 
 @media (max-width: 550px) {
+    .about_us{
+        padding-top: 100px;
+        padding-bottom: 650px;
+    }
+
     .about_us_img img{
         width: 300px;
         -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
     margin: 20px;
+    padding:50px 0;
     }
     .about_us_text h1{
         font-size: 2rem;
