@@ -166,4 +166,26 @@
         padding: 25px 25px;
 
     }
+
+    .filter_title {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width:500px) {
+    .filter_title {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width:400px) {
+    .filter_title {
+        font-size: 1.25rem !important;
+    }
+}
+
+@media (max-width:300px) {
+    .filter_title {
+        font-size: 1rem !important;
+    }
 }

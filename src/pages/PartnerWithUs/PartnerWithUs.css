@@ -1,15 +1,17 @@
-.partner_us{
+.partner_us {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 300px 0;
 }
-.partner_us_text h1{
+
+.partner_us_text h1 {
     font-size: 4rem;
     font-weight: 900;
     margin: 0.9rem 0;
 }
-.partner_us_text p{
+
+.partner_us_text p {
     font-size: 1rem;
     line-height: 25px;
     color: var(--secondary);
@@ -18,20 +20,20 @@
 
 
 
-.partner_us_img img{
+.partner_us_img img {
     width: 400px;
     border-radius: 50px 100px 50px 100px;
-    -webkit-box-shadow: 34px -17px 5px 0px rgba(156,150,156,0.49);
-    -moz-box-shadow: 34px -17px 5px 0px rgba(156,150,156,0.49);
-    box-shadow: 34px -17px 5px 0px rgba(156,150,156,0.49);
+    -webkit-box-shadow: 34px -17px 5px 0px rgba(156, 150, 156, 0.49);
+    -moz-box-shadow: 34px -17px 5px 0px rgba(156, 150, 156, 0.49);
+    box-shadow: 34px -17px 5px 0px rgba(156, 150, 156, 0.49);
 
 }
 
-.grow{
+.grow {
     color: var(--primary);
 }
 
-.hero_btn{
+.hero_btn {
     color: var(--primary) !important;
     border: 2px solid var(--primary) !important;
     background: none !important;
@@ -44,20 +46,20 @@
     transition: all 0.5s ease-in-out !important;
 }
 
-.hero_btn.partner_btn{
+.hero_btn.partner_btn {
     background-color: var(--primary) !important;
     color: #fff !important;
     margin-right: 10px !important;
 }
 
-.hero_btn:hover{
+.hero_btn:hover {
     background-color: var(--primary) !important;
     color: var(--white) !important;
 }
 
-.hero_btn.partner_btn:hover{
+.hero_btn.partner_btn:hover {
     background-color: transparent !important;
-    border-color:var(--primary) !important ;
+    border-color: var(--primary) !important;
     color: var(--primary) !important;
 }
 
@@ -71,28 +73,35 @@
     
 } */
 @media (max-width: 950px) {
-    .partner_us{
+    .partner_us {
         flex-direction: column;
         padding-top: 120px;
         padding-bottom: 670px;
     }
 
-    .partner_us_img img{
+    .partner_us_img img {
         width: 500px;
         margin: 50px;
-    
+
+    }
+}
+
+@media (max-width:768px) {
+    .partner_us_text p {
+        line-height: 30px;
     }
 }
 
 @media (max-width: 550px) {
-    .partner_us_img img{
+    .partner_us_img img {
         width: 300px;
         -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    margin: 20px;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        margin: 20px;
     }
-    .partner_us_text h1{
+
+    .partner_us_text h1 {
         font-size: 2rem;
         font-weight: 900;
         /* margin: 0.9rem 0; */
