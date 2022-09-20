@@ -5,8 +5,8 @@ export const housesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: `${process.env.REACT_APP_BASEURL}` }),
   endpoints: (builder) => ({
     getListOfHouses: builder.query({
-      query: () => ({
-        url: "houses/",
+      query: (page) => ({
+        url: `houses/?page=${page}`,
         method: "GET",
       }),
     }),
@@ -54,7 +54,7 @@ export const housesApi = createApi({
               ? `all_filter/?price=${data.sortByPrice}`
               : !data.sortByPrice && data.filterByGender
               ? `all_filter/?gender=${data.filterByGender}`
-              : "houses/",
+              : "",
           method: "GET",
         };
       },
