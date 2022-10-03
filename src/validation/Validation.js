@@ -161,3 +161,15 @@ export function validateConfirmPassword(password, confirmPassword) {
   }
   return confirmPasswordError;
 }
+
+export function validateUsernametest(username) {
+  let usernameError = "";
+  if (username === "" || !username.trim()) {
+    usernameError = "*This field is required";
+  } else if (username.length < 3 || username.length > 25) {
+    usernameError = "*Username must be between 3 and 25 characters";
+  } else {
+    usernameError = "";
+  }
+  return usernameError;
+}
