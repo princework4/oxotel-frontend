@@ -46,7 +46,7 @@ const PartnerWithUs = () => {
               All the achievements whether it's big or small are only possible
               through the cooperation by our partners. Hat's off to them. If you
               wan't to join one of the fastest growing company{" "}
-              <strong>Oxotel</strong>, you're in the right place.{" "}
+              <strong>Paying Guest</strong>, you're in the right place.{" "}
               <strong> Welcome to the family!</strong>
             </p>
             <div>

@@ -56,16 +56,16 @@ const ExploreResidences = () => {
                 <Typography className="customize_heading">mumbai</Typography>
               </Typography>
               <ReadMoreLess>
-                We at oxotel are the connecting bridge between owners and
+                We at Paying Guest are the connecting bridge between owners and
                 accommodation seekers by providing the best in class facilities
                 to the tenants as well as providing timely payments to the
                 owners. We are a leading Cloud Kitchen with the brand name of
-                ‘OXOTEL LIVING' Have a professional Logistics and Packing and
-                moving team. We run a Showroom of Readymade Garments and Other
-                accessories. We have a professional Logistics and Packing and
-                moving team. We run a Showroom of Readymade Garments and Other
-                accessories. We provide best in class hospitality and house
-                keeping services.
+                Paying Guest LIVING' Have a professional Logistics and Packing
+                and moving team. We run a Showroom of Readymade Garments and
+                Other accessories. We have a professional Logistics and Packing
+                and moving team. We run a Showroom of Readymade Garments and
+                Other accessories. We provide best in class hospitality and
+                house keeping services.
               </ReadMoreLess>
               <HouseListing
                 sortByPrice={sortByPrice}

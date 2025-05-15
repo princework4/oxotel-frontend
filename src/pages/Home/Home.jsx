@@ -81,7 +81,7 @@ const Home = () => {
           <Box className="who_we_are">
             <Box className="who_we_are_main_content_text">
               <p className="who_sub_heading">Who we are?</p>
-              <h1>Oxotel</h1>
+              <h1>Paying Guest</h1>
               <h3>COME LIVE WITH US</h3>
               <p className="who_sub_desc">
                 Our vision is to create a technology enablement organization for

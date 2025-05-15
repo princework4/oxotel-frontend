@@ -17,7 +17,7 @@ const AboutUs = () => {
             <h1>About Us</h1>
             <p>
               Keeping the challenges faced by both the owners and accomodation
-              seekers in mind, <strong>OXOTEL</strong> was created.
+              seekers in mind, <strong>Paying Guest</strong> was created.
               <br />
               Our focus as an organization is to act as a bridge between owners
               and accomodation seekers and therefore our focus is on becoming a

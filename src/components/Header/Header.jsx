@@ -118,7 +118,10 @@ const Header = () => {
           <div className="wrapper">
             <h1>
               <Link to="/">
-                <img src={Logo} alt="Oxotel Logo" />
+                <img
+                  src="https://www.dummyimage.com/50x50/3d4eeb/fff"
+                  alt="Paying Guest Logo"
+                />
               </Link>
             </h1>
             <nav>
@@ -202,7 +205,10 @@ const Header = () => {
           <div className="wrapper">
             <h1>
               <Link to="/">
-                <img src={Logo} alt="Oxotel Logo" />
+                <img
+                  src="https://www.dummyimage.com/50x50/3d4eeb/fff"
+                  alt="Paying Guest Logo"
+                />
               </Link>
             </h1>
             <nav role="navigation">

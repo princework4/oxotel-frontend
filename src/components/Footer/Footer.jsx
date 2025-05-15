@@ -17,17 +17,17 @@ const Footer = () => {
                 <h3>Links</h3>
               </Box>
               <Box>
-                <a href="https://fb.watch/e2wGTbTvVb/" target="blank">
+                <a href="#" target="blank">
                   Facebook
                 </a>
               </Box>
               <Box>
-                <a href="https://www.instagram.com/oxotel/" target="blank">
+                <a href="#" target="blank">
                   Instagram
                 </a>
               </Box>
               <Box>
-                <a href="https://mobile.twitter.com/oxotel" target="blank">
+                <a href="#" target="blank">
                   Twitter
                 </a>
               </Box>
@@ -37,9 +37,7 @@ const Footer = () => {
                 <h3>Do you have any queries?</h3>
               </Box>
               <Box>
-                <a href="mailto:oxotelfintech@gmail.com">
-                  oxotelfintech@gmail.com
-                </a>
+                <a href="mailto:hcstech7@gmail.com">hcstech7@gmail.com</a>
               </Box>
               {/* <Box>
                 <p>+91 9999 999 999</p>
@@ -65,13 +63,13 @@ const Footer = () => {
           </Grid>
           <Divider />
           <Box className="brandname">
-            Copyright ©2022 Oxotel Pvt Ltd. All rights reserved.
+            Copyright ©2022 Paying Guest Pvt Ltd. All rights reserved.
             <br />
             Developed by HCS Technologies
           </Box>
           <Box className="whatsapp_wrapper">
             <a
-              href="https://api.whatsapp.com/send?phone=919769305114"
+              href="https://api.whatsapp.com/send?phone=917304257474"
               class="float"
               target="_blank"
             >
